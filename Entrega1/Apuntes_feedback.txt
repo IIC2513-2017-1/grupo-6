@@ -1,0 +1,12 @@
+cosas que agregar:
+-hacer una lista de deseos: "wishlist"
+    -si quiero comprarme todas estas cosas, alguien puede ingresar a su wishlist y ver las cosas que quiere comprarme
+-Para realizar la compra: cuando se ponga comprar, que llegue una notificacion: compraste esto, transfiere a esta cuenta y envia comprobante a ... El admin ve el comprobante de la transferencia y la aprueba desde una lista de compras pendientes por aprobacion
+-admin debe ser capaz de borrar preguntas, comentarios, usuarios
+
+
+-en el tema de sesiones omitir el tema de la entidad de sesiones. cuando veamos esto en el curso lo implementamos como se vea
+- para el manejo de roles ponerle un campo que indique el rol
+-todos los campos con un conjunto de valores finitos hay que configurarlo para que solo se puedan poner esos valores
+
+Para esta entrega:
