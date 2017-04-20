@@ -17,4 +17,8 @@
 
 class User < ApplicationRecord
     has_many :comments
+    has_many :reviews
+    has_many :questions
+    has_many :answers
+    has_many :orders
 end
