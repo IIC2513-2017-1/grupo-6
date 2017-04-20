@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :tags
+  resources :coupons
+  resources :answers
+  resources :questions
+  resources :orders
+  resources :reviews
+  resources :comments
+  resources :categories
+  resources :products
   resources :users
 
   root 'home#index'
