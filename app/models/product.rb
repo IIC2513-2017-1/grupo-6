@@ -15,4 +15,5 @@
 class Product < ApplicationRecord
     has_many :reviews
     has_many :questions
+    has_many :cart_items
 end
