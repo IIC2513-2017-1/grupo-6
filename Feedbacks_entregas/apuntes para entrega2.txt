@@ -1,0 +1,1 @@
+- Quizas no sea muy bonito que en el momento de crear un usuario se tenga que automaticamente crear un carrito de compras y asignarlo a él, pero como se nos dijo que para esta entrega no teniamos que tener manejo de sesiones decidimos implementarlo temporalmente de esta forma.
