@@ -11,8 +11,9 @@
 #
 # Indexes
 #
-#  index_question_votes_on_question_id  (question_id)
-#  index_question_votes_on_user_id      (user_id)
+#  index_question_votes_on_question_id              (question_id)
+#  index_question_votes_on_user_id                  (user_id)
+#  index_question_votes_on_user_id_and_question_id  (user_id,question_id) UNIQUE
 #
 
 class QuestionVote < ApplicationRecord

@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427221613) do
+ActiveRecord::Schema.define(version: 20170427231310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_votes", force: :cascade do |t|
+    t.integer  "delta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.index ["answer_id"], name: "index_answer_votes_on_answer_id", using: :btree
+    t.index ["user_id", "answer_id"], name: "index_answer_votes_on_user_id_and_answer_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_answer_votes_on_user_id", using: :btree
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -21,7 +32,6 @@ ActiveRecord::Schema.define(version: 20170427221613) do
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
     t.integer  "user_id"
-    t.integer  "score"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
     t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
   end
@@ -51,6 +61,15 @@ ActiveRecord::Schema.define(version: 20170427221613) do
     t.integer  "type"
   end
 
+  create_table "ordered_products", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.index ["order_id"], name: "index_ordered_products_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_ordered_products_on_product_id", using: :btree
+  end
+
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170427221613) do
     t.integer  "question_id"
     t.integer  "delta"
     t.index ["question_id"], name: "index_question_votes_on_question_id", using: :btree
+    t.index ["user_id", "question_id"], name: "index_question_votes_on_user_id_and_question_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_question_votes_on_user_id", using: :btree
   end
 
@@ -119,10 +139,14 @@ ActiveRecord::Schema.define(version: 20170427221613) do
     t.string   "password"
   end
 
+  add_foreign_key "answer_votes", "answers"
+  add_foreign_key "answer_votes", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
+  add_foreign_key "ordered_products", "orders"
+  add_foreign_key "ordered_products", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "question_votes", "questions"
   add_foreign_key "question_votes", "users"

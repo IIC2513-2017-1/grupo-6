@@ -29,5 +29,7 @@ class User < ApplicationRecord
     has_many :orders
     has_many :question_votes
     has_many :voted_questions, through: :question_votes, source: :question
+    has_many :answer_votes
+    has_many :voted_answers, through: :answer_votes, source: :answer
 
 end
