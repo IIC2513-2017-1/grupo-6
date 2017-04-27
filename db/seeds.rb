@@ -6,24 +6,44 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do |i|
-    User.create!(name: Faker::StarWars.character, 
-             email: Faker::Internet.unique.email,
+User.create!(name: Faker::StarWars.character,
+             email: 'orrios@uc.cl',
              username: Faker::Internet.user_name,
              last_name: Faker::StarWars.species,
              phone_number: Faker::PhoneNumber.cell_phone,
              is_admin: true,
              address: Faker::StarWars.wookie_sentence,
-             password: "123456",
-            ) 
+             password: '123456')
+
+5.times do
+  User.create!(name: Faker::StarWars.character,
+               email: Faker::Internet.unique.email,
+               username: Faker::Internet.user_name,
+               last_name: Faker::StarWars.species,
+               phone_number: Faker::PhoneNumber.cell_phone,
+               is_admin: true,
+               address: Faker::StarWars.wookie_sentence,
+               password: '123456')
 end
 
-User.create!(name: Faker::StarWars.character, 
-             email: "orrios@uc.cl",
-             username: Faker::Internet.user_name,
-             last_name: Faker::StarWars.species,
-             phone_number: Faker::PhoneNumber.cell_phone,
-             is_admin: true,
-             address: Faker::StarWars.wookie_sentence,
-             password: "123456",
-            ) 
+Product.create!(name: 'Notebook',
+                prize: 500,
+                stock: 3,
+                description: Faker::Lorem.paragraph(2),
+                details: Faker::Lorem.paragraph)
+
+5.times do
+  Product.create!(name: Faker::Commerce.product_name,
+                  prize: Random.rand(1..10_000),
+                  stock: Random.rand(10..20),
+                  description: Faker::Lorem.paragraph(2),
+                  details: Faker::Lorem.paragraph)
+end
+
+Question.create!(content: 'is it true that asdfasdfasdasdf',
+                 user_id: 1,
+                 product_id: 1,
+                 score: 1)
+
+QuestionVote.create!(user_id: 1,
+                     question_id: 1)

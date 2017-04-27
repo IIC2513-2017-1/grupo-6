@@ -20,13 +20,14 @@ class User < ApplicationRecord
                         confirmation: true, allow_blank: false
     validates :email, presence: true, uniqueness: true, allow_blank: false,
                     format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    validates :username, presence: true, uniqueness: true, length: {minimum: 6}
+    validates :username, presence: true, uniqueness: true, length: {minimum: 2}
     
     has_many :comments
     has_many :reviews
     has_many :questions
     has_many :answers
     has_many :orders
-
+    has_many :question_votes
+    has_many :voted_questions, through: :question_votes, source: :question
 
 end
