@@ -8,7 +8,6 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  product_id :integer
-#  score      :integer
 #
 # Indexes
 #

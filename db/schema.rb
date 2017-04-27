@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427211947) do
+ActiveRecord::Schema.define(version: 20170427221613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170427211947) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "question_id"
+    t.integer  "delta"
     t.index ["question_id"], name: "index_question_votes_on_question_id", using: :btree
     t.index ["user_id"], name: "index_question_votes_on_user_id", using: :btree
   end
@@ -84,7 +85,6 @@ ActiveRecord::Schema.define(version: 20170427211947) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "product_id"
-    t.integer  "score"
     t.index ["product_id"], name: "index_questions_on_product_id", using: :btree
     t.index ["user_id"], name: "index_questions_on_user_id", using: :btree
   end

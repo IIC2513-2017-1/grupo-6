@@ -8,7 +8,6 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  product_id :integer
-#  score      :integer
 #
 # Indexes
 #
@@ -17,14 +16,17 @@
 #
 
 class Question < ApplicationRecord
-    validates :content, presence: true, allow_blank: false
-    validates :score, presence: true
-    
-    belongs_to :user
-    belongs_to :product
-    has_many :answers
-    has_many :question_votes
+  validates :content, presence: true, allow_blank: false
+  validates :score, presence: true
 
-    has_many :voting_users, through: :question_votes, source: :user
+  belongs_to :user
+  belongs_to :product
+  has_many :answers
+  has_many :question_votes
 
+  has_many :voting_users, through: :question_votes, source: :user
+
+  def score
+    question_votes.map(&:delta).sum
+  end
 end

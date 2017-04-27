@@ -7,6 +7,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  question_id :integer
+#  delta       :integer
 #
 # Indexes
 #
@@ -15,6 +16,9 @@
 #
 
 class QuestionVote < ApplicationRecord
-    belongs_to :user
-    belongs_to :question
+  validates :delta, inclusion: { in: [-1, 1] }
+  validates :user_id, uniqueness: { scope: :question_id }
+
+  belongs_to :user
+  belongs_to :question
 end

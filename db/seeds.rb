@@ -42,8 +42,16 @@ end
 
 Question.create!(content: 'is it true that asdfasdfasdasdf',
                  user_id: 1,
-                 product_id: 1,
-                 score: 1)
+                 product_id: 1)
 
 QuestionVote.create!(user_id: 1,
-                     question_id: 1)
+                     question_id: 1,
+                     delta: 1)
+
+QuestionVote.create!(user_id: 2,
+                     question_id: 1,
+                     delta: -1)
+
+QuestionVote.create!(user_id: 3,
+                     question_id: 1,
+                     delta: -1)
