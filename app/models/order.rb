@@ -14,8 +14,8 @@
 #
 
 class Order < ApplicationRecord
+  enum status: %i[processing shipped completed canceled returned]
 
-    enum status: [:processing, :shipped, :completed, :canceled, :returned]
-
-    belongs_to :user
+  belongs_to :user
+  has_many :ordered_products
 end

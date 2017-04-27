@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(version: 20170427231310) do
   end
 
   create_table "ordered_products", force: :cascade do |t|
+    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
     t.integer  "product_id"
+    t.index ["order_id", "product_id"], name: "index_ordered_products_on_order_id_and_product_id", unique: true, using: :btree
     t.index ["order_id"], name: "index_ordered_products_on_order_id", using: :btree
     t.index ["product_id"], name: "index_ordered_products_on_product_id", using: :btree
   end

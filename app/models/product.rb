@@ -20,4 +20,5 @@ class Product < ApplicationRecord
 
     has_many :reviews
     has_many :questions
+    has_many :ordered_products
 end

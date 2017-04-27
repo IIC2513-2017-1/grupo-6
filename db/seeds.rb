@@ -73,3 +73,10 @@ AnswerVote.create!(user_id: 2,
 AnswerVote.create!(user_id: 3,
                    answer_id: 1,
                    delta: -1)
+
+Order.create!(user_id: 1,
+              status: :processing)
+
+OrderedProduct.create!(order_id: 1,
+                        product_id: 1,
+                        quantity: 5)
