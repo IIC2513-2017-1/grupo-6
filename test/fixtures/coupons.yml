@@ -4,11 +4,11 @@
 #
 #  id                :integer          not null, primary key
 #  code              :string
-#  type              :string
 #  discount          :integer
 #  redeems_available :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  type              :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

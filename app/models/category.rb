@@ -9,4 +9,5 @@
 #
 
 class Category < ApplicationRecord
+    validates :name, presence: true, uniqueness: true, not_blank: true
 end

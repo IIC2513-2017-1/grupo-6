@@ -16,6 +16,8 @@
 #
 
 class Answer < ApplicationRecord
+    validates :content, presence: true, allow_blank: false
+
     belongs_to :question
     belongs_to :user
 end
