@@ -14,7 +14,7 @@
              phone_number: Faker::PhoneNumber.cell_phone,
              is_admin: true,
              address: Faker::StarWars.wookie_sentence,
-             password: "1234",
+             password: "123456",
             ) 
 end
 
@@ -25,5 +25,5 @@ User.create!(name: Faker::StarWars.character,
              phone_number: Faker::PhoneNumber.cell_phone,
              is_admin: true,
              address: Faker::StarWars.wookie_sentence,
-             password: "1234",
+             password: "123456",
             ) 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427205610) do
+ActiveRecord::Schema.define(version: 20170427210919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,26 +21,9 @@ ActiveRecord::Schema.define(version: 20170427205610) do
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
     t.integer  "user_id"
+    t.integer  "score"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
     t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
-  end
-
-  create_table "cart_items", force: :cascade do |t|
-    t.string   "quantity"
-    t.string   "integer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "cart_id"
-    t.integer  "product_id"
-    t.index ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
-    t.index ["product_id"], name: "index_cart_items_on_product_id", using: :btree
-  end
-
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -92,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170427205610) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "product_id"
+    t.integer  "score"
     t.index ["product_id"], name: "index_questions_on_product_id", using: :btree
     t.index ["user_id"], name: "index_questions_on_user_id", using: :btree
   end
@@ -128,9 +112,6 @@ ActiveRecord::Schema.define(version: 20170427205610) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
-  add_foreign_key "cart_items", "carts"
-  add_foreign_key "cart_items", "products"
-  add_foreign_key "carts", "users"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "orders", "users"

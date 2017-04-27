@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  product_id :integer
+#  score      :integer
 #
 # Indexes
 #
@@ -17,6 +18,7 @@
 
 class Question < ApplicationRecord
     validates :content, presence: true, allow_blank: false
+    validates :score, presence: true
     
     belongs_to :user
     belongs_to :product
