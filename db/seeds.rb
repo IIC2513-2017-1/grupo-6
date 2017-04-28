@@ -81,5 +81,13 @@ when 'development'
   OrderedProduct.create!(order_id: 1,
                          product_id: 1,
                          quantity: 5)
+
+  Tag.create!(name: 'this is a tag')
+  ProductTag.create!(tag_id: 1,
+                     product_id: 1)
+
+  Category.create!(name: 'pizza')
+  ProductCategory.create(product_id: 1,
+                         category_id: 1)
 when 'production'
 end

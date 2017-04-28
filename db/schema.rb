@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427231310) do
+ActiveRecord::Schema.define(version: 20170428225706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,24 @@ ActiveRecord::Schema.define(version: 20170427231310) do
     t.integer  "user_id"
     t.integer  "status"
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.integer  "product_id"
+    t.index ["category_id"], name: "index_product_categories_on_category_id", using: :btree
+    t.index ["product_id"], name: "index_product_categories_on_product_id", using: :btree
+  end
+
+  create_table "product_tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "tag_id"
+    t.integer  "product_id"
+    t.index ["product_id"], name: "index_product_tags_on_product_id", using: :btree
+    t.index ["tag_id"], name: "index_product_tags_on_tag_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -150,6 +168,10 @@ ActiveRecord::Schema.define(version: 20170427231310) do
   add_foreign_key "ordered_products", "orders"
   add_foreign_key "ordered_products", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "product_categories", "categories"
+  add_foreign_key "product_categories", "products"
+  add_foreign_key "product_tags", "products"
+  add_foreign_key "product_tags", "tags"
   add_foreign_key "question_votes", "questions"
   add_foreign_key "question_votes", "users"
   add_foreign_key "questions", "products"
