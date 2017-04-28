@@ -90,7 +90,14 @@ when 'development'
   ProductCategory.create(product_id: 1,
                          category_id: 1)
 
-  Category.create!(name: "Hawaiiana",
-                  parent_id: 1)
+  Category.create!(name: 'Hawaiiana',
+                   parent_id: 1)
+  Coupon.create!(code: '123123',
+                 discount: 10,
+                 redeems_available: 12,
+                 kind: :percentage)
+  CategoryCoupon.create!(category_id: 1,
+                         coupon_id: 1)
+
 when 'production'
 end

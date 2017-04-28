@@ -4,11 +4,11 @@
 #
 #  id                :integer          not null, primary key
 #  code              :string
+#  kind              :integer
 #  discount          :integer
 #  redeems_available :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  type              :integer
 #
 
 require 'test_helper'

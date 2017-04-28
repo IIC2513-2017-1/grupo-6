@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: category_coupons
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#  coupon_id   :integer
+#
+# Indexes
+#
+#  index_category_coupons_on_category_id  (category_id)
+#  index_category_coupons_on_coupon_id    (coupon_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value
