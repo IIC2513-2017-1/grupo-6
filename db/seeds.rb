@@ -22,7 +22,7 @@ when 'development'
                  username: Faker::Internet.user_name,
                  last_name: Faker::StarWars.specie,
                  phone_number: Faker::PhoneNumber.cell_phone,
-                 is_admin: true,
+                 is_admin: false,
                  address: Faker::StarWars.wookie_sentence,
                  password: '123456')
   end
