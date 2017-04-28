@@ -89,5 +89,8 @@ when 'development'
   Category.create!(name: 'pizza')
   ProductCategory.create(product_id: 1,
                          category_id: 1)
+
+  Category.create!(name: "Hawaiiana",
+                  parent_id: 1)
 when 'production'
 end
