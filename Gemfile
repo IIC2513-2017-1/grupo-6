@@ -33,7 +33,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # For Seeding
-gem 'faker', '1.7.3'
 
 # Heroku asks for it
 gem 'rails_12factor', group: :production
@@ -42,6 +41,7 @@ gem 'rails_12factor', group: :production
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'faker', '1.7.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'railroady'
   gem 'byebug', platform: :mri
