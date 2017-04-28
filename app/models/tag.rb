@@ -10,4 +10,7 @@
 
 class Tag < ApplicationRecord
     validates :name, presence: true, allow_blank: false, uniqueness: true
+
+    has_many :product_tags
+    has_many :products, through: :product_tags
 end

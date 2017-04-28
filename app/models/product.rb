@@ -21,4 +21,8 @@ class Product < ApplicationRecord
     has_many :reviews
     has_many :questions
     has_many :ordered_products
+    has_many :product_tags
+    has_many :tags, through: :product_tags
+    has_many :product_categories
+    has_many :categories, through: :product_categories
 end
