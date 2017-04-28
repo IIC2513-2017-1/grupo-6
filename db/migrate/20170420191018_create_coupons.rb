@@ -8,5 +8,7 @@ class CreateCoupons < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_index :coupons, :code, unique: true
+
   end
 end

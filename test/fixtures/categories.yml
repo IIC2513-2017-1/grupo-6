@@ -8,6 +8,10 @@
 #  updated_at :datetime         not null
 #  parent_id  :integer
 #
+# Indexes
+#
+#  index_categories_on_name  (name) UNIQUE
+#
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 

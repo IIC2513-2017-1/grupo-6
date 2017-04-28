@@ -6,5 +6,6 @@ class CreateAnswerVotes < ActiveRecord::Migration[5.0]
     end
     add_reference :answer_votes, :user, foreign_key: true
     add_reference :answer_votes, :answer, foreign_key: true
+    add_index :answer_votes, [:user_id, :answer_id], unique: true
   end
 end

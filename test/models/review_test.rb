@@ -12,8 +12,9 @@
 #
 # Indexes
 #
-#  index_reviews_on_product_id  (product_id)
-#  index_reviews_on_user_id     (user_id)
+#  index_reviews_on_product_id              (product_id)
+#  index_reviews_on_user_id                 (user_id)
+#  index_reviews_on_user_id_and_product_id  (user_id,product_id) UNIQUE
 #
 
 require 'test_helper'

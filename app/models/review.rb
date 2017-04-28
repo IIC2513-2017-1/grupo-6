@@ -12,12 +12,14 @@
 #
 # Indexes
 #
-#  index_reviews_on_product_id  (product_id)
-#  index_reviews_on_user_id     (user_id)
+#  index_reviews_on_product_id              (product_id)
+#  index_reviews_on_user_id                 (user_id)
+#  index_reviews_on_user_id_and_product_id  (user_id,product_id) UNIQUE
 #
 
 class Review < ApplicationRecord
     validates :content, presence: true, allow_blank: false
+    validates :user_id, uniqueness: {scope: :product_id}
     
     belongs_to :user
     belongs_to :product

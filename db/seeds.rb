@@ -99,5 +99,7 @@ when 'development'
   CategoryCoupon.create!(category_id: 1,
                          coupon_id: 1)
 
+
+
 when 'production'
 end

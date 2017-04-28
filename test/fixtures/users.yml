@@ -10,9 +10,14 @@
 #  address      :string
 #  phone_number :string
 #  is_admin     :boolean
+#  password     :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  password     :string
+#
+# Indexes
+#
+#  index_users_on_email     (email) UNIQUE
+#  index_users_on_username  (username) UNIQUE
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
