@@ -1,4 +1,4 @@
-<%= form_for(answer) do |f| %>
+<%= simple_form_for(answer) do |f| %>
   <% if answer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
@@ -11,10 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+  <%= f.input_field :content %>
+
+  <%= f.input :question_id, collection: Question.pluck(:id) %>
 
   <div class="actions">
     <%= f.submit %>
