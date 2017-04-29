@@ -99,7 +99,13 @@ when 'development'
   CategoryCoupon.create!(category_id: 1,
                          coupon_id: 1)
 
-
+  Review.create!(content: 'dis is beri gud',
+                 score: 3.3,
+                 user_id: 1,
+                 product_id: 1)
+  Comment.create!(content: 'indeed, dis is beri beri good!',
+  user_id: 2,
+  review_id: 1)
 
 when 'production'
 end
