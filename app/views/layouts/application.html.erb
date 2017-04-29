@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Grupo6</title>
+    <title>Virtual Store</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,39 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div id="logo">
+        <%= link_to root_path do %>
+          <%= image_tag("logo.png") %>
+        <% end %>
+      </div>
+
+      <nav id="main-menu">
+        <%= link_to 'Users', users_path %>
+        <%= link_to 'Products', products_path %>
+      </nav>
+
+      <div id="user-bar">
+        <% if current_user %>
+          <div class="name">Hello, <%= current_user.name %></div>
+          <%= link_to 'Logout', sessions_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', new_sessions_path %>
+        <% end %>
+      </div>
+
+    </header>
+    
+    <main>
+      <% [:alert, :notice].each do |flash_type| %>
+        <% if (flash_message = flash[flash_type]).present? %>
+          <div class="<%= flash_type %>"><%= flash_message %></div>
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <footer>
+    </footer>
   </body>
 </html>

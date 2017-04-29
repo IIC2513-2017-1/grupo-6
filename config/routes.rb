@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :users
+  resource :sessions, only: [:new, :create, :destroy]
 
   root 'home#index'
 
