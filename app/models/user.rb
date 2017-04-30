@@ -26,7 +26,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, allow_blank: false,
                     format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates :username, presence: true, uniqueness: true, length: {minimum: 2}
-    validates :phone_number, allow_blank: true, format: /A\+?\d{8,11}\z/i
+    validates :phone_number, allow_blank: true, format: /\A\+?\d{8,11}\z/i
 
     has_many :comments, dependent: :destroy
     has_many :reviews, dependent: :destroy
