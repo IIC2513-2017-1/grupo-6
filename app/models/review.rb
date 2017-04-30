@@ -20,7 +20,7 @@
 class Review < ApplicationRecord
     validates :content, presence: true, allow_blank: false
     validates :user_id, uniqueness: {scope: :product_id}
-    validates :score, numericality: {greater_than_or_equal_to: 0, lower_than_or_equal_to: 5}
+    validates :score, presence: true, numericality: {greater_than_or_equal_to: 0, lower_than_or_equal_to: 5}
     
     belongs_to :user
     belongs_to :product
