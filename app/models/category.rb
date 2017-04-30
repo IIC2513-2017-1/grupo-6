@@ -19,7 +19,7 @@ class Category < ApplicationRecord
     has_many :product_categories, dependent: :destroy
     has_many :products, through: :product_categories
 
-    belongs_to :parent, foreign_key: 'parent_id', class_name: 'Category'
+    has_one :parent, foreign_key: 'parent_id', class_name: 'Category'
     has_many :children, foreign_key: 'parent_id', class_name: 'Category', dependent: :nullify
 
     has_many :category_coupons, dependent: :destroy
