@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>ID:</strong>
+  <%= @coupon.id %>
+</p>
 
 <p>
   <strong>Code:</strong>
@@ -6,8 +9,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @coupon.type %>
+  <strong>Kind:</strong>
+  <%= @coupon.kind %>
 </p>
 
 <p>
@@ -18,6 +21,15 @@
 <p>
   <strong>Redeems available:</strong>
   <%= @coupon.redeems_available %>
+</p>
+
+<p>
+  <strong>Categories in which it applies:</strong>
+  <ul>
+  <% @coupon.categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end%>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_coupon_path(@coupon) %> |

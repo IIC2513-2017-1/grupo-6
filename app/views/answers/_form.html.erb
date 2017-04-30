@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <%= f.input_field :content %>
+  <%= f.input :content , label: 'Content'%>
 
-  <%= f.input :question_id, collection: Question.pluck(:id) %>
+  <%= f.input :question_id, collection: Question.pluck(:id), include_blank: false%>
 
   <div class="actions">
     <%= f.submit %>

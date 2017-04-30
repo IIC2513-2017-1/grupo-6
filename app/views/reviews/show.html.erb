@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>ID:</strong>
+  <%= @review.id %>
+</p>
 
 <p>
   <strong>Content:</strong>
@@ -8,6 +11,16 @@
 <p>
   <strong>Score:</strong>
   <%= @review.score %>
+</p>
+
+<p>
+  <strong>Product ID:</strong>
+  <%= @review.product_id %>
+</p>
+
+<p>
+  <strong>User ID:</strong>
+  <%= @review.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |

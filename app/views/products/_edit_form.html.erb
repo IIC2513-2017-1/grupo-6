@@ -1,0 +1,29 @@
+<%= simple_form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :details %>
+  <%= f.input :prize %>
+  <%= f.input :stock %>
+
+  <%= f.input :add_category, collection: (Category.all - @product.categories).pluck(:id)%>
+  <%= f.input :remove_category, collection: @product.categories.pluck(:id)%>
+
+  <%= f.input :add_tag, collection: (Tag.all - @product.tags).pluck(:id)%>
+  <%= f.input :remove_tag, collection: @product.tags.pluck(:id)%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

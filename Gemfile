@@ -41,6 +41,7 @@ gem 'rails_12factor', group: :production
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'hirb', '0.7.3'
   gem 'faker', '1.7.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'railroady'

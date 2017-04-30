@@ -17,5 +17,5 @@ class Order < ApplicationRecord
   enum status: %i[processing shipped completed canceled returned]
 
   belongs_to :user
-  has_many :ordered_products
+  has_many :ordered_products, dependent: :destroy
 end

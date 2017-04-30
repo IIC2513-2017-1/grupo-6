@@ -21,8 +21,8 @@ class Question < ApplicationRecord
 
   belongs_to :user
   belongs_to :product
-  has_many :answers
-  has_many :question_votes
+  has_many :answers, dependent: :destroy
+  has_many :question_votes, dependent: :destroy
 
   has_many :voting_users, through: :question_votes, source: :user
 

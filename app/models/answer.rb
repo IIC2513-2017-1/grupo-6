@@ -22,7 +22,7 @@ class Answer < ApplicationRecord
   belongs_to :question
   belongs_to :user
 
-  has_many :answer_votes
+  has_many :answer_votes, dependent: :destroy
 
   has_many :voting_users, through: :answer_votes, source: :user
 

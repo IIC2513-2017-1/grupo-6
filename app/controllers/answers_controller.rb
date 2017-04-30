@@ -22,11 +22,7 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    if !current_user
-      flash[:alert] = "You must be logged in to do this action"
-      redirect_to root_path
-      return  
-    end
+    return unless logged_user?
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     respond_to do |format|
@@ -73,6 +69,6 @@ class AnswersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def answer_params
-    params.require(:answer).permit(:content,:question_id)
+    params.require(:answer).permit(:content, :question_id)
   end
 end

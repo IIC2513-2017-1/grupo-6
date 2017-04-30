@@ -18,11 +18,16 @@ class Product < ApplicationRecord
     validates :prize, presence: true, numericality: {greater_than_or_equal_to: 0}
     validates :stock, presence: true, numericality: {greater_than_or_equal_to: 0}
 
-    has_many :reviews
-    has_many :questions
-    has_many :ordered_products
-    has_many :product_tags
+    has_many :reviews, dependent: :destroy
+    has_many :questions, dependent: :destroy
+    has_many :ordered_products, dependent: :destroy
+    has_many :product_tags, dependent: :destroy
     has_many :tags, through: :product_tags
-    has_many :product_categories
+    has_many :product_categories, dependent: :destroy
     has_many :categories, through: :product_categories
+
+    def add_category; end
+    def remove_category; end
+    def add_tag; end
+    def remove_tag; end
 end

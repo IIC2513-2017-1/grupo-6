@@ -1,0 +1,24 @@
+<%= simple_form_for(coupon) do |f| %>
+  <% if coupon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+
+      <ul>
+      <% coupon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :code %>
+  <%= f.input :kind, collection: Coupon.kinds, label_method: :first, value_method: :first %>
+  <%= f.input :discount%>
+  <%= f.input :redeems_available %>
+
+  <%= f.input :categories, as: :check_boxes, collection: Category.pluck(:id), item_wrapper_class: 'inline' %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

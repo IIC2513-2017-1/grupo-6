@@ -1,4 +1,4 @@
-<%= form_for(comment) do |f| %>
+<%= simple_form_for(comment) do |f| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -11,10 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+  <%= f.input :content %>
+  <%= f.input :review_id, collection: Review.pluck(:id), include_blank: false %>
 
   <div class="actions">
     <%= f.submit %>

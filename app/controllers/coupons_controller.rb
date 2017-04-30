@@ -30,6 +30,7 @@ class CouponsController < ApplicationController
       if @coupon.save
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
         format.json { render :show, status: :created, location: @coupon }
+        create_associations(associated_categories)
       else
         format.html { render :new }
         format.json { render json: @coupon.errors, status: :unprocessable_entity }
@@ -69,6 +70,17 @@ class CouponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
-      params.require(:coupon).permit(:code, :type, :discount, :redeems_available)
+      params.require(:coupon).permit(:code, :kind, :discount, :redeems_available)
     end
+
+    def associated_categories
+      params.require(:coupon).permit(categories:[])[:categories][1..-1]
+    end
+
+    def create_associations(categories)
+      categories.each do |x|
+        CategoryCoupon.create(category_id: x, coupon_id: @coupon.id)
+      end
+    end
+
 end

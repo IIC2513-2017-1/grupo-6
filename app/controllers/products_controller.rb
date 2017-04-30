@@ -40,6 +40,15 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+
+    # Mas adelante se restringira a que solo el admin pueda crear y editar productos, asique no tiene mucho sentido validar estas acciones
+    # (se le da poder total al admin, no tiene sentido restringirlo)
+    ProductCategory.create(product_id: @product.id, category_id: association_changes[:add_category]).id if !association_changes[:add_category].blank?
+    ProductCategory.where(category_id: association_changes[:remove_category], product_id: @product.id).delete_all if !association_changes[:remove_category].blank?
+
+    ProductTag.create(product_id: @product.id, tag_id: association_changes[:add_tag]).id if !association_changes[:add_tag].blank?
+    ProductTag.where(tag_id: association_changes[:remove_tag], product_id: @product.id).delete_all if !association_changes[:remove_tag].blank?
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -70,5 +79,9 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :description, :details, :prize, :stock)
+    end
+
+    def association_changes
+      params.require(:product).permit(:add_category, :remove_category, :add_tag, :remove_tag)
     end
 end
