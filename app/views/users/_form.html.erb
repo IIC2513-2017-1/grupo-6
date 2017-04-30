@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <%= f.input :email , pattern: "^([^@\\s]+)@((?:[-a-z0-9]+\\.)+[a-z]{2,})$"%>
+  <%= f.input :email , pattern: "^([^@\\s]+)@((?:[-a-z0-9]+\\.)+[a-z]{2,})$", input_html: {title: "Email format: example@example.com"}%>
   <%= f.input :username %>
   <%= f.input :name %>
   <%= f.input :last_name %>
   <%= f.input :address %>
-  <%= f.input :phone_number , pattern: "^\\+?\\d{8,11}$"%>
+  <%= f.input :phone_number , pattern: "^\\+?\\d{8,11}$", input_html: {title: "Phone number must contain 8-11 digits and start or not with a \"+\" symbol"}%>
   <%= f.input :password %>
   <%= f.input :is_admin %>
 
