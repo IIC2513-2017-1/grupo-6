@@ -1,3 +1,78 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#wrap *{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+}
+
+#wrap{
+	width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;
+}
+
+
+.columns_4 figure{
+   width:24%;
+   margin-right:1%;
+   z-index: 800;
+}
+.columns_4 figure:nth-child(4){
+	margin-right: 0;
+}
+
+#columns figure:hover{
+	-webkit-transform: scale(1.02);
+	-moz-transform:scale(1.02);
+	transform: scale(1.02);
+    
+}
+    
+div#columns figure {
+	display: inline-block;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	margin: 0 0px 15px;
+	padding: 15px;
+	padding-bottom: 5px;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+div#columns figure img {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 15px;
+	margin-bottom: 5px;
+}
+
+div#columns figure figcaption {
+  font-size: .9rem;
+  color: #444;
+  line-height: 1.5;
+  height:20px;
+  font-weight:600;
+}
+
+a.button{
+  padding:10px;
+  background:salmon;
+  margin:10px;
+  display:block;
+  text-align:center;
+  color:#fff;
+  transition:all 1s linear;
+  text-decoration:none;
+  text-shadow:1px 1px 3px rgba(0,0,0,0.3);
+  border-radius:3px;
+  border-bottom:3px solid #ff6536;
+  box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+}
+a.button:hover{
+  background:#ff6536;
+  border-bottom:3px solid salmon;
+  color:#f1f2f3;
+}

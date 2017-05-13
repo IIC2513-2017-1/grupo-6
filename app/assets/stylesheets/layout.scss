@@ -28,6 +28,7 @@ nav ul {
 /* The navigation bar */
 
 .navbar {
+    z-index: 900; //send to the front
     overflow: hidden;
     background-color: #00838f;
     position: fixed;
@@ -83,9 +84,9 @@ main {
 footer {
     width: 90%;
     text-align: center;
-    position: absolute;
     bottom: 0;
     left: 5%;
+    
 }
 
 hr {
