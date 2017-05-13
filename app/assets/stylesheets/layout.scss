@@ -68,11 +68,15 @@ main {
     color: #006064;
     // position: relative;
     float: right;
-    padding: 10px;
     text-align: center;
     background: #e0f7fa;
     width: 99px;
     height: 100%;
+    display: inline-block;
+}
+
+#user-bar>div {
+    padding-top: 17px;
 }
 
 footer {
@@ -89,4 +93,9 @@ hr {
     background-color: #b2ebf2;
     color: #b2ebf2;
     border: none;
+}
+
+#user-bar a {
+    color: black;
+    text-decoration: none;
 }

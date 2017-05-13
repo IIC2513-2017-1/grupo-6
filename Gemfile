@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'simple_form', '3.4.0'
+gem "font-awesome-rails"
 
 # Heroku asks for it
 gem 'rails_12factor', group: :production

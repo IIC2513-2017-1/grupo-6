@@ -28,16 +28,15 @@
           <li><%= link_to 'Coupons', coupons_path %></li>
 
           <li id="user-bar">
+            <div>
             <% if current_user %>
-              <div class="name">
-              Welcome, <%= link_to current_user.name, current_user %>
-              <br>
-              <%= link_to 'Logout', sessions_path, method: :delete %>
-              </div>
+                <%= link_to fa_icon("user-circle-o", text: current_user.name), current_user %>
+                <br><br>
+                <%= link_to fa_icon("sign-out",text: "Logout"), sessions_path, method: :delete %>
             <% else %>
-              <div>
-                <%= link_to 'Login', new_sessions_path %> <br>or<br>
-                <%= link_to 'Sign Up', new_user_path %>
+              
+                <%= link_to fa_icon("sign-in",text: 'Login'), new_sessions_path %> <br>or<br>
+                <%= link_to fa_icon("user-plus",text: 'Signup'), new_user_path %>
               </div>
             <% end %>
           </li>
