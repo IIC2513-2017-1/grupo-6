@@ -1,6 +1,7 @@
 
 <h1>Categories</h1>
-
+ <a class="new-button" href=<%=new_category_path%>>Add New Category</a>
+ <br><br>
 <table>
   <thead>
     <tr>
@@ -17,14 +18,10 @@
         <td><%= category.id %></td>
         <td><%= category.name %></td>
         <td><%= category.parent_id %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("search"), category %></td>
+        <td><%= link_to fa_icon("edit"), edit_category_path(category) %></td>
+        <td><%= link_to fa_icon("trash-o"), category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>

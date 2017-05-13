@@ -1,6 +1,7 @@
 
 <h1>Orders</h1>
-
+ <a class="new-button" href=<%=new_order_path%>>Add New Order</a>
+ <br><br>
 <table>
   <thead>
     <tr>
@@ -19,14 +20,10 @@
         <td><%= order.status %></td>
         <td><%= order.created_at %></td>
         <td><%= order.user_id %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("search"), order %></td>
+        <td><%= link_to fa_icon("edit"), edit_order_path(order) %></td>
+        <td><%= link_to fa_icon("trash-o"), order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
