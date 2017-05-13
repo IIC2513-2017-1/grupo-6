@@ -7,6 +7,11 @@
   -moz-box-sizing:border-box;
 }
 
+
+h1 a{
+    float:right;
+}
+
 #wrap{
 	width: 90%;
 	max-width: 1100px;
@@ -59,7 +64,7 @@ div#columns figure figcaption {
 
 a.button{
   padding:10px;
-  background:salmon;
+  background:#26C6DA;
   margin:10px;
   display:block;
   text-align:center;
@@ -68,11 +73,35 @@ a.button{
   text-decoration:none;
   text-shadow:1px 1px 3px rgba(0,0,0,0.3);
   border-radius:3px;
-  border-bottom:3px solid #ff6536;
+  border-bottom:3px solid #00838F;
   box-shadow:1px 1px 3px rgba(0,0,0,0.3);
 }
-a.button:hover{
-  background:#ff6536;
-  border-bottom:3px solid salmon;
+
+a.new-button{
+  background:LightGreen ;
+  display:block-inline;
+  width: 100px;
+  text-align:center;
+  color:#fff;
+  padding: 10px;
+  transition:all 1s linear;
+  text-decoration:none;
+  text-shadow:1px 1px 3px rgba(0,0,0,0.3);
+  border-radius:3px;
+  border-bottom:3px solid MediumSeaGreen ;
+  box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+}
+a.new-button:hover {
+  background:MediumSeaGreen;
+  border-bottom:3px solid MediumSeaGreen;
   color:#f1f2f3;
+}
+
+a.button:hover {
+  background:#00838F;
+  border-bottom:3px solid #00838F;
+  color:#f1f2f3;
+}
+a {
+    color: black;
 }

@@ -1,15 +1,29 @@
 
 <div id="wrap">
-  <h1>Products</h1>
+    <h1>Products</h1>
+      <% if current_user&.is_admin %>
+        <a class="new-button" href=new_product_path>Add New Product</a>
+      <% end %>
+  
+  <br><br><br>
+
 	<div id="columns" class="columns_4">
 
    <% @products.each do |product| %>
       <figure>
-        <%= image_tag("unavailable.jpg") %>
+        <%= link_to product do %>
+            <%= image_tag("unavailable.jpg") %>
+        <% end %>
+                
         <figcaption><%= product.name %></figcaption>
         <span class="price">$ <%= product.prize %></span>
         <a class="button" href="#">Add to cart</a>
+
+        <% if current_user&.is_admin %>
+          <%= link_to fa_icon("edit"), edit_product_path(product) %>
+     
+          <%= link_to fa_icon("trash-o"), product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
       </figure>
     <% end %>
-<br>
-<%= link_to 'New Product', new_product_path %>
