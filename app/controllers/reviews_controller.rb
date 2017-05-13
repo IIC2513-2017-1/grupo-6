@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
+    return unless authenticated_admin?
     @reviews = Review.all
   end
 
@@ -19,12 +20,13 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    return unless has_edit_permission?(@review)
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
-    return unless logged_user?
+    return unless authenticated_login?
     @review = Review.new(review_params)
     @review.user_id = current_user.id
 
@@ -42,6 +44,7 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
+    return unless has_edit_permission?(@review)
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
@@ -56,6 +59,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
+    return unless has_edit_permission?(@review)
     @review.destroy
     respond_to do |format|
       format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }

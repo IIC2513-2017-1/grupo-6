@@ -7,7 +7,7 @@ check - El logout que sea el tipico icono de logout
 check - Que cuando se entre como usuario al index de producto que se vean solo las imagenes y que si se entra como admin se vea un boton para editar productos
 - Que se bloqueen las rutas a las que no debiese poder acceder un usuario
 - Que cuando me meta al show del producto pueda comentar ahi mismo y solo comentar si estoy logueado
-- Que haya carrito de compras
+check - Que haya carrito de compras
 - solo agregar y sacar productos del carrito. no es necesario poder comprar a partir del producto
 check - como admin en el index de products me debe salir el edit y delete
 check - que los links se vean mas bonitos (ej, que sea un boton)

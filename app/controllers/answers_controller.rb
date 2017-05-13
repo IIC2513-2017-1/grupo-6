@@ -1,9 +1,10 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: %i[show edit update destroy]
-
+  
   # GET /answers
   # GET /answers.json
   def index
+    return unless authenticated_admin??
     @answers = Answer.all
   end
 
@@ -17,12 +18,14 @@ class AnswersController < ApplicationController
   end
 
   # GET /answers/1/edit
-  def edit; end
+  def edit
+    return unless has_edit_permission?(@answer)
+  end
 
   # POST /answers
   # POST /answers.json
   def create
-    return unless logged_user?
+    return unless authenticated_login?
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     respond_to do |format|
@@ -39,6 +42,7 @@ class AnswersController < ApplicationController
   # PATCH/PUT /answers/1
   # PATCH/PUT /answers/1.json
   def update
+    return unless has_edit_permission?(@answer)
     respond_to do |format|
       if @answer.update(answer_params)
         format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
@@ -53,6 +57,7 @@ class AnswersController < ApplicationController
   # DELETE /answers/1
   # DELETE /answers/1.json
   def destroy
+    return unless has_edit_permission?(@answer)
     @answer.destroy
     respond_to do |format|
       format.html { redirect_to answers_url, notice: 'Answer was successfully destroyed.' }
