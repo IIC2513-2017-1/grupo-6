@@ -10,34 +10,40 @@
 
   <body>
     <header>
-      <div id="logo">
-        <%= link_to root_path do %>
-          <%= image_tag("logo.png") %>
-        <% end %>
-      </div>
+      <nav class="navbar">
+        <ul>
+          <li><%= link_to root_path, id: "logo-link" do %>
+            <%= image_tag("logo.png") %>
+          <% end %>
+          </li>
+          <li><%= link_to 'Users', users_path %></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'Categories', categories_path %></li>
+          <li><%= link_to 'Tags', tags_path %></li>
+          <li><%= link_to 'Reviews', reviews_path %></li>
+          <li><%= link_to 'Comments', comments_path %></li>
+          <li><%= link_to 'Orders', orders_path %></li>
+          <li><%= link_to 'Questions', questions_path %></li>
+          <li><%= link_to 'Answers', answers_path %></li>
+          <li><%= link_to 'Coupons', coupons_path %></li>
 
-      <nav id="main-menu">
-        <%= link_to 'Users', users_path %>
-        <%= link_to 'Products', products_path %>
-        <%= link_to 'Categories', categories_path %>
-        <%= link_to 'Tags', tags_path %>
-        <%= link_to 'Reviews', reviews_path %>
-        <%= link_to 'Comments', comments_path %>
-        <%= link_to 'Orders', orders_path %>
-        <%= link_to 'Questions', questions_path %>
-        <%= link_to 'Answers', answers_path %>
-        <%= link_to 'Coupons', coupons_path %>
+          <li id="user-bar">
+            <% if current_user %>
+              <div class="name">
+              Welcome, <%= link_to current_user.name, current_user %>
+              <br>
+              <%= link_to 'Logout', sessions_path, method: :delete %>
+              </div>
+            <% else %>
+              <div>
+                <%= link_to 'Login', new_sessions_path %> <br>or<br>
+                <%= link_to 'Sign Up', new_user_path %>
+              </div>
+            <% end %>
+          </li>
       </nav>
 
-      <div id="user-bar">
-        <% if current_user %>
-          <div class="name">Hello, <%= current_user.name %></div>
-          <%= link_to 'Logout', sessions_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Login', new_sessions_path %>
-        <% end %>
-      </div>
-
+      
     </header>
     
     <main>
@@ -50,6 +56,8 @@
     </main>
 
     <footer>
+    <hr>
+    ©2017-2017 Virtual Store. All rights reserved.
     </footer>
   </body>
 </html>
