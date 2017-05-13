@@ -1,5 +1,6 @@
 <h1>Tags</h1>
-
+ <a class="new-button" href=new_tag_path>Add New Tag</a>
+ <br><br>
 <table>
   <thead>
     <tr>
@@ -14,14 +15,10 @@
       <tr>
         <td><%= tag.id %></td>
         <td><%= tag.name %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("search"), tag %></td>
+        <td><%= link_to fa_icon("edit"), edit_tag_path(tag) %></td>
+        <td><%= link_to fa_icon("trash-o"), tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>

@@ -1,6 +1,7 @@
 
 <h1>Answers</h1>
-
+ <a class="new-button" href=new_question_path>Add New Answer</a>
+ <br><br>
 <table>
   <thead>
     <tr>
@@ -19,14 +20,10 @@
         <td><%= answer.content %></td>
         <td><%= answer.question_id %></td>
         <td><%= answer.user_id %></td>
-        <td><%= link_to 'Show', answer %></td>
-        <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
-        <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("search"), answer %></td>
+        <td><%= link_to fa_icon("edit"), edit_answer_path(answer) %></td>
+        <td><%= link_to fa_icon("trash-o"), answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Answer', new_answer_path %>

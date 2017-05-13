@@ -1,15 +1,15 @@
-Para la entrega 3::
+Para la entrega 3:
 check - que haya navbar y footer
 check - Tratar de dejar arriba el usuario, mostrando quien esta logueado (como en pioller)
 check - Usar font awesome y poner iconos (como en el usuario poner el icono de usuario)
 check - El logout que sea el tipico icono de logout
 (check) - Que en el index del producto est�n como las im�genes
-- Que cuando se entre como usuario al index de producto que se vean solo las imagenes y que si se entra como admin se vea un boton para editar productos
+check - Que cuando se entre como usuario al index de producto que se vean solo las imagenes y que si se entra como admin se vea un boton para editar productos
 - Que se bloqueen las rutas a las que no debiese poder acceder un usuario
 - Que cuando me meta al show del producto pueda comentar ahi mismo y solo comentar si estoy logueado
 - Que haya carrito de compras
 - solo agregar y sacar productos del carrito. no es necesario poder comprar a partir del producto
-- como admin en el index de products me debe salir el edit y delete
-- que los links se vean mas bonitos (ej, que sea un boton)
-- como podemos usar font awesome, que haya una lupa que sea ver, un papelito con lapiz que sea edit y el basurero que sea eliminar
-- ojo: el tema de hacer las grillas nos podemos inspirar en bootstrap
+check - como admin en el index de products me debe salir el edit y delete
+check - que los links se vean mas bonitos (ej, que sea un boton)
+check - como podemos usar font awesome, que haya una lupa que sea ver, un papelito con lapiz que sea edit y el basurero que sea eliminar
+check - ojo: el tema de hacer las grillas nos podemos inspirar en bootstrap
