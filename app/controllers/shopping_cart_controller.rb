@@ -2,10 +2,12 @@ class ShoppingCartController < ApplicationController
   before_action :set_cart
 
   def add_item
-    pid = cart_params[:product_id]
-    p cart_params
-    @cart[pid] = (@cart[pid] || 0) + cart_params[:quantity]
-    flash[:notice] = 'This product was successfully added to your Shopping Cart'
+    quantity = cart_params[:quantity].to_i
+    if quantity > 0
+      pid = cart_params[:product_id]
+      @cart[pid] = (@cart[pid] || 0) + cart_params[:quantity]
+      flash[:notice] = 'This product was successfully added to your Shopping Cart'
+    end
     redirect_back(fallback_location: root_path)
   end
 

@@ -63,6 +63,17 @@ class OrdersController < ApplicationController
     end
   end
 
+  def create_from_cart
+    return unless logged_user? and session['cart'] and session['cart'].values.any? {|x| x>0}
+    @order = Order.create(user_id: current_user.id, status: :pending_payment)
+    @cart = session['cart']
+    @cart.each do |pid, quantity|
+      OrderedProduct.create(product_id: pid, quantity: quantity, order_id: @order.id)
+    end
+    flash[:notice] = "Your order was successfully created. Payment pending."
+    redirect_to @order
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order

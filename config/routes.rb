@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/cart/edit', to: 'shopping_cart#adjust_quantity'
   get '/cart', to: 'shopping_cart#show'
 
+  post '/cart/submit', to: 'orders#create_from_cart'
+
   root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
