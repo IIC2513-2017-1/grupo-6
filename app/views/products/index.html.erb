@@ -2,7 +2,7 @@
 <div id="wrap">
     <h1>Products</h1>
       <% if current_user&.is_admin %>
-        <a class="new-button" href=new_product_path>Add New Product</a>
+        <a class="new-button" href=<%=new_product_path%>>Add New Product</a>
       <% end %>
   
   <br><br><br>
