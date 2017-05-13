@@ -3,5 +3,16 @@
 <div>
 <%= product.name %>
 <%= quantity %>
+<%= form_tag(cart_edit_path,method:"post") do %>
+  <%= hidden_field_tag("cart[product_id]", product.id)%>
+  <%= number_field("cart","quantity", value: quantity, min: 1) %>
+  <%= submit_tag("Change Quantity")%>
+<% end %>
+<%= form_tag(cart_remove_path,method:"post") do %>
+  <%= hidden_field_tag("cart[product_id]", product.id)%>
+  <%= button_tag(type: "submit") do%>
+    <% fa_icon("trash-o")%>
+  <%end%>
+<% end %>
 </div>
 <% end %>

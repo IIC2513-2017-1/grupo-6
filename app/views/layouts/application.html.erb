@@ -24,7 +24,7 @@
           <li><%= link_to 'Comments', comments_path %></li>
           <li><%= link_to 'Orders', orders_path %></li>
           <li><%= link_to 'Questions', questions_path %></li>
-          <li><%= link_to 'Answers', answers_path %></li>
+       <!--   <li><%= link_to 'Answers', answers_path %></li> -->
           <li><%= link_to 'Coupons', coupons_path %></li>
 
           <li id="user-bar">
@@ -40,6 +40,7 @@
               </div>
             <% end %>
           </li>
+          <li id="cart-icon"><div><%= link_to fa_icon("shopping-cart", class:"fa-2x"), cart_path %></div></li>
       </nav>
 
       
