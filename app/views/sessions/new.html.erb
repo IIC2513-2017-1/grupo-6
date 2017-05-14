@@ -2,7 +2,7 @@
   
   <h2 class="login-header">Log in</h2>
 
-  <%= simple_form_for :sessions, html: { class: "login-container"}, url: sessions_path do |f| %>
+  <%= simple_form_for :sessions, html: {id: "login-form", class: "login-container"}, url: sessions_path do |f| %>
     <p><%= f.input :email, placeholder: "Email" %></p>
     <p><%= f.input :password, placeholder: "Password" %></p>
     <p><%= f.button :submit, "Login"%></p>

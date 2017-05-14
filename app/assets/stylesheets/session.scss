@@ -10,6 +10,7 @@
   box-shadow:0 0 0 1600px rgba(0,0,0,0.65);
 }
 
+
 .login-header,
 .login p {
   margin-top: 0;
@@ -45,6 +46,14 @@
   outline: 0;
   font-family: inherit;
   font-size: 0.95em;
+}
+
+.simple_form p input[type='submit'] {
+  margin-left: 0px;
+}
+
+#login-form {
+  display: block;
 }
 
 .login input[type="email"],
