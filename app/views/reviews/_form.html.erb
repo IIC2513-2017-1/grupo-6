@@ -13,7 +13,11 @@
 
   <%= f.input :content %>
 
-  <%= f.input :product_id, collection: Product.pluck(:id), include_blank: false %>
+  <% if @product_id %>
+    <%= f.hidden_field :product_id, value: @product_id %>
+  <% else %>
+    <%= f.input :product_id, collection: Product.pluck(:id), include_blank: false %>
+  <% end %>
 
   <%= f.input :score, input_html: {min: '0', max: '5', step: '0.5'}%>
 

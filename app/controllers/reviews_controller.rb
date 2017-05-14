@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @product_id = params[:product_id]
   end
 
   # GET /reviews/1/edit

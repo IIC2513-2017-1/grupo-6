@@ -52,5 +52,18 @@
   <%= submit_tag("Add to Cart")%>
 <% end %>
 
+<h2> Reviews </h2>
+<% @product.reviews.each do |review| %>
+  <div class="review-div">
+    <h4> Score: <%= review.score %> </h4>
+    <p> <%= review.content %> </p>
+    <h5> By <%= review.user.username %> </h5>
+  </div>
+<% end %>
+
+<%= button_to 'Create New Review', new_review_path, params:{product_id: @product.id}, method: 'get'%>
+
+<% if admin? %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Back', products_path %>
