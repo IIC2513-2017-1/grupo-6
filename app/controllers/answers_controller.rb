@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
   def index
-    return unless authenticated_admin??
+    return unless authenticated_admin?
     @answers = Answer.all
   end
 
