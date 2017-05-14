@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @ordered_products = OrderedProduct.includes(:product).where(order_id: @order.id)
+    @total = @ordered_products.map{|o| o.product.prize * o.quantity }.sum()
   end
 
   # GET /orders/new
@@ -75,6 +76,7 @@ class OrdersController < ApplicationController
     @cart.each do |pid, quantity|
       OrderedProduct.create(product_id: pid, quantity: quantity, order_id: @order.id)
     end
+    @cart.clear()
     flash[:notice] = "Your order was successfully created. Payment pending."
     redirect_to @order
   end

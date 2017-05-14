@@ -17,7 +17,12 @@
                 
         <figcaption><%= product.name %></figcaption>
         <span class="price">$ <%= product.prize %></span>
-        <a class="button" href="#">Add to cart</a>
+
+        <%= form_tag("/cart/add",method:"post", class:"button") do %>
+          <%= hidden_field_tag("cart[product_id]", product.id)%>
+          <%= hidden_field_tag("cart[quantity]",1) %>
+          <%= submit_tag("Add to Cart", class:"button")%>
+        <% end %>
 
         <% if current_user&.is_admin %>
           <%= link_to fa_icon("edit"), edit_product_path(product) %>

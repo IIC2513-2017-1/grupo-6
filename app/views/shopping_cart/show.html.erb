@@ -15,9 +15,9 @@
       <% @products.each do |product, quantity| %>
         <tr>
           <td width="15%"><%= product.name %></td>
-          <td width="15%"><%= product.prize %></td>
+          <td width="15%">$<%= product.prize %></td>
           <td width="15%"><%= quantity %></td>
-          <td width="15%"><%= product.prize * quantity %></td>
+          <td width="15%">$<%= product.prize * quantity %></td>
           <td width="30%">
           <%= form_tag(cart_edit_path,method:"post") do %>
             <%= hidden_field_tag("cart[product_id]", product.id)%>
@@ -38,10 +38,12 @@
     </tbody>
   </table>
 
-  <% if current_user%>
+  <br>
+
+  <% if current_user %>
     <%= form_tag(cart_submit_path, method:"post") do %>
-      <%= button_tag(type: "submit") do%>
-        <% fa_icon("share-square-o", text: "Proceed to Checkout")%>
+      <%= button_tag(type: "submit", class:"centered_button") do%>
+        <% fa_icon("share-square-o", text: "Place Order!")%>
       <%end%>
     <% end %>
   <% else %>

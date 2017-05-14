@@ -20,13 +20,35 @@
   <%= @order.user_id %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price per Unit</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordered_products.each do |o| %>
+      <tr>
+        <td><%= o.product.id %></td>
+        <td><%= o.product.name %></td>
+        <td><%= o.quantity %></td>
+        <td>$<%= o.product.prize %></td>
+        <td>$<%= o.product.prize * o.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <p>
-<div>
-  <strong>Products:</strong>
-  <% @ordered_products.each do |o|%>
-    <%= o.quantity %>
-    <%= o.product.name+"(s)" %>
-  <% end %>
-</div>
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  <strong> Total: $<strong>
+  <%= @total %>
+</p>
+
+<% if admin? %>
+  <%= link_to 'Edit', edit_order_path(@order) %> |
+  <%= link_to 'Back', orders_path %>
+<% end %>

@@ -2,17 +2,18 @@
 #
 # Table name: users
 #
-#  id           :integer          not null, primary key
-#  email        :string
-#  username     :string
-#  name         :string
-#  last_name    :string
-#  address      :string
-#  phone_number :string
-#  is_admin     :boolean
-#  password     :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id              :integer          not null, primary key
+#  email           :string
+#  username        :string
+#  name            :string
+#  last_name       :string
+#  address         :string
+#  phone_number    :string
+#  is_admin        :boolean
+#  password        :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string
 #
 # Indexes
 #
@@ -21,6 +22,8 @@
 #
 
 class User < ApplicationRecord
+    has_secure_password
+
     validates :password, presence: true, length: { minimum: 6 },
                         allow_blank: false
     validates :email, presence: true, uniqueness: true, allow_blank: false,
