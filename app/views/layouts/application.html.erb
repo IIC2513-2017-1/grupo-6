@@ -42,7 +42,7 @@
               </div>
             <% end %>
           </li>
-          <li id="cart-icon"><div><%= link_to fa_icon("shopping-cart", class:"fa-2x"), cart_path %></div></li>
+          <li id="cart-icon"><%= link_to fa_icon("shopping-cart", class:"fa-2x"), cart_path %></li>
 
           <% if logged_user? %>
             <li id="my-orders"><%= link_to 'My Orders', "/users/#{current_user.id}/orders" %></li>
