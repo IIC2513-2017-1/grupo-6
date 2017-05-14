@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   post '/cart/submit', to: 'orders#create_from_cart'
 
+  get '/users/:id/orders', to: 'orders#user_orders'
+
   root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

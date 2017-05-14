@@ -20,5 +20,13 @@
   <%= @order.user_id %>
 </p>
 
+<p>
+<div>
+  <strong>Products:</strong>
+  <% @ordered_products.each do |o|%>
+    <%= o.quantity %>
+    <%= o.product.name+"(s)" %>
+  <% end %>
+</div>
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

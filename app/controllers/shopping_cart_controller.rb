@@ -18,8 +18,12 @@ class ShoppingCartController < ApplicationController
   end
 
   def adjust_quantity
-    @cart[cart_params[:product_id]] = cart_params[:quantity]
-    flash[:notice] = 'Your Shopping Cart has been updated successfuly'
+    if cart_params[:quantity]>0
+      @cart[cart_params[:product_id]] = cart_params[:quantity]
+      flash[:notice] = 'Your Shopping Cart has been updated successfuly'
+    else
+      @cart.delete(cart_params[:product_id])
+    end
     redirect_back(fallback_location: root_path)
   end
 

@@ -1,4 +1,57 @@
+<% if @products.count > 0 %>
 
+  <table id="unfixed-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product, quantity| %>
+        <tr>
+          <td width="15%"><%= product.name %></td>
+          <td width="15%"><%= product.prize %></td>
+          <td width="15%"><%= quantity %></td>
+          <td width="15%"><%= product.prize * quantity %></td>
+          <td width="30%">
+          <%= form_tag(cart_edit_path,method:"post") do %>
+            <%= hidden_field_tag("cart[product_id]", product.id)%>
+            <%= number_field("cart","quantity", value: quantity, min: 1) %>
+            <%= submit_tag("Change Quantity")%>
+          <% end %>
+          </td>
+          <td width="15%">
+          <%= form_tag(cart_remove_path,method:"post") do %>
+            <%= hidden_field_tag("cart[product_id]", product.id)%>
+            <%= button_tag(type: "submit") do%>
+              <% fa_icon("trash-o")%>
+            <%end%>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% if current_user%>
+    <%= form_tag(cart_submit_path, method:"post") do %>
+      <%= button_tag(type: "submit") do%>
+        <% fa_icon("share-square-o", text: "Proceed to Checkout")%>
+      <%end%>
+    <% end %>
+  <% else %>
+    <p> You must <%= link_to('Log In', new_sessions_path) %> to checkout your cart! </p>
+  <% end %>
+<% else %>
+  <p> Your Cart is Empty! Head over to the Products section to fill your cart!</p>
+<% end %>
+
+<!--
 <% @products.each do |product,quantity|%>
   <div>
   <%= product.name %>
@@ -16,9 +69,4 @@
   <% end %>
   </div>
 <% end %>
-
-<%= form_tag(cart_submit_path, method:"post") do %>
-  <%= button_tag(type: "submit") do%>
-    <% fa_icon("share-square-o ")%>
-  <%end%>
-<% end %>
+-->
