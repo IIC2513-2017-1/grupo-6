@@ -44,5 +44,9 @@
   <%= @user.password %>
 </p>
 
+<div>
+  <%= link_to 'Orders', "/users/#{@user.id}/orders" %>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

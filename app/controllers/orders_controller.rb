@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @ordered_products = OrderedProduct.includes(:product).where(order_id: @order.id)
   end
 
   # GET /orders/new
@@ -73,6 +74,12 @@ class OrdersController < ApplicationController
     flash[:notice] = "Your order was successfully created. Payment pending."
     redirect_to @order
   end
+
+  def user_orders
+    @orders = Order.where(user_id: params[:id])
+    render 'index'
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
