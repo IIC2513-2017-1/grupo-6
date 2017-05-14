@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticated_admin?, only:[:index, :create, :edit, :update, :destroy]
   # GET /orders
   # GET /orders.json
   def index
@@ -65,7 +65,11 @@ class OrdersController < ApplicationController
   end
 
   def create_from_cart
-    return unless logged_user? and session['cart'] and session['cart'].values.any? {|x| x>0}
+    if not logged_user? and session['cart'] and session['cart'].values.any? {|x| x>0}
+      flash[:alert] = "There has been an error processing your order"
+      redirect_to root_path
+      return
+    end
     @order = Order.create(user_id: current_user.id, status: :pending_payment)
     @cart = session['cart']
     @cart.each do |pid, quantity|

@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
+    return unless authenticated_admin?
     @comments = Comment.all
   end
 
@@ -19,12 +20,13 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    return unless has_edit_permission?(@comment)
   end
 
   # POST /comments
   # POST /comments.json
   def create
-    return unless logged_user?
+    return unless authenticated_login?
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     respond_to do |format|
@@ -41,6 +43,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    return unless has_edit_permission?(@comment)
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -55,6 +58,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    return unless has_edit_permission?(@comment)
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }

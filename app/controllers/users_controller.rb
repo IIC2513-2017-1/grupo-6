@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_permission, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
+    return unless authenticated_admin?
     @users = User.all
   end
 
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
+  def edit  
   end
 
   # POST /users
@@ -71,4 +73,14 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :username, :name, :last_name, :address, :phone_number, :is_admin, :password, :password_confirmation)
     end
+
+    def check_permission
+      if !admin? or !(logged_user? and current_user&.id == @user.id)
+        flash[:alert] = "Permission denied"
+        redirect_to root_path
+        return false
+      end
+      return true  
+    end
+    
 end
