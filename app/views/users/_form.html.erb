@@ -18,7 +18,6 @@
   <%= f.input :address %>
   <%= f.input :phone_number , pattern: "^\\+?\\d{8,11}$", input_html: {title: "Phone number must contain 8-11 digits and start or not with a \"+\" symbol"}%>
   <%= f.input :password %>
-  <%= f.input :is_admin %>
 
   <div class="actions">
     <%= f.submit %>

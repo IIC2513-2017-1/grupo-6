@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_permission, only: [:edit, :update, :destroy]
+  before_action :check_permission, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render root_path, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -71,16 +71,16 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :username, :name, :last_name, :address, :phone_number, :is_admin, :password, :password_confirmation)
+      params.require(:user).permit(:email, :username, :name, :last_name, :address, :phone_number, :password)
     end
 
     def check_permission
-      if !admin? or !(logged_user? and current_user&.id == @user.id)
-        flash[:alert] = "Permission denied"
-        redirect_to root_path
-        return false
+      if admin? or current_user&.id == @user.id
+        return true  
       end
-      return true  
+      flash[:alert] = "Permission denied"
+      redirect_to root_path
+      return false
     end
     
 end

@@ -18,7 +18,7 @@ class ShoppingCartController < ApplicationController
   end
 
   def adjust_quantity
-    if cart_params[:quantity]>0
+    if cart_params[:quantity] > 0
       @cart[cart_params[:product_id]] = cart_params[:quantity]
       flash[:notice] = 'Your Shopping Cart has been updated successfuly'
     else
@@ -31,6 +31,7 @@ class ShoppingCartController < ApplicationController
     @products = Product.find(@cart.keys).map do |p|
       [p, @cart[p.id.to_s]]
     end
+    @total = @products.map { |p, q| p.prize * q }.sum
   end
 
   private
