@@ -100,7 +100,8 @@ input.button {
 input.button:hover {
     background: #26C6DA;
     font-weight: bold;
-
+    
+    cursor: pointer;
     border-bottom: 3px solid #26C6DA;
     color: #f1f2f3;
 }

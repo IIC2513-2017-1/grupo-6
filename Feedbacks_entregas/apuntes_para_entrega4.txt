@@ -1,4 +1,4 @@
-- cambiar el tipo de letra (helvetica)
+check - cambiar el tipo de letra (helvetica)
 check - que haya dropdown en la barra de navegacion (del admin)
 - en el perfil tiene que haber un dropdown con mi perfil, logout, etc
 - que cuando se cree el comentario no tire al view del comentario pero al producto
