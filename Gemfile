@@ -35,6 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form', '3.4.0'
 gem "font-awesome-rails"
 
+
+gem 'faker', '1.7.3'
+
 # Heroku asks for it
 gem 'rails_12factor', group: :production
 
@@ -43,7 +46,6 @@ gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'hirb', '0.7.3'
-  gem 'faker', '1.7.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'railroady'
   gem 'byebug', platform: :mri

@@ -111,10 +111,12 @@ hr {
 
 #cart-icon {
     float: right;
-    padding-top: 24px;
-    padding-right: 24px;
     a {
         color: black;
+        padding: 24px;
+    }
+    &:hover {
+        background-color: #00acc1;
     }
 }
 

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_user?, :admin?
+  helper_method :current_user, :logged_user?, :admin?, :check_edit_permission?
 
   protected
 
@@ -44,12 +44,19 @@ class ApplicationController < ActionController::Base
   end
 
   def has_edit_permission?(entity)
-    if !logged_user? and (!admin? or current_user&.id != entity.user_id)
-        flash[:alert] = "Permission denied"
-        redirect_to root_path
-        return false
+    if logged_user? and (admin? or current_user&.id == entity.user_id)
+      return true
     end
-    return true
+    flash[:alert] = "Permission denied"
+    redirect_to root_path
+    return false
+  end
+
+  def check_edit_permission?(entity)
+    if logged_user? and (admin? or current_user&.id == entity.user_id)
+      return true
+    end
+    return false
   end
     
   

@@ -1,1 +1,33 @@
-<p> Hello, World! </p>
+
+<h2> Welcome to Virtual Store! <h2>
+<h4> Here are some (not random) products that might interest you... <h4>
+
+<div id="wrap">
+  
+  <br><br><br>
+
+	<div id="columns" class="columns_4">
+
+   <% @products.each do |product| %>
+      <figure>
+        <%= link_to product do %>
+            <%= image_tag("unavailable.jpg") %>
+        <% end %>
+                
+        <figcaption><%= product.name %></figcaption>
+        <span class="price">$ <%= product.prize %></span>
+
+        <%= form_tag("/cart/add",method:"post", class:"button") do %>
+          <%= hidden_field_tag("cart[product_id]", product.id)%>
+          <%= hidden_field_tag("cart[quantity]",1) %>
+          <%= submit_tag("Add to Cart", class:"button")%>
+        <% end %>
+
+        <% if current_user&.is_admin %>
+          <%= link_to fa_icon("edit"), edit_product_path(product) %>
+     
+          <%= link_to fa_icon("trash-o"), product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+      </figure>
+    <% end %>
