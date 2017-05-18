@@ -19,3 +19,14 @@
     display: flex;
     align-items: center;
 }
+
+body
+{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #444444;
+    background-color: #FAFAFA;
+}
+a {
+    color: black;
+    
+}

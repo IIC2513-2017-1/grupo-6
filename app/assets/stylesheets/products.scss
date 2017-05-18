@@ -55,20 +55,6 @@ div#columns figure figcaption {
     font-weight: 600;
 }
 
-a.button {
-    padding: 10px;
-    background: #26C6DA;
-    margin: 10px;
-    display: block;
-    text-align: center;
-    color: #fff;
-    transition: all 1s linear;
-    text-decoration: none;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    border-bottom: 3px solid #00838F;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
 
 a.new-button {
     background: LightGreen;
@@ -91,36 +77,31 @@ a.new-button:hover {
     color: #f1f2f3;
 }
 
-a.button:hover {
-    background: #00838F;
-    border-bottom: 3px solid #00838F;
-    color: #f1f2f3;
-}
-
-a {
-    color: black;
-}
-
 input.button {
     padding: 15px;
     padding-left: 30px;
     padding-right: 30px;
-    background: #26C6DA;
+    background: #00838F;
     margin: 10px;
     display: block;
     text-align: center;
     color: #fff;
-    transition: all 1s linear;
+    transition: all 0.1s linear;
     text-decoration: none;
+        font-weight: bold;
+
+    border: 0px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     border-radius: 3px;
-    border-bottom: 3px solid #00838F;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #00ACC1;
+    box-shadow: 1px 1px 3px black;
 }
 
 input.button:hover {
-    background: #00838F;
-    border-bottom: 3px solid #00838F;
+    background: #26C6DA;
+    font-weight: bold;
+
+    border-bottom: 3px solid #26C6DA;
     color: #f1f2f3;
 }
 
