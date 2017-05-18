@@ -3,7 +3,6 @@
   <head>
     <title>Virtual Store</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,15 +17,24 @@
           </li>
           <li><%= link_to 'Products', products_path %></li>
           <% if admin? %>
-            <li><%= link_to 'Users', users_path %></li>
-            <li><%= link_to 'Categories', categories_path %></li>
-            <li><%= link_to 'Tags', tags_path %></li>
-            <li><%= link_to 'Reviews', reviews_path %></li>
-            <li><%= link_to 'Comments', comments_path %></li>
-            <li><%= link_to 'Orders', orders_path %></li>
-            <li><%= link_to 'Questions', questions_path %></li>
-            <li><%= link_to 'Answers', answers_path %></li>
-            <li><%= link_to 'Coupons', coupons_path %></li>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Admin</a>
+              <div class="dropdown-content">
+                <%= link_to 'Users', users_path %>
+                <%= link_to 'Categories', categories_path %>
+                <%= link_to 'Tags', tags_path %>
+                <%= link_to 'Reviews', reviews_path %>
+                <%= link_to 'Comments', comments_path %>
+                <%= link_to 'Orders', orders_path %>
+                <%= link_to 'Questions', questions_path %>
+                <%= link_to 'Answers', answers_path %>
+                <%= link_to 'Coupons', coupons_path %>
+              </div>
+            </li>
+          </ul>
           <% end %>
 
           <li id="user-bar">

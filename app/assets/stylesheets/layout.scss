@@ -59,11 +59,12 @@ nav ul {
     padding: 32px 16px;
     text-decoration: none;
     cursor: pointer;
-    &:hover {
-        background-color: #00acc1;
-    }
+
 }
 
+.navbar li> a:hover, .dropdown:hover .dropbtn {
+    background-color: #00acc1;
+}
 
 /* Main content */
 
@@ -122,4 +123,40 @@ hr {
 
 #my-orders {
     float: right;
+}
+
+// admin nav dropdown
+
+li a, .dropbtn {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.dropdown {
+    float: left;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 80px;
+    position: fixed;
+    background-color: #e8e8e8;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px black;
+}
+
+.dropdown-content a {
+    color: black;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #00acc1;
+    color: white;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
