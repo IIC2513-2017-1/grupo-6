@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :reviews
   resources :comments
   resources :categories
-  resources :products
+  resources :products do 
+    resources :images, only: [:create, :destroy]
+  end
   resources :users
   resource :sessions, only: [:new, :create, :destroy]
 

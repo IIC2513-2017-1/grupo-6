@@ -10,6 +10,7 @@
 #  address         :string
 #  phone_number    :string
 #  is_admin        :boolean
+#  password        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string
