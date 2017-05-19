@@ -32,9 +32,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'carrierwave', '~> 1.0'
+gem 'font-awesome-rails'
 gem 'simple_form', '3.4.0'
-gem "font-awesome-rails"
-
 
 gem 'faker', '1.7.3'
 

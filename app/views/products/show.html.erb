@@ -46,6 +46,8 @@
   </ul>
 </p>
 
+<%= image_tag @product.images[0].url %>
+
 <%= form_tag("/cart/add",method:"post") do %>
   <%= hidden_field_tag("cart[product_id]", @product.id)%>
   <%= number_field("cart","quantity", value: 1, min: 1) %>

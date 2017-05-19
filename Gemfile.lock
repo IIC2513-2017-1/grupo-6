@@ -46,6 +46,10 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
+    carrierwave (1.1.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     concurrent-ruby (1.0.5)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -168,6 +172,7 @@ DEPENDENCIES
   annotate
   bcrypt (~> 3.1.7)
   byebug
+  carrierwave (~> 1.0)
   faker (= 1.7.3)
   font-awesome-rails
   hirb (= 0.7.3)

@@ -10,6 +10,7 @@
 #  stock       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  images      :json
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
