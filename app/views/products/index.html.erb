@@ -12,7 +12,11 @@
    <% @products.each do |product| %>
       <figure>
         <%= link_to product do %>
-            <%= image_tag("unavailable.jpg") %>
+            <% if product.images.length() > 0 %>
+              <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
+            <% else %>
+              <%= image_tag("unavailable.jpg") %>
+            <% end %>
         <% end %>
                 
         <figcaption><%= product.name %></figcaption>

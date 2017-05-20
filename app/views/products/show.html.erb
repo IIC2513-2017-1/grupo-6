@@ -45,10 +45,27 @@
   <% end%>
   </ul>
 </p>
-<% @product.images.each_with_index do |img, index| %>
-  <%= image_tag img.url %>
-  <%= link_to "Delete", product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }%>
-<% end %>
+
+
+<h2> Images </h2>
+
+
+<table class="no-border">
+  <tbody class="no-border">
+
+    <% @product.images.each_with_index do |img, index| %>
+    <tr class="no-border">
+      <td class="no-border"><%= image_tag img.url %> </td>
+      <td class="del-icon"> <%= link_to fa_icon("trash"), product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }%> </td>
+    <tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+  
+
 
 <%= form_tag("/cart/add",method:"post") do %>
   <%= hidden_field_tag("cart[product_id]", @product.id)%>
