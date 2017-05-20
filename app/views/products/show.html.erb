@@ -1,9 +1,4 @@
 <p>
-  <strong>ID:</strong>
-  <%= @product.id %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
@@ -20,7 +15,7 @@
 
 <p>
   <strong>Prize:</strong>
-  <%= @product.prize %>
+  $<%= @product.prize %>
 </p>
 
 <p>
@@ -85,11 +80,69 @@
   </div>
 <% end %>
 
-<%= button_to 'Create New Review', new_review_path, params:{product_id: @product.id}, method: 'get'%>
+<% if !@product.reviews.map{|x| x.user_id}.include? current_user&.id %>
+  <%= simple_form_for(@review) do |f| %>
+    <h2> Write new Review </h2>
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :content, label: false, :input_html => {style: 'width: 800px; height: 180px;'}%>
+    <%= f.hidden_field :product_id, value: @product.id %>
+    <div style="float:right;">
+    <%= f.input :score, input_html: {min: '0', max: '5', step: '0.5'} %>
+
+    <div class="actions" style="float:right;">
+      <%= f.submit %>
+    </div></div>
+  <% end %>
+<% end %>
+
+<h2> Questions & Answers </h2>
+<% @product.questions.each do |question| %>
+  <div class="question-div">
+    <p> <%= question.content %> </p>
+    <h5> By <%= question.user.username %> </h5>
+    <div style="padding: 10px;">
+    <%= link_to fa_icon("search"), question %>
+    </div>
+  </div>
+<% end %>
+
+<%= simple_form_for(@question) do |f| %>
+  <h2> Write new Question </h2>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :content, label: false, :input_html => {style: 'width: 800px; height: 180px;'}%>
+  <%= f.hidden_field :product_id, value: @product.id %>
+
+  <div class="actions" style="float:right;">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <% if admin? %>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <h1>Add more images</h1>
+  <%= link_to 'Edit', edit_product_path(@product) %>
+  <h2>Add more images</h2>
 
   <%= form_for @product, url: product_images_path(@product), method: :post do |f| %> 
     <%= f.file_field :images, multiple: true, required: true %>

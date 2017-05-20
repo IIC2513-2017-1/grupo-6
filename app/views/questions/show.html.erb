@@ -19,4 +19,6 @@
   <%= @question.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %>
+<% if check_edit_permission?(@question) %>
+  <%= link_to 'Edit', edit_question_path(@question) %>
+<% end %>
