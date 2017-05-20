@@ -51,7 +51,9 @@
     <% @product.images.each_with_index do |img, index| %>
     <tr class="no-border">
       <td class="no-border"><%= image_tag img.url %> </td>
-      <td class="del-icon"> <%= link_to fa_icon("trash"), product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }%> </td>
+      <% if admin? %>
+        <td class="del-icon"> <%= link_to fa_icon("trash"), product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }%> </td>
+      <% end %>
     <tr>
     <% end %>
   </tbody>

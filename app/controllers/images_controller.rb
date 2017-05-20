@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :authenticated_admin?, only:[:create, :destroy]
   before_action :set_product
 
   def create
