@@ -18,9 +18,17 @@ class ImagesController < ApplicationController
 
   def remove_image_at_index(index)
     remain_images = @product.images # copy the array
-    deleted_image = remain_images.delete_at(index) # delete the target image
-    deleted_image.try(:remove!) # delete image from S3
-    @product.images = remain_images # re-assign back
+    if remain_images.length == 1
+      @product.remove_images!
+    else
+      
+      deleted_image = remain_images.delete_at(index) # delete the target image
+      
+      deleted_image.try(:remove!) # delete image from S3
+      @product.images = remain_images # re-assign back
+      @product.save
+      
+    end
   end
 
   def set_product
