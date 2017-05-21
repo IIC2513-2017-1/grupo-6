@@ -4,13 +4,13 @@ check - que haya dropdown en la barra de navegacion (del admin)
 check - que cuando se cree el comentario no tire al view del comentario pero al producto
 check - abajo de productos puede estar metido el formulario de escribir una review
 - que hayan fotos de los productos
-- en el carrito deberia poder ir al show del producto
+check - en el carrito deberia poder ir al show del producto
 - embellecer la pagina
 - cambiar el boton de add to cart para que sea mas "real"
 - que haya una barra lateral de categorías donde pueda listar por ellas. que sea algo mas profesional
 - embellecer la pagina inicial
 - hacer un carrusel
-- que en el index de orders haya un dropdown para cambiar el estado de la orden
+check - que en el index de orders haya un dropdown para cambiar el estado de la orden
 - mejorar todas las rutas
 - pulir detalles de usabilidad
 - quizas ponerle tabs a la vista del producto

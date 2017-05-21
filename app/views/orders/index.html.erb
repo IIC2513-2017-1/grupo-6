@@ -4,7 +4,7 @@
  <a class="new-button" href=<%=new_order_path%>>Add New Order</a>
  <br><br>
  <% end %>
-<table>
+<table id="unfixed-table">
   <thead>
     <tr>
       <th>ID</th>
@@ -16,14 +16,23 @@
       <% else %>
         <th colspan="1"></th>
       <% end %>
-    </tr>
+    </tr> 
   </thead>
 
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.id %></td>
-        <td><%= order.status %></td>
+        <td width="2%"><%= order.id %></td>
+        <% if check_edit_permission?(order) %>
+          <td> 
+          <%= simple_form_for order, html: {class: 'form-inline'} do |f| %>
+            <%= f.input :status, collection: Order.statuses, label: false, value_method: :first, include_blank: false, wrapper: false %>
+            <%= f.submit style: "margin-left:5px;"%>
+          <% end %>
+          </td>
+        <% else %>
+          <td><%= order.status %></td>
+        <% end %>
         <td><%= order.created_at %></td>
         <% if admin? %>
           <td><%= order.user_id %></td>

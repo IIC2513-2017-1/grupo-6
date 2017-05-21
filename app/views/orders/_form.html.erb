@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.input :status, collection: Order.statuses, label_method: :first, value_method: :first %>
+  <%= f.input :status, collection: Order.statuses, label_method: :first, value_method: :first, include_blank: false %>
 
   <div class="actions">
     <%= f.submit %>

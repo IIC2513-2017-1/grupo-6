@@ -3,6 +3,7 @@
   <table id="unfixed-table">
     <thead>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
@@ -14,6 +15,7 @@
     <tbody>
       <% @products.each do |product, quantity| %>
         <tr>
+          <td><%= link_to fa_icon("search"), product %></td>
           <td width="15%"><%= product.name %></td>
           <td width="15%">$<%= product.prize %></td>
           <td width="15%"><%= quantity %></td>
