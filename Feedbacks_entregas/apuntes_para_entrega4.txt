@@ -3,10 +3,10 @@ check - que haya dropdown en la barra de navegacion (del admin)
 - en el perfil tiene que haber un dropdown con mi perfil, logout, etc
 check - que cuando se cree el comentario no tire al view del comentario pero al producto
 check - abajo de productos puede estar metido el formulario de escribir una review
-- que hayan fotos de los productos
+check - que hayan fotos de los productos
 check - en el carrito deberia poder ir al show del producto
-- embellecer la pagina
-- cambiar el boton de add to cart para que sea mas "real"
+on it - embellecer la pagina
+check- cambiar el boton de add to cart para que sea mas "real"
 - que haya una barra lateral de categorías donde pueda listar por ellas. que sea algo mas profesional
 - embellecer la pagina inicial
 - hacer un carrusel
@@ -15,4 +15,4 @@ check - que en el index de orders haya un dropdown para cambiar el estado de la 
 - pulir detalles de usabilidad
 - quizas ponerle tabs a la vista del producto
 
-- no es prioridad pero si se puede hacer un carrusel si el producto tiene hartas imagenes seria bueno
+check - no es prioridad pero si se puede hacer un carrusel si el producto tiene hartas imagenes seria bueno
