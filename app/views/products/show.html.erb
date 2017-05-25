@@ -36,6 +36,7 @@
     <div class="star-ratings-sprite">
       <span style="width:<%= @product.average_score()*20 %>%" class="star-ratings-sprite-rating"></span>
     </div>
+    <span class="grey-font">(<%= @product.reviews.length()%> review)</span>
 
 
 
