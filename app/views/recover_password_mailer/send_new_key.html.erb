@@ -1,0 +1,9 @@
+<h2> Hello <%= "#{@user.name} #{@user.last_name}" %>! </h2>
+
+<p> A password reset has been requested for your account. To confirm this, please click the following link:</p>
+
+<strong> <%= link_to 'Confirm Password Reset',  sessions_reset_password_url(key: @key) %> </strong>
+
+<p>If you did not request this, or you no longer want to reset your password, simply ignore this messaage.</p>
+
+<p> Cheers! </p>

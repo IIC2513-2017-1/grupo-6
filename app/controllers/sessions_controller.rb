@@ -18,18 +18,46 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Logout successful.'
   end
 
-  def restore_password
+  def request_password
   end
 
-  def send_new_password
+  def send_new_password_key
     email = params.require(:sessions).permit(:email)[:email]
     user = User.find_by(email: email)
     if user
-      password = (0...16).map{(('a'..'z').to_a+(0..9).to_a)[rand(36)]}.join
-      user.password = password
-      user.save
-      RecoverPasswordMailer.send_new_password(user, password).deliver_later
+      key = (0...32).map{(('a'..'z').to_a+(0..9).to_a)[rand(36)]}.join
+      PasswordReset.create(key: key, user_id: user.id)
+      RecoverPasswordMailer.send_new_key(user, key).deliver_later
     end
-    redirect_to(root_path, notice: "A new password was sent to #{email}")
+    redirect_to(root_path, notice: "An email to confirm the password reset was sent to #{email}")
+  end
+
+  def new_password
+    key = params[:key]
+    @password_reset = PasswordReset.find_by(key: key)
+    if !@password_reset
+      redirect_to(root_path, alert: "Invalid attempt to reset password.")
+    end
+  end
+
+  def reset_password
+    parameters = params.require(:sessions).permit(:password, :password_confirmation, :key)
+    password_reset = PasswordReset.find_by(key: parameters[:key])
+    if password_reset
+      if parameters[:password]==parameters[:password_confirmation]
+        user = password_reset.user
+        user.password = parameters[:password]
+        if user.save
+          password_reset.destroy
+          redirect_to(root_path, notice: "Your password has been reset. You may now login with your new password.")
+        else
+          redirect_to(sessions_reset_password_url(key: parameters[:key]), alert: "Your password must be a minimum of 6 characters long") # Es la unica razón por la que podría fallar
+        end
+      else
+        redirect_to(sessions_reset_password_url(key: parameters[:key]), alert: "Your password must match the password confirmation")
+      end
+    else
+      redirect_to(root_path, alert: "Invalid attempt to restore password.")
+    end
   end
 end

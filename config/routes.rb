@@ -22,8 +22,12 @@ Rails.application.routes.draw do
 
   get '/users/:id/orders', to: 'orders#user_orders'
 
-  get '/sessions/restore_password', to: 'sessions#restore_password'
-  post '/sessions/restore_password', to: 'sessions#send_new_password'
+  get '/sessions/request_password', to: 'sessions#request_password'
+  post '/sessions/request_password', to: 'sessions#send_new_password_key'
+
+  get '/sessions/reset_password', to: 'sessions#new_password'
+  post '/sessions/reset_password', to: 'sessions#reset_password'
+
 
   root 'home#index'
 

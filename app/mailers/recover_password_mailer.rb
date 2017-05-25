@@ -1,7 +1,7 @@
 class RecoverPasswordMailer < ApplicationMailer
-  def send_new_password(user, password)
+  def send_new_key(user, key)
     @user = user
-    @password = password
-    mail subject: 'Password Reset', to: user.email
+    @key = key
+    mail subject: 'Password Reset Confirmation', to: user.email
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519145727) do
+ActiveRecord::Schema.define(version: 20170525202149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,11 +85,20 @@ ActiveRecord::Schema.define(version: 20170519145727) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "status"
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "password_resets", force: :cascade do |t|
+    t.string   "key"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_password_resets_on_key", unique: true, using: :btree
+    t.index ["user_id"], name: "index_password_resets_on_user_id", using: :btree
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -186,6 +195,7 @@ ActiveRecord::Schema.define(version: 20170519145727) do
   add_foreign_key "ordered_products", "orders"
   add_foreign_key "ordered_products", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "password_resets", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "product_tags", "products"
