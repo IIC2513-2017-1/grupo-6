@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   get '/users/:id/orders', to: 'orders#user_orders'
 
+  get '/sessions/restore_password', to: 'sessions#restore_password'
+  post '/sessions/restore_password', to: 'sessions#send_new_password'
+
   root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
