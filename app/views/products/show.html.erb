@@ -1,71 +1,96 @@
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Details:</strong>
-  <%= @product.details %>
-</p>
-
-<p>
-  <strong>Prize:</strong>
-  $<%= @product.prize %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
-
-<p>
-  <strong>Categories:</strong>
-  <ul>
-  <% @product.categories.each do |category| %>
-    <li><%= category.name %></li>
-  <% end%>
-  </ul>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <ul>
-  <% @product.tags.each do |tag| %>
-    <li><%= tag.name %></li>
-  <% end%>
-  </ul>
-</p>
-
-
-<h2> Images </h2>
 
 
 <table class="no-border">
   <tbody class="no-border">
 
-    <% @product.images.each_with_index do |img, index| %>
-    <tr class="no-border">
-      <td class="no-border"><%= image_tag img.url %> </td>
-    <tr>
+  <tr class="no-border">
+      <td class="no-border" valign="top"> 
+  
+
+
+    <div class="product-single">
+      <div class="product-gallery">
+        <div id="slider-wrap">
+          <ul class="slides">
+          <% @product.images.each_with_index do |img, index| %>
+            <li><%= image_tag img.url, class:"gallery-image" %></li> 
+          <% end %>
+          </ul>
+          <ul class="nav-dots">
+            <% @product.images.each_with_index do |img, index| %>
+              <% if index != 0 %>
+                <li></li> 
+              <% else %>
+                <li class="active"></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+</td>
+      <td class="no-border"  valign="top"> 
+
+    <h1><%= @product.name %></h1>
+    <div class="star-ratings-sprite">
+      <span style="width:<%= @product.average_score()*20 %>%" class="star-ratings-sprite-rating"></span>
+    </div>
+
+
+
+    <h3>Description</h3>
+    <p>
+      <%= @product.description %>
+    </p>
+
+    <h3>Details</h3>
+    <p>
+      <%= @product.details %>
+    </p>
+
+    <h3>Prize</h3>
+    <p>
+      <%= @product.prize %>
+    </p>
+
+    <h3>Stock</h3>
+    <p>
+      <%= @product.stock %>
+    </p>
+
+    <h3>Categories</h3>
+    <p>
+      <ul>
+      <% @product.categories.each do |category| %>
+        <li><%= category.name %></li>
+      <% end%>
+      </ul>
+    </p>
+
+    <h3>Tags</h3>
+    <p>
+      <ul>
+      <% @product.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end%>
+      </ul>
+    </p>
+
+    <%= form_tag("/cart/add",method:"post") do %>
+      <%= hidden_field_tag("cart[product_id]", @product.id)%>
+      <%= number_field("cart","quantity", value: 1, min: 1, style: "width: 40px; height: 20px;") %>
+      <%= submit_tag("Add to Cart", class: "button2")%>
     <% end %>
+
+
+    </td>
   </tbody>
 </table>
-
-
 
   
 
 
-<%= form_tag("/cart/add",method:"post") do %>
-  <%= hidden_field_tag("cart[product_id]", @product.id)%>
-  <%= number_field("cart","quantity", value: 1, min: 1) %>
-  <%= submit_tag("Add to Cart")%>
-<% end %>
 
 <h2> Reviews </h2>
 <% @product.reviews.each do |review| %>

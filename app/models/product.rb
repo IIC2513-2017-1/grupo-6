@@ -35,4 +35,13 @@ class Product < ApplicationRecord
   def add_tag; end
 
   def remove_tag; end
+
+  def average_score
+    reviews = self.reviews.map{|x| x.score}
+    if reviews.length()>0
+      reviews.sum()/reviews.length()
+    else
+      0
+    end
+  end
 end
