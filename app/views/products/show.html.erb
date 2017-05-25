@@ -13,18 +13,28 @@
       <div class="product-gallery">
         <div id="slider-wrap">
           <ul class="slides">
-          <% @product.images.each_with_index do |img, index| %>
-            <li><%= image_tag img.url, class:"gallery-image" %></li> 
-          <% end %>
-          </ul>
-          <ul class="nav-dots">
-            <% @product.images.each_with_index do |img, index| %>
-              <% if index != 0 %>
-                <li></li> 
-              <% else %>
-                <li class="active"></li>
+
+          <% if @product.images.length() > 0 %>
+              <% @product.images.each_with_index do |img, index| %>
+                <li><%= image_tag img.url, class:"gallery-image" %></li> 
               <% end %>
+              </ul>
+              <ul class="nav-dots">
+                <% @product.images.each_with_index do |img, index| %>
+                  <% if index != 0 %>
+                    <li></li> 
+                  <% else %>
+                    <li class="active"></li>
+                  <% end %>
+                <% end %>
+            <% else %>
+              <li><%= image_tag "unavailable.jpg", class:"gallery-image" %></li>
             <% end %>
+
+
+
+
+          
           </ul>
         </div>
       </div>
