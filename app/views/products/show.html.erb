@@ -90,7 +90,12 @@
 
     <%= form_tag("/cart/add",method:"post") do %>
       <%= hidden_field_tag("cart[product_id]", @product.id)%>
-      <%= number_field("cart","quantity", value: 1, min: 1, style: "width: 40px; height: 20px;") %>
+
+      <span class="input-number-decrement">–</span>
+      <%= number_field("cart","quantity", value: 1, min: 1, class: "input-number", type: "text") %>
+      <span class="input-number-increment">+</span>
+
+
       <%= submit_tag("Add to Cart", class: "button2")%>
     <% end %>
 
