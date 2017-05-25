@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  Rails.application.routes.default_url_options[:port]= 3000 if Rails.env.development?
+
   helper_method :current_user, :logged_user?, :admin?, :check_edit_permission?
 
   protected
