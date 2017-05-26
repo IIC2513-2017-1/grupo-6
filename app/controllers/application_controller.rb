@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   def authenticated_login?
     if not current_user
       flash[:alert] = "You must be logged in to do this action"
-      redirect_to root_path
+      redirect_to new_sessions_path
       return false 
     end
     return true
