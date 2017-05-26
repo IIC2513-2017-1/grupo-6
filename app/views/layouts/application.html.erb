@@ -38,21 +38,25 @@
           <li id="user-bar">
             <div>
             <% if current_user %>
-                <%= link_to fa_icon("user-circle-o", text: current_user.username), current_user %>
-                <br><br>
-                <%= link_to fa_icon("sign-out",text: "Logout"), sessions_path, method: :delete %>
+              <ul>
+                <li class="dropdown">
+                  <%= link_to fa_icon("user-circle-o", class: "fa-3x"), current_user, class: "dropbtn" %>
+                  <div class="dropdown-content">
+                    <%= link_to shorten(current_user.username), user_path(current_user)%>
+                    <%= link_to 'My Orders', "/users/#{current_user.id}/orders" %>
+                    <%= link_to fa_icon("sign-out",text: "Logout"), sessions_path, method: :delete %>
+                  </div>
+                </li>
+              </ul>
             <% else %>
-              
+              <div id="not-logged-in">
                 <%= link_to fa_icon("sign-in",text: 'Login'), new_sessions_path %> <br>or<br>
                 <%= link_to fa_icon("user-plus",text: 'Signup'), new_user_path %>
               </div>
             <% end %>
+            </div>
           </li>
           <li id="cart-icon"><%= link_to fa_icon("shopping-cart", class:"fa-2x"), cart_path %></li>
-
-          <% if logged_user? %>
-            <li id="my-orders"><%= link_to 'My Orders', "/users/#{current_user.id}/orders" %></li>
-          <% end %>
 
       </nav>
 

@@ -60,12 +60,13 @@ nav ul {
     padding: 32px 16px;
     text-decoration: none;
     cursor: pointer;
-
 }
 
-.navbar li> a:hover, .dropdown:hover .dropbtn {
+.navbar li>a:hover,
+.dropdown:hover .dropbtn {
     background-color: #00acc1;
 }
+
 
 /* Main content */
 
@@ -86,8 +87,16 @@ main {
     height: 100%;
 }
 
-#user-bar>div {
+#user-bar div#not-logged-in {
     padding-top: 17px;
+}
+
+#user-bar ul {
+    padding: 0px;
+}
+
+#user-bar a.dropbtn {
+    padding: 23px 32px 22px 31px;
 }
 
 footer {
@@ -127,8 +136,8 @@ hr {
 }
 
 // admin nav dropdown
-
-li a, .dropbtn {
+li a,
+.dropbtn {
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -156,7 +165,8 @@ li.dropdown {
 
 .dropdown-content a:hover {
     background-color: #00acc1;
-    color: white;}
+    color: white;
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
