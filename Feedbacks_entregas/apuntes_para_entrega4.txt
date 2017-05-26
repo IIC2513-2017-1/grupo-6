@@ -9,7 +9,7 @@ on it - embellecer la pagina
 check- cambiar el boton de add to cart para que sea mas "real"
 - que haya una barra lateral de categorías donde pueda listar por ellas. que sea algo mas profesional
 - embellecer la pagina inicial
-- hacer un carrusel
+check - hacer un carrusel
 check - que en el index de orders haya un dropdown para cambiar el estado de la orden
 - mejorar todas las rutas
 - pulir detalles de usabilidad
