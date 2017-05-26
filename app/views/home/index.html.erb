@@ -1,10 +1,31 @@
 
-<h2> Welcome to Virtual Store! <h2>
-<h4> Here are some (not random) products that might interest you... <h4>
-
-<div id="wrap">
+<h2> Welcome to Virtual Store! </h2>
+ 
   
-  <br><br><br>
+
+<div class="product-single">
+  <div class="product-carrousel">
+    <div id="slider-wrap">
+      <ul class="slides" id="offer-slides">
+
+            <li><%= image_tag "oferta1.jpg", class:"carrousel-image" %></li> 
+            <li><%= image_tag "oferta2.jpg", class:"carrousel-image" %></li> 
+            <li><%= image_tag "oferta3.jpg", class:"carrousel-image" %></li> 
+          </ul>
+          <ul class="nav-dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="home-products">
+<div id="wrap">
+
+  <h2>Featured products</h2>
+
+
 
 	<div id="columns" class="columns_4">
 
@@ -35,3 +56,5 @@
 
       </figure>
     <% end %>
+
+</div>

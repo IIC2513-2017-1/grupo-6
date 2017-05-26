@@ -97,6 +97,9 @@ $(document).on('turbolinks:load', function () {
         curIndex === oldIndex ? false : (oldIndex < curIndex) ? nextSlide() : prevSlide();
     });
 
+
+// add to cart counter
+
     (function() {
  
   window.inputNumber = function(el) {

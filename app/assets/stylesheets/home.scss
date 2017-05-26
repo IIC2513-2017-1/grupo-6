@@ -1,3 +1,104 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// carrousel
+
+$carrousel_height: 200px;
+$carrousel_width: 1000px;
+
+$color_ysh_org: #d75229;
+$color_ysh_gry:#d0ddcb;
+$color_bse_gry:#999;
+
+
+.home-products {
+    margin-top: 250px;
+}
+
+.carrousel-image {
+    width: $carrousel_width;
+    height: $carrousel_height;
+}
+
+.product-carrousel {
+    overflow: hidden;
+    float: left;
+    width: $carrousel_width;
+    margin-left: 100px;
+    height: $carrousel_height;
+    border-right: 1px solid $color_ysh_gry;
+    position: relative;
+
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #slider-wrap {
+        position: relative;
+        background: $color_bse_gry;
+        overflow: hidden;
+        height: $carrousel_height;
+        width: $carrousel_width;
+        .slides {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .2s .1s ease-out;
+            li {
+                float: left;
+                width: $carrousel_width;
+                height: $carrousel_height;
+                position: relative;
+            }
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+    .nav-dots {
+        display: block;
+        margin: auto;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        cursor: pointer;
+        bottom: 12px;
+        li {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            display: inline-block;
+            background: transparent;
+            &:before {
+                content: "";
+                position: absolute;
+                background: transparent;
+                top: -50%;
+                bottom: -50%;
+                right: -50%;
+                left: -50%;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                box-shadow: 0 0 7px -2px #000;
+            }
+            &.active {
+                background: $color_ysh_org;
+                transition: all .1s .1s linear;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
