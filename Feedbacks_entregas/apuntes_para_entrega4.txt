@@ -11,7 +11,7 @@ check - que haya una barra lateral de categorías donde pueda listar por ellas. 
 check - embellecer la pagina inicial
 check - hacer un carrusel
 check - que en el index de orders haya un dropdown para cambiar el estado de la orden
-check mejorar todas las rutas
+check - mejorar todas las rutas
 check - pulir detalles de usabilidad
 check - quizas ponerle tabs a la vista del producto
 
