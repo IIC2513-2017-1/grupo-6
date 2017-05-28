@@ -32,17 +32,13 @@
 
    <% @products.each do |product| %>
       <figure>
-        <div class="product-card">
-          <div class="product-incard">
-            <%= link_to product do %>
-                <% if product.images.length() > 0 %>
-                  <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
-                <% else %>
-                  <%= image_tag("unavailable.jpg") %>
-                <% end %>
+        <%= link_to product do %>
+            <% if product.images.length() > 0 %>
+              <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
+            <% else %>
+              <%= image_tag("unavailable.jpg") %>
             <% end %>
-          </div>
-        </div>
+        <% end %>
                 
         <figcaption><%= product.name %></figcaption>
         <span class="price">$ <%= product.prize %></span>
