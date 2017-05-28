@@ -23,7 +23,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td width="2%"><%= order.id %></td>
-        <% if check_edit_permission?(order) %>
+        <% if admin? %>
           <td> 
           <%= simple_form_for order, html: {class: 'form-inline'} do |f| %>
             <%= f.input :status, collection: Order.statuses, label: false, value_method: :first, include_blank: false, wrapper: false %>
