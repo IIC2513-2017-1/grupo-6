@@ -8,16 +8,13 @@ class ProductsController < ApplicationController
     @category_index = category_tree
 
     category_id = params[:category_id]
-    @products = Product.all.includes(:categories)
+    @products = Product.all.order(:id).includes(:categories)
     if category_id
       category_id = category_id.to_i
       @category = Category.find(category_id)
       categories = @category.extended_children
-      @products = Product.all.includes(:categories).select{|x| x.categories.any?{|c| categories.include? c}}
-    else
-      @products = Product.all
+      @products = @products.select{|x| x.categories.any?{|c| categories.include? c}}
     end
-    @products = @products.order(:id)
   end
 
   # GET /products/1
