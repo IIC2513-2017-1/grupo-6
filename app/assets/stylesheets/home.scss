@@ -15,7 +15,7 @@ $color_bse_gry:#999;
 
 
 .home-products {
-    margin-top: 250px;
+    margin-top: 50px;
 }
 
 .carrousel-image {
@@ -24,13 +24,10 @@ $color_bse_gry:#999;
 }
 
 .product-carrousel {
-    overflow: hidden;
-    float: left;
     width: $carrousel_width;
-    margin-left: 100px;
     height: $carrousel_height;
     border-right: 1px solid $color_ysh_gry;
-    position: relative;
+    margin: 0 auto;
 
     ul,
     li {

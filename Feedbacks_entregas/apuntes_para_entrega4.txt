@@ -13,6 +13,6 @@ check - hacer un carrusel
 check - que en el index de orders haya un dropdown para cambiar el estado de la orden
 - mejorar todas las rutas
 - pulir detalles de usabilidad
-- quizas ponerle tabs a la vista del producto
+(check) - quizas ponerle tabs a la vista del producto
 
 check - no es prioridad pero si se puede hacer un carrusel si el producto tiene hartas imagenes seria bueno
