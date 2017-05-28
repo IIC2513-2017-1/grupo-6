@@ -108,8 +108,15 @@
 
 
 
+<div class="tab">
+   <button class="tablinks defaultOpen" data-tab="reviews-tab">Reviews</button>
+   <button class="tablinks" data-tab="questions-tab">Questions</button>
+</div>  
+
+
+<div class = "reviews-tab tabcontent">
 <h2> Reviews </h2>
-<div class=amazing-reviews>
+<div class="amazing-reviews">
   <% @product.reviews.each do |review| %>
     <blockquote>
       <header>
@@ -150,6 +157,8 @@
   <% end %>
 <% end %>
 
+</div>
+<div class = "questions-tab tabcontent">
 <h2> Questions & Answers </h2>
 <% @product.questions.each do |question| %>
   <div class="question-div">
@@ -190,3 +199,4 @@
 
 
 
+</div>
