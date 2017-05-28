@@ -31,13 +31,12 @@ mac = Product.create!(name: 'MacBook Pro',
                       stock: 11,
                       description: 'The new MacBook Pro is faster and more powerful than before, yet remarkably thinner and lighter.1 It has the brightest, most colorful Mac notebook display ever. And it introduces the revolutionary Touch Bar—a Multi-Touch– enabled strip of glass built into the keyboard for instant access to what you want to do, when you want to do it. The new MacBook Pro is built on groundbreaking ideas. And it’s ready for yours.',
                       details: Faker::Lorem.paragraph)
-if Rails.env.development?
-  mac.images = [
-    Pathname.new(Rails.root + 'app/assets/images/products/macbookpro1.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/macbookpro2.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/macbookpro3.jpg').open
-  ]
-end
+
+mac.images = [
+  Pathname.new(Rails.root + 'app/assets/images/products/macbookpro1.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/macbookpro2.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/macbookpro3.jpg').open
+]
 mac.save!
 
 Category.create!(name: 'Notebook')
@@ -93,15 +92,14 @@ echo = Product.create!(name: 'Echo',
                        stock: 11,
                        description: 'Plays all your music from Amazon Music, Spotify, Pandora, iHeartRadio, TuneIn, and more using just your voice.',
                        details: Faker::Lorem.paragraph)
-if Rails.env.development?
-  echo.images = [
-    Pathname.new(Rails.root + 'app/assets/images/products/echo1.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/echo2.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/echo3.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/echo4.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/echo5.jpg').open
-  ]
-end
+
+echo.images = [
+  Pathname.new(Rails.root + 'app/assets/images/products/echo1.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/echo2.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/echo3.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/echo4.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/echo5.jpg').open
+]
 echo.save!
 
 FireTVstick = Product.create!(name: 'Fire TV Stick',
@@ -110,14 +108,13 @@ FireTVstick = Product.create!(name: 'Fire TV Stick',
                               description: 'The next generation of our bestselling Fire TV Stick. The most powerful streaming media stick under $50–now with the Alexa Voice Remote.',
                               details: Faker::Lorem.paragraph)
 
-if Rails.env.development?
-  FireTVstick.images = [
-    Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick1.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick2.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick3.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick4.jpg').open
-  ]
-end
+FireTVstick.images = [
+  Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick1.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick2.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick3.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick4.jpg').open
+]
+
 FireTVstick.save!
 
 innogear = Product.create!(name: 'InnoGear HeadLamp',
@@ -125,17 +122,16 @@ innogear = Product.create!(name: 'InnoGear HeadLamp',
                            stock: 11,
                            description: 'Super Bright LED, max output up to 5000 lumen, powered by 2 pieces of rechargeable batteries(3.7v, 4400mAh).',
                            details: Faker::Lorem.paragraph)
-if Rails.env.development?
-  innogear.images = [
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear1.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear2.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear3.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear4.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear5.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear6.jpg').open,
-    Pathname.new(Rails.root + 'app/assets/images/products/innogear7.jpg').open
-  ]
-end
+
+innogear.images = [
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear1.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear2.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear3.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear4.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear5.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear6.jpg').open,
+  Pathname.new(Rails.root + 'app/assets/images/products/innogear7.jpg').open
+]
 innogear.save!
 
 10.times do
