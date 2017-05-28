@@ -5,7 +5,28 @@
         <a class="new-button" href=<%=new_product_path%>>Add New Product</a>
       <% end %>
   
-  <br><br><br>
+  
+  <% if @category %>
+    <h2> Category: <%= @category.name %> </h2>
+  <% else %>
+    <br><br><br>
+  <% end %>
+
+  <div id="category_tree">
+    
+    <div class="categories-title">
+      Categorías
+    </div>
+
+    <div class="category">
+      <%= link_to "All Products", products_path %>
+    </div>
+    <% @category_index.each do |category, depth| %>
+      <div class="category" style= <%= "padding-left:#{5+12*depth}px;" %> >
+        <%= link_to category.name, products_path(category_id: category.id) %>
+      </div>
+    <% end %>
+  </div>
 
 	<div id="columns" class="columns_4">
 

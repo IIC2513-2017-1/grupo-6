@@ -1,18 +1,29 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticated_admin?, only:[:create, :edit, :update, :destroy]
+  before_action :set_product, only: %i[show edit update destroy]
+  before_action :authenticated_admin?, only: %i[create edit update destroy]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @category_index = category_tree
+
+    category_id = params[:category_id]
+    @products = Product.all.includes(:categories)
+    if category_id
+      category_id = category_id.to_i
+      @category = Category.find(category_id)
+      categories = @category.extended_children
+      @products = Product.all.includes(:categories).select{|x| x.categories.any?{|c| categories.include? c}}
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @review = Review.new
-    @question  = Question.new
+    @question = Question.new
   end
 
   # GET /products/new
@@ -21,8 +32,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /products
   # POST /products.json
@@ -43,14 +53,13 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-
-    # Mas adelante se restringira a que solo el admin pueda crear y editar productos, asique no tiene mucho sentido validar estas acciones
+    # Solo el admin puede crear y editar productos, asique no tiene mucho sentido validar estas acciones
     # (se le da poder total al admin, no tiene sentido restringirlo)
-    ProductCategory.create(product_id: @product.id, category_id: association_changes[:add_category]).id if !association_changes[:add_category].blank?
-    ProductCategory.where(category_id: association_changes[:remove_category], product_id: @product.id).delete_all if !association_changes[:remove_category].blank?
+    ProductCategory.create(product_id: @product.id, category_id: association_changes[:add_category]).id unless association_changes[:add_category].blank?
+    ProductCategory.where(category_id: association_changes[:remove_category], product_id: @product.id).delete_all unless association_changes[:remove_category].blank?
 
-    ProductTag.create(product_id: @product.id, tag_id: association_changes[:add_tag]).id if !association_changes[:add_tag].blank?
-    ProductTag.where(tag_id: association_changes[:remove_tag], product_id: @product.id).delete_all if !association_changes[:remove_tag].blank?
+    ProductTag.create(product_id: @product.id, tag_id: association_changes[:add_tag]).id unless association_changes[:add_tag].blank?
+    ProductTag.where(tag_id: association_changes[:remove_tag], product_id: @product.id).delete_all unless association_changes[:remove_tag].blank?
 
     respond_to do |format|
       if @product.update(product_params)
@@ -74,17 +83,18 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :description, :details, :prize, :stock, {images: []})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def association_changes
-      params.require(:product).permit(:add_category, :remove_category, :add_tag, :remove_tag)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :description, :details, :prize, :stock, images: [])
+  end
+
+  def association_changes
+    params.require(:product).permit(:add_category, :remove_category, :add_tag, :remove_tag)
+  end
 end

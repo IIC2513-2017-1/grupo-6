@@ -24,4 +24,15 @@ class Category < ApplicationRecord
 
     has_many :category_coupons, dependent: :destroy
     has_many :coupons, through: :category_coupons
+
+    def extended_children
+        ext_children = Set.new
+        queue = [self]
+        while queue.length > 0
+            elem = queue.shift
+            ext_children.add(elem)
+            queue += elem.children.includes(:children)
+        end
+        return ext_children
+    end
 end

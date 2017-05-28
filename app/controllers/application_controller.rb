@@ -60,6 +60,33 @@ class ApplicationController < ActionController::Base
     end
     return false
   end
-    
-  
+
+  def category_tree
+    categories = Category.where(parent_id: nil).map{|x| [x,1]}
+    i = 0
+    while i<categories.length
+      category, depth = categories[i]
+      for child in category.children
+        categories.insert(i+1, [child, depth+1])
+      end
+      i+=1
+    end
+    categories
+  end
+
+  def category_tree_hashmap_version
+    parent_categories = Category.where(parent_id: nil).map{|x| [x,{}]}.to_h
+    tree = {base: parent_categories}
+    extend_category_tree(tree[:base])
+    p tree
+    tree
+  end
+
+  def extend_category_tree(dic)
+    dic.each do |category,_|
+      subtree = category.children.map{|x| [x,{}]}.to_h
+      extend_category_tree(subtree)
+      dic[category] = subtree
+    end
+  end
 end

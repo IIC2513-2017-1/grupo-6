@@ -44,4 +44,5 @@ class Product < ApplicationRecord
       0
     end
   end
+  
 end
