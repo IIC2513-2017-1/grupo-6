@@ -1,13 +1,7 @@
 
-<p>
-  <strong>ID:</strong>
-  <%= @user.id %>
-</p>
+<div id="wrap" class="user-info">
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<h2> Your Account </h2>
 
 <p>
   <strong>Username:</strong>
@@ -16,22 +10,28 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <%= "#{@user.name} #{@user.last_name}" %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+  <strong>Email:</strong>
+  <%= @user.email %>
 </p>
 
-<p>
+<p> <strong> Mailing Information: </strong> <p>
+
+<p class="indented">
   <strong>Address:</strong>
   <%= @user.address %>
 </p>
 
-<p>
+<p class="indented">
   <strong>Phone number:</strong>
   <%= @user.phone_number %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<br>
+
+<%= link_to 'Edit Account Information', edit_user_path(@user) %>
+
+</div>

@@ -1,3 +1,15 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.user-info {
+    a {
+        text-decoration: none;
+        color: #00acc1;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    p.indented {
+        margin-left: 40px;
+    }
+}
