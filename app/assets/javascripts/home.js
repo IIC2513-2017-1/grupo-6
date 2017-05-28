@@ -107,12 +107,15 @@ $(document).on('turbolinks:load', function () {
         var oldIndex = s_index
         var curIndex = $navDots.index(this);
         if ($slider.selector=== "#slider-wrap .slides") {
-            if (oldIndex === 2){
+            if (oldIndex === $sliderSlides.length-1){
+                for (var i = oldIndex; i >= 0; i--) {
                 prevSlide()
-                prevSlide()
-                prevSlide()
+            }
+                
             } else {
+            console.log(oldIndex)
 
+            console.log($sliderSlides.length)
             nextSlide()
             }
         }
