@@ -1,6 +1,12 @@
 
 
 
+<% if admin? %>
+  <a class="edit-button" href=<%=edit_product_path%>>Edit Product</a>
+<% end %>
+
+
+
 <table class="no-border">
   <tbody class="no-border">
 
@@ -191,12 +197,5 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-
-<% if admin? %>
-  <%= link_to 'Edit', edit_product_path(@product) %>
-<% end %>
-
-
 
 </div>
