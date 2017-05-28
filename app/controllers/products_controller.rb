@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    @products = @products.order(:id)
   end
 
   # GET /products/1
