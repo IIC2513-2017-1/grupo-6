@@ -1,19 +1,12 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-
 // carrousel
-
 $carrousel_height: 200px;
 $carrousel_width: 1000px;
-
 $color_ysh_org: #d75229;
 $color_ysh_gry:#d0ddcb;
 $color_bse_gry:#999;
-
-
 .home-products {
     margin-top: 50px;
 }
@@ -23,19 +16,22 @@ $color_bse_gry:#999;
     height: $carrousel_height;
 }
 
+.carrousel-link {
+    padding: 0px;
+    width: 0px;
+}
+
 .product-carrousel {
     width: $carrousel_width;
     height: $carrousel_height;
     border-right: 1px solid $color_ysh_gry;
     margin: 0 auto;
-
     ul,
     li {
         margin: 0;
         padding: 0;
         list-style: none;
     }
-
     #slider-wrap {
         position: relative;
         background: $color_bse_gry;

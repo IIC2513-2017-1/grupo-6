@@ -10,8 +10,8 @@
     <div id="slider-wrap">
       <ul class="slides" id="offer-slides">
 
-            <li><%= image_tag "oferta1.jpg", class:"carrousel-image" %></li> 
-            <li><%= image_tag "oferta2.jpg", class:"carrousel-image" %></li> 
+            <li><a href= <%= product_path(2) %> class= "carrousel-link" ><%= image_tag "oferta1.jpg", class:"carrousel-image" %></a></li> 
+            <li><a href= <%= product_path(3) %> class= "carrousel-link" ><%= image_tag "oferta2.jpg", class:"carrousel-image" %></a></li> 
             <li><%= image_tag "oferta3.jpg", class:"carrousel-image" %></li> 
           </ul>
           <ul class="nav-dots">
