@@ -16,7 +16,7 @@
 
           <% if @product.images.length() > 0 %>
               <% @product.images.each_with_index do |img, index| %>
-                <li><%= image_tag img.url, class:"gallery-image" %></li> 
+                <li class=frame><%= image_tag img.url, class:"gallery-image" %></li> 
               <% end %>
               </ul>
               <ul class="nav-dots">
