@@ -136,6 +136,11 @@ innogear.images = [
 ]
 innogear.save!
 
+for i in 2..4
+  ProductCategory.create!(product_id: i,
+                        category_id: 3)
+end
+
 10.times do
   p = Product.create!(name: Faker::Commerce.product_name,
                       prize: Random.rand(1..10_000),
