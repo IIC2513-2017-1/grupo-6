@@ -7,7 +7,16 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 User.create!(name: Faker::StarWars.character,
-             email: 'orrios@uc.cl',
+             email: 'admin.virtual.store@uc.cl',
+             username: Faker::Internet.user_name,
+             last_name: Faker::StarWars.specie,
+             phone_number: '95687485',
+             is_admin: true,
+             address: Faker::StarWars.wookie_sentence,
+             password: 'asdfqwertyui')
+
+User.create!(name: Faker::StarWars.character,
+             email: 'user.virtual.store@uc.cl',
              username: Faker::Internet.user_name,
              last_name: Faker::StarWars.specie,
              phone_number: '95687485',
