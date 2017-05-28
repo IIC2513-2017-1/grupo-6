@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$(document).on('turbolinks:load', function () {
+$(document).on('turbolinks:load', function() {
     var $sliderWrap = $('#slider-wrap'),
         $slider = $sliderWrap.find('.slides'),
         $firstSlide = $slider.find('li:first'),
@@ -79,10 +79,10 @@ $(document).on('turbolinks:load', function () {
     // set slider width
     setSliderWidth();
 
-    $navDots.on('click', function (e) {
+    $navDots.on('click', function(e) {
         var oldIndex = s_index,
             curIndex = $navDots.index(this);
-            
+
         if (curIndex === oldIndex) {
             return false
         } else if (oldIndex < curIndex) {
@@ -98,73 +98,79 @@ $(document).on('turbolinks:load', function () {
     });
 
 
-// add to cart counter
+    // add to cart counter
 
     (function() {
- 
-  window.inputNumber = function(el) {
 
-    var min = el.attr('min') || false;
-    var max = el.attr('max') || false;
+        window.inputNumber = function(el) {
 
-    var els = {};
+            var min = el.attr('min') || false;
+            var max = el.attr('max') || false;
 
-    els.dec = el.prev();
-    els.inc = el.next();
+            var els = {};
 
-    el.each(function() {
-      init($(this));
+            els.dec = el.prev();
+            els.inc = el.next();
+
+            el.each(function() {
+                init($(this));
+            });
+
+            function init(el) {
+
+                els.dec.on('click', decrement);
+                els.inc.on('click', increment);
+
+                function decrement() {
+                    var value = el[0].value;
+                    value--;
+                    if (!min || value >= min) {
+                        el[0].value = value;
+                    }
+                }
+
+                function increment() {
+                    var value = el[0].value;
+                    value++;
+                    if (!max || value <= max) {
+                        el[0].value = value++;
+                    }
+                }
+            }
+        }
+    })();
+
+    inputNumber($('.input-number'));
+
+
+    // tabs js
+
+    $('.tablinks').on('click', function() {
+        var link = $(this);
+        var tab = $('.' + link.data('tab'));
+
+        // Get all elements with class="tabcontent" and hide them
+        $('.tabcontent').each(function() {
+            $(this).hide();
+        });
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        $('.tablinks').each(function() {
+            $(this).removeClass('active');
+        });
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        tab.show();
+        link.addClass('active');
     });
+    $('.defaultOpen').click();
 
-    function init(el) {
+    // set category tree width on load
+    $('#category_tree').mouseover(function() {
+            $(this).addClass('hovered-on-load');
+        })
+        .mouseout(function() {
+            $(this).removeClass('hovered-on-load');
 
-      els.dec.on('click', decrement);
-      els.inc.on('click', increment);
-
-      function decrement() {
-        var value = el[0].value;
-        value--;
-        if(!min || value >= min) {
-          el[0].value = value;
-        }
-      }
-
-      function increment() {
-        var value = el[0].value;
-        value++;
-        if(!max || value <= max) {
-          el[0].value = value++;
-        }
-      }
-    }
-  }
-})();
-
-inputNumber($('.input-number'));
-
-
-// tabs js
-
-$('.tablinks').on('click', function() {
-     var link = $(this);
-     var tab = $('.' + link.data('tab'));
- 
-     // Get all elements with class="tabcontent" and hide them
-     $('.tabcontent').each(function() {
-       $(this).hide();
-     });
- 
-     // Get all elements with class="tablinks" and remove the class "active"
-     $('.tablinks').each(function() {
-       $(this).removeClass('active');
-     });
- 
-     // Show the current tab, and add an "active" class to the button that opened the tab
-     tab.show();
-     link.addClass('active');
-   });
-   $('.defaultOpen').click();
- });
-
-
-
+        });
+});

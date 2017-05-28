@@ -12,9 +12,10 @@
     <br><br><br>
   <% end %>
 
-  <div id="category_tree">
+  <div id="category_tree" class="transition">
     
-    <div class="categories-title">
+    
+    <div class="categories-title transition">
       Categories
     </div>
 
@@ -26,6 +27,7 @@
         <%= link_to category.name, products_path(category_id: category.id) %>
       </div>
     <% end %>
+    <a href="?active=true">
   </div>
 
 	<div id="columns" class="columns_4">
