@@ -48,6 +48,8 @@ Category.create!(name: 'Apple',
 ProductCategory.create!(product_id: 1,
                         category_id: 2)
 
+Category.create!(name: 'Misc')
+
 Tag.create!(name: 'Apple')
 ProductTag.create!(tag_id: 1,
                    product_id: 1)
@@ -135,11 +137,14 @@ innogear.images = [
 innogear.save!
 
 10.times do
-  Product.create!(name: Faker::Commerce.product_name,
-                  prize: Random.rand(1..10_000),
-                  stock: Random.rand(10..20),
-                  description: Faker::Lorem.paragraph(2),
-                  details: Faker::Lorem.paragraph)
+  p = Product.create!(name: Faker::Commerce.product_name,
+                      prize: Random.rand(1..10_000),
+                      stock: Random.rand(10..20),
+                      description: Faker::Lorem.paragraph(2),
+                      details: Faker::Lorem.paragraph)
+
+  ProductCategory.create!(product_id: p.id,
+                          category_id: Random.rand(1..3))
 end
 
 AnswerVote.create!(user_id: 1,
