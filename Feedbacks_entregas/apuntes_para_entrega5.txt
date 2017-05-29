@@ -1,0 +1,19 @@
+cambiar colores signup
+la linea del footer no va de final a final o de 1/4 a 3/4
+en el form del login sacar los asteriscos
+cuadrar mejor el new user, labels a un lado y los inputs al otro
+¿por que cuando se inscribio con punto y se guardo sin punto el correo?
+mas bonito el user show
+mostrar foto perfil
+VER LOS LINKS DEL MAILER
+que agregar tags sea por nombre
+
+QUE HAYA BUSQUEDA DE PRODUCTOS POR TAG Y NOMBRE (PONER FILTRO DE PRECIO SERIA GENIAL). QUE VAYA FILTRANDO DINAMICAMENTE
+AGREGAR AJAX DONDE TENGA SENTIDO
+SACAR EL PODER COMENTAR UNA REVIEW
+QUE QUESTIONS SEAN COMENTARIOS Y RESPUESTAS A COMENTARIOS NO SE PUEDE RESPONDER UNA RESPUESTA.
+considerar twitter como apo
+que el featured products sea por categorías
+que en la vista de productos primero salgan los productos en oferta
+
+en dashboard agregar graficos (ej: cuanto has vendido por categorias, etc)
