@@ -69,7 +69,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = {
-    host: 'localhost'
+    host: 'virtual-store-iic2513.herokuapp.com'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
