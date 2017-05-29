@@ -69,8 +69,12 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = {
-    host: 'virtual-store-iic2513.herokuapp.com'
+    host: 'virtual-store-iic2513.herokuapp.com',
+    secure: true
   }
+
+  # Force https
+  config.force_ssl = true
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
