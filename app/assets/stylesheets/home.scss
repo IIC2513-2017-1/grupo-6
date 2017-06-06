@@ -21,6 +21,11 @@ $color_bse_gry:#999;
     width: 0px;
 }
 
+.offer-carrousel {
+    position: relative;
+    margin-left: -35px; //centering the carrousel
+}
+
 .product-carrousel {
     width: $carrousel_width;
     height: $carrousel_height;
