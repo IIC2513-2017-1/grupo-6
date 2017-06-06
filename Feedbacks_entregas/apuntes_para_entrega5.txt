@@ -1,6 +1,6 @@
 (check) - la linea del footer no va de final a final o de 1/4 a 3/4
 (check) - en el form del login sacar los asteriscos
-cuadrar mejor el new user, labels a un lado y los inputs al otro
+(check) - cuadrar mejor el new user, labels a un lado y los inputs al otro
 (check) - cambiar color login
 (check) - aumentar tamaño entre los productos en el index
 ¿por que cuando se inscribio con punto y se guardo sin punto el correo?
