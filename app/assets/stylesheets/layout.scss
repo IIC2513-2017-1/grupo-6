@@ -88,6 +88,10 @@ main {
     height: 100%;
 }
 
+.login abbr[title="required"] {
+    display: none;
+}
+
 #user-bar div#not-logged-in {
     padding-top: 17px;
 }
