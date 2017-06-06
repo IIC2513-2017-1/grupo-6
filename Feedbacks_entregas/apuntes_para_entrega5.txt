@@ -1,7 +1,8 @@
-cambiar colores signup
 (check) - la linea del footer no va de final a final o de 1/4 a 3/4
 (check) - en el form del login sacar los asteriscos
 cuadrar mejor el new user, labels a un lado y los inputs al otro
+(check) - cambiar color login
+(check) - aumentar tamaño entre los productos en el index
 ¿por que cuando se inscribio con punto y se guardo sin punto el correo?
 mas bonito el user show
 mostrar foto perfil
@@ -12,7 +13,7 @@ QUE HAYA BUSQUEDA DE PRODUCTOS POR TAG Y NOMBRE (PONER FILTRO DE PRECIO SERIA GE
 AGREGAR AJAX DONDE TENGA SENTIDO
 SACAR EL PODER COMENTAR UNA REVIEW
 QUE QUESTIONS SEAN COMENTARIOS Y RESPUESTAS A COMENTARIOS NO SE PUEDE RESPONDER UNA RESPUESTA.
-considerar twitter como apo
+considerar twitter como api
 que el featured products sea por categorías
 que en la vista de productos primero salgan los productos en oferta
 
