@@ -9,7 +9,7 @@
   <% if @category %>
     <h2> Category: <%= @category.name %> </h2>
   <% else %>
-    <br><br><br>
+    <h2> All the products </h2>
   <% end %>
 
   <div id="category_tree" class="transition">
@@ -20,42 +20,16 @@
     </div>
 
     <div class="category">
-      <%= link_to "All Products", products_path %>
+      <%= link_to "All Products", products_path, remote: true %>
     </div>
     <% @category_index.each do |category, depth| %>
       <div class="category" style= <%= "padding-left:#{5+12*depth}px;" %> >
-        <%= link_to category.name, products_path(category_id: category.id) %>
+        <%= link_to category.name, products_path(category_id: category.id), remote: true %>
       </div>
     <% end %>
     <a href="?active=true">
   </div>
 
-	<div id="columns" class="columns_4">
-
-   <% @products.each do |product| %>
-      <figure>
-        <%= link_to product do %>
-            <% if product.images.length() > 0 %>
-              <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
-            <% else %>
-              <%= image_tag("unavailable.jpg") %>
-            <% end %>
-        <% end %>
-                
-        <figcaption><%= product.name %></figcaption>
-        <span class="price">$ <%= product.prize %></span>
-
-        <%= form_tag("/cart/add",method:"post", class:"button") do %>
-          <%= hidden_field_tag("cart[product_id]", product.id)%>
-          <%= hidden_field_tag("cart[quantity]",1) %>
-          <%= submit_tag("Add to Cart", class:"button")%>
-        <% end %>
-
-        <% if current_user&.is_admin %>
-          <%= link_to fa_icon("edit"), edit_product_path(product) %>
-     
-          <%= link_to fa_icon("trash-o"), product, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-
-      </figure>
-    <% end %>
+  <div id="columns" class="columns_4">
+	  <%= render :partial => "cards" %>
+  </div>

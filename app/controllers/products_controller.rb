@@ -5,15 +5,22 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @category_index = category_tree
+    respond_to do |format|
+      @category_index = category_tree
+      category_id = params[:category_id]
+      @products = Product.all.order(:id).includes(:categories)
+      if category_id
+        category_id = category_id.to_i
+        @category = Category.find(category_id)
+        categories = @category.extended_children
+        @products = @products.select{|x| x.categories.any?{|c| categories.include? c}}
+        @cat_name = @category.name
+      else
+        @cat_name = "All products"
+      end
 
-    category_id = params[:category_id]
-    @products = Product.all.order(:id).includes(:categories)
-    if category_id
-      category_id = category_id.to_i
-      @category = Category.find(category_id)
-      categories = @category.extended_children
-      @products = @products.select{|x| x.categories.any?{|c| categories.include? c}}
+      format.html
+      format.js
     end
   end
 

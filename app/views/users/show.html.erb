@@ -1,37 +1,57 @@
-
 <div id="wrap" class="user-info">
 
-<h2> Your Account </h2>
+  <h2> Your Account </h2>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= "#{@user.name} #{@user.last_name}" %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p> <strong> Mailing Information: </strong> <p>
+  <table class="no-border">
+    <tbody class="no-border">
 
-<p class="indented">
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
 
-<p class="indented">
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
-</p>
 
-<br>
 
-<%= link_to 'Edit Account Information', edit_user_path(@user) %>
+
+        </td>
+        <td class="no-border" valign="top">
+
+          <p>
+            <strong>Username:</strong>
+            <%= @user.username %>
+          </p>
+
+          <p>
+            <strong>Name:</strong>
+            <%= "#{@user.name} #{@user.last_name}" %>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <%= @user.email %>
+          </p>
+
+          <p> <strong> Mailing Information: </strong>
+
+
+            <p class="indented">
+              <strong>Address:</strong>
+              <%= @user.address %>
+            </p>
+
+            <p class="indented">
+              <strong>Phone number:</strong>
+              <%= @user.phone_number %>
+            </p>
+
+            <br>
+
+            <%= link_to 'Edit Account Information', edit_user_path(@user) %>
 
 </div>
+
+
+</td>
+</tbody>
+</table>

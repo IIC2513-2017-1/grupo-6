@@ -1,0 +1,2 @@
+$('#columns').html("<%= escape_javascript(render partial: 'cards', locals: { items: @products } ) %>");
+$('h2').text("<%= @cat_name %>")
