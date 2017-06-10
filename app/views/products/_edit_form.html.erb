@@ -17,8 +17,8 @@
   <%= f.input :prize %>
   <%= f.input :stock %>
 
-  <%= f.input :add_category, collection: (Category.all - @product.categories).pluck(:id)%>
-  <%= f.input :remove_category, collection: @product.categories.pluck(:id)%>
+  <%= f.input :add_category, collection: (Category.all - @product.categories), label_method: :name, value_method: :id%>
+  <%= f.input :remove_category, collection: @product.categories, label_method: :name, value_method: :id%>
 
   <%= f.input :add_tag, collection: (Tag.all - @product.tags), label_method: :name, value_method: :id%>
   <%= f.input :remove_tag, collection: @product.tags, label_method: :name, value_method: :id%>
