@@ -191,16 +191,21 @@ function maxPrice() {
     var max;
     max = 0;
     div = document.getElementById("productCards");
-    cards = div.getElementsByTagName('figure');
 
-    for (i = 0; i < cards.length; i++) {
-        price = cards[i].getElementsByTagName("span")[0];
-        price = +price.innerHTML.slice(2, )
-        if (price > max) {
-            max = price;
+    if (div) {
+        cards = div.getElementsByTagName('figure');
+        for (i = 0; i < cards.length; i++) {
+            price = cards[i].getElementsByTagName("span")[0];
+            price = +price.innerHTML.slice(2, )
+            if (price > max) {
+                max = price;
+            }
         }
+        return max;
+
     }
-    return max;
+
+
 
 }
 
