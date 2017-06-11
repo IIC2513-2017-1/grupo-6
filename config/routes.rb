@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/sessions/reset_password', to: 'sessions#new_password'
   post '/sessions/reset_password', to: 'sessions#reset_password'
 
+  get '/dashboard', to: 'home#dashboard'
 
   root 'home#index'
 

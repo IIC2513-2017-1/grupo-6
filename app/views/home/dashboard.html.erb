@@ -1,0 +1,123 @@
+<div id="wrap">
+  <h2> Admin dashboard </h2>
+
+
+  <div class="tab">
+    <button class="tablinks defaultOpen" data-tab="graphs-tab">Graphs</button>
+    <button class="tablinks" data-tab="users-tab">Users</button>
+    <button class="tablinks" data-tab="categories-tab">Categories</button>
+    <button class="tablinks" data-tab="tags-tab">Tags</button>
+    <button class="tablinks" data-tab="reviews-tab">Reviews</button>
+    <button class="tablinks" data-tab="comments-tab">Comments</button>
+    <button class="tablinks" data-tab="orders-tab">Orders</button>
+    <button class="tablinks" data-tab="questions-tab">Questions</button>
+    <button class="tablinks" data-tab="answers-tab">Answers</button>
+    <button class="tablinks" data-tab="coupons-tab">Coupons</button>
+  </div>  
+
+  <div class = "graphs-tab tabcontent">
+    <h2> Graphs </h2>
+    <div id="container"></div>
+  </div>
+
+  <div class = "users-tab tabcontent">
+    <%= render template: 'users/index'%>
+  </div>
+
+  <div class = "categories-tab tabcontent">
+    <%= render template: 'categories/index'%>
+  </div>
+
+  <div class = "tags-tab tabcontent">
+    <%= render template: 'tags/index'%>
+  </div>
+  
+  <div class = "reviews-tab tabcontent">
+    <%= render template: 'reviews/index'%>
+  </div>
+
+  <div class = "comments-tab tabcontent">
+    <%= render template: 'comments/index'%>
+  </div>
+
+  <div class = "orders-tab tabcontent">
+    <%= render template: 'orders/index'%>
+  </div>
+
+  <div class = "questions-tab tabcontent">
+    <%= render template: 'questions/index'%>
+  </div>
+
+  <div class = "answers-tab tabcontent">
+    <%= render template: 'answers/index'%>
+  </div>
+
+  <div class = "coupons-tab tabcontent">
+    <%= render template: 'coupons/index'%>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<style>
+#container {
+	min-width: 310px;
+	max-width: 800px;
+	height: 400px;
+	margin: 0 auto
+}
+</style>
+
+<script>Highcharts.chart('container', {
+
+    title: {
+        text: 'Solar Employment Growth by Sector, 2010-2016'
+    },
+
+    subtitle: {
+        text: 'Source: thesolarfoundation.com'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Number of Employees'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 2010
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+    }, {
+        name: 'Manufacturing',
+        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+    }, {
+        name: 'Sales & Distribution',
+        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+    }, {
+        name: 'Project Development',
+        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+    }, {
+        name: 'Other',
+        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+    }]
+
+});
+</script>
