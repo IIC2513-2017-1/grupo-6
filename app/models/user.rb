@@ -13,6 +13,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string
+#  avatar          :string
 #
 # Indexes
 #
@@ -21,10 +22,11 @@
 #
 
 class User < ApplicationRecord
+    mount_uploader :avatar, AvatarUploader
     has_secure_password
 
-    validates :password, presence: true, length: { minimum: 6 },
-                        allow_blank: false
+    validates :password, presence: {on: :create}, length: { minimum: 6 },
+                        allow_blank: {on: :update}
     validates :email, presence: true, uniqueness: true, allow_blank: false,
                     format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates :username, presence: true, uniqueness: true, length: {minimum: 2}

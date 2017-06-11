@@ -2,17 +2,14 @@
 
   <h2> Your Account </h2>
 
-
-
-
+  <% if !@user.avatar.file.nil? %>
+    <%= image_tag @user.avatar.url, id: "avatar-show"%>
+  <% end %>
   <table class="no-border">
     <tbody class="no-border">
 
       <tr class="no-border">
         <td class="no-border" valign="top">
-
-
-
 
         </td>
         <td class="no-border" valign="top">

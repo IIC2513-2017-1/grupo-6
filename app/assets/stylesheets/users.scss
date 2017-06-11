@@ -86,3 +86,22 @@ div.user-info {
 .signup input[type="submit"]:hover {
     background: #0097A7;
 }
+
+#avatar-show {
+    max-width: 100px;
+    max-height: 100px;
+    position: fixed;
+    margin-left: 540px;
+    margin-top: 30px;
+    border: 2px solid #021a40;
+    border-radius: 100px;
+    background-color: #ffffff;
+}
+
+#user-thumb {
+    max-width: 40px;
+    max-height: 40px;
+    border: 1px solid #021a40;
+    border-radius: 100px;
+    background-color: #ffffff;
+}
