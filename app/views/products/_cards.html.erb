@@ -1,4 +1,8 @@
-
+  <div>
+    <input type="text" id="filterInput" onkeyup="filter()" placeholder="Search for names..">  
+  </div>
+   <br><br><br>
+   <div id="productCards">
    <% @products.each do |product| %>
       <figure>
         <%= link_to product do %>
@@ -26,3 +30,4 @@
 
       </figure>
     <% end %>
+    </div>

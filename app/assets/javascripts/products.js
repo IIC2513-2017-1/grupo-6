@@ -173,4 +173,28 @@ $(document).on('turbolinks:load', function() {
             $(this).removeClass('hovered-on-load');
 
         });
+
+
+
+
 });
+
+function filter() {
+    console.log("filter")
+        // Declare variables
+    var input, filter, div, name, i;
+    input = document.getElementById('filterInput');
+    filter = input.value.toUpperCase();
+    div = document.getElementById("productCards");
+    cards = div.getElementsByTagName('figure');
+
+    // Loop through all cards, and hide those who don't match the search query
+    for (i = 0; i < cards.length; i++) {
+        name = cards[i].getElementsByTagName("figcaption")[0];
+        if (name.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
