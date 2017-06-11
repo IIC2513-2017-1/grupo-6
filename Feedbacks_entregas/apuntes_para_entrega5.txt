@@ -4,8 +4,8 @@
 (check) - cambiar color login
 (check) - aumentar tamaño entre los productos en el index
 (check) - ¿por que cuando se inscribio con punto y se guardo sin punto el correo?
-mas bonito el user show
-mostrar foto perfil
+(check) - mas bonito el user show
+(check) - mostrar foto perfil
 (check) - VER LOS LINKS DEL MAILER
 (check) - que agregar tags sea por nombre
 
