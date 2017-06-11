@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  parent_id  :integer
+#
+# Indexes
+#
+#  index_categories_on_name  (name) UNIQUE
+#
+
 require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
