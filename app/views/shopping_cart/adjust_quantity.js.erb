@@ -1,1 +1,9 @@
-<%= render partial: 'flash_message', locals: {message: "Your Shopping Cart has been updated successfuly!"} %>
+<%= render partial: 'flash_message', locals: {message: "Your Shopping Cart has been updated successfuly!", timeout: 0} %>
+
+var quantity = document.querySelector("tr[data-product-id='<%= @product_id %>'] td[data-attribute='quantity']")
+var cost = document.querySelector("tr[data-product-id='<%= @product_id %>'] td[data-attribute='total-cost']")
+var total_cost = document.querySelector("p[data-attribute='total-cost-global']")
+
+quantity.innerHTML = "<%= @quantity %>"
+cost.innerHTML = "$<%= @quantity * @product.prize %>"
+total_cost.innerHTML = "<strong> Total: $<strong><%= @total %>"

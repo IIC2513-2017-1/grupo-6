@@ -68,11 +68,26 @@
     </header>
     
     <main>
+      <% if (flash_message = flash[:alert]).present? %>
+        <div id="flash-alert" style="display: block;">
+          <button class="close-flash-button"><strong>x</strong></button>
+          <p><%= flash_message %></p>
+        </div>
+      <% elsif (flash_message = flash[:notice]).present?%>
+        <div id="flash-message" style="display: block;">
+          <button class="close-flash-button"><strong>x</strong></button>
+          <p><%= flash_message %></p>
+        </div>
+      <% end %>
+
+      <!-- 
       <% [:alert, :notice].each do |flash_type| %>
         <% if (flash_message = flash[flash_type]).present? %>
           <div class="<%= flash_type %>"><%= flash_message %></div>
         <% end %>
       <% end %>
+      -->
+
       <%= yield %>
     </main>
     <br>

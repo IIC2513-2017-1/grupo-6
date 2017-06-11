@@ -1,6 +1,11 @@
 <p>
+  <strong>Order ID:</strong>
+  <%= @order.id %>
+</p>
+
+<p>
   <strong>Status:</strong>
-  <%= @order.status %>
+  <%= @order.status.to_s.gsub('_',' ') %>
 </p>
 
 <p>

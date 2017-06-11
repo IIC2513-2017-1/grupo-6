@@ -19,6 +19,9 @@ class ShoppingCartController < ApplicationController
   def remove_item
     @product_id = cart_params[:product_id]
     @cart.delete(@product_id)
+
+    @total = calculate_total
+
     respond_to do |format|
       format.html do
         flash[:notice] = 'The item was successfully removed from your Shopping Cart'
@@ -29,11 +32,17 @@ class ShoppingCartController < ApplicationController
   end
 
   def adjust_quantity
-    if cart_params[:quantity] > 0
-      @cart[cart_params[:product_id]] = cart_params[:quantity]
+    @product_id = cart_params[:product_id]
+    @product = Product.find(@product_id)
+    @quantity = cart_params[:quantity]
+    if @quantity > 0
+      @cart[@product_id] = @quantity
     else
-      @cart.delete(cart_params[:product_id])
+      @cart.delete(@product_id)
     end
+
+    @total = calculate_total
+
     respond_to do |format|
       format.html do
         flash[:notice] = 'Your Shopping Cart has been updated successfuly'
@@ -51,6 +60,13 @@ class ShoppingCartController < ApplicationController
   end
 
   private
+
+  def calculate_total
+    products = Product.find(@cart.keys).map do |p|
+      [p, @cart[p.id.to_s]]
+    end
+    products.map { |p, q| p.prize * q }.sum
+  end
 
   def set_cart
     @cart = session['cart'] ||= {}

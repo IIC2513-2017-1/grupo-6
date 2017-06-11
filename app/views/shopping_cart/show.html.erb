@@ -18,8 +18,8 @@
           <td><%= link_to fa_icon("search"), product %></td>
           <td width="15%"><%= product.name %></td>
           <td width="15%">$<%= product.prize %></td>
-          <td width="15%"><%= quantity %></td>
-          <td width="15%">$<%= product.prize * quantity %></td>
+          <td width="15%" data-attribute="quantity"><%= quantity %></td>
+          <td width="15%" data-attribute="total-cost">$<%= product.prize * quantity %></td>
           <td width="30%">
           <%= form_tag(cart_edit_path,method:"post", remote:true) do %>
             <%= hidden_field_tag("cart[product_id]", product.id)%>
@@ -41,9 +41,8 @@
   </table>
 
 
-  <p>
-    <strong> Total: $<strong>
-    <%= @total %>
+  <p data-attribute="total-cost-global">
+    <strong> Total: $<strong><%= @total %>
   </p>
 
   <br>

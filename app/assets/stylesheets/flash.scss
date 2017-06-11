@@ -1,14 +1,42 @@
-#flash-message {
-    display: none;
-    z-index: 1000;
-    position: fixed;
-    top: 100px;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    border: 2px solid #021a40;
-    background-color: #e6ffe6;
-    border-radius: 3px;
-    text-align: center;
-    opacity: 0.85;
-}
+    #flash-message {
+        display: none;
+        z-index: 1000;
+        position: fixed;
+        top: 100px;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        border: 2px solid #021a40;
+        background-color: #e6ffe6;
+        border-radius: 3px;
+        text-align: center;
+        opacity: 0.85;
+    }
+    
+    #flash-alert {
+        display: none;
+        z-index: 1000;
+        position: fixed;
+        top: 100px;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        border: 2px solid #021a40;
+        background-color: #ffebe6;
+        border-radius: 3px;
+        text-align: center;
+        opacity: 0.85;
+    }
+    
+    .close-flash-button {
+        vertical-align: middle;
+        text-align: center;
+        margin: 0 auto;
+        float: right;
+        padding: 0;
+        border-radius: 20px;
+        width: 20px;
+        height: 20px;
+        border: none;
+        background-color: inherit;
+    }

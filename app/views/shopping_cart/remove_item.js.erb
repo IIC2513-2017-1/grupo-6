@@ -1,3 +1,6 @@
-<%= render partial: 'flash_message', locals: {message: "The item was successfully removed from your Shopping Cart!"} %>
+<%= render partial: 'flash_message', locals: {message: "The item was successfully removed from your Shopping Cart!", timeout: 3500} %>
 var row = document.querySelector("tr[data-product-id='<%= @product_id %>'")
 row.parentNode.removeChild(row);
+
+var total_cost = document.querySelector("p[data-attribute='total-cost-global']")
+total_cost.innerHTML = "<strong> Total: $<strong><%= @total %>"
