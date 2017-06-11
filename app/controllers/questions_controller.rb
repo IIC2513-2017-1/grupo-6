@@ -34,9 +34,11 @@ class QuestionsController < ApplicationController
       if @question.save
         format.html { redirect_to @question.product, notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
+        format.js
       else
         format.html { redirect_to @question.product }
         format.json { render json: @question.errors, status: :unprocessable_entity }
+        format.js { redirect_to @question.product }
       end
     end
   end

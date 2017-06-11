@@ -154,17 +154,16 @@
 </div>
 <div class = "questions-tab tabcontent">
 <h2> Questions & Answers </h2>
-<% @product.questions.each do |question| %>
-  <div class="question-div">
-    <p> <%= question.content %> </p>
-    <h5> By <%= question.user.username %> </h5>
-    <div style="padding: 10px;">
-    <%= link_to fa_icon("search"), question %>
-    </div>
-  </div>
-<% end %>
+<div id="questions-div">
+  <% @product.questions.each do |question| %>
+    <%= render partial: 'questions/card', locals: {question: question} %>
+    <% question.answers.each do |answer| %>
+      <%= render partial: 'answers/card', locals: {answer: answer} %>
+    <% end %>
+  <% end %>
+</div>
 
-<%= simple_form_for(@question) do |f| %>
+<%= simple_form_for(@question, remote: true) do |f| %>
   <h2> Write new Question </h2>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -178,7 +177,7 @@
     </div>
   <% end %>
 
-  <%= f.input :content, label: false, :input_html => {style: 'width: 800px; height: 180px;'}%>
+  <%= f.input :content, label: false%>
   <%= f.hidden_field :product_id, value: @product.id %>
 
   <div class="actions" style="float:right;">

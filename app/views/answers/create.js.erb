@@ -1,0 +1,9 @@
+var question_form = $("#answer-for-<%= @answer.question.id %>");
+question_form.after("<%= escape_javascript(render partial: 'card', locals: { answer: @answer } ) %>");
+
+hide_answer_form(<%= @answer.question.id %>);
+
+$('#answer-for-<%= @answer.question.id %>')[0].reset();
+
+
+<%= render partial: 'flash_message', locals: {message: "Comment sucessfully created!", timeout: 3500} %>

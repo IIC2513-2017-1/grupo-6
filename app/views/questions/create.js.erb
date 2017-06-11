@@ -1,0 +1,5 @@
+$('#questions-div').append("<%= escape_javascript(render partial: 'questions/card', locals: { question: @question } ) %>");
+
+<%= render partial: 'flash_message', locals: {message: "Comment sucessfully created!", timeout: 3500} %>
+
+$('#new_question')[0].reset();

@@ -1,0 +1,30 @@
+<div class="question-div" data-question-id="<%= question.id %>">
+  <p> <%= question.content %> </p>
+  <div>
+    <h5> By <%= question.user.username %> </h5>
+    <button class="show-button" data-question-id="<%= question.id %>" onclick="show_answer_form(<%= question.id %>)"> Reply </button>
+    <button class="hide-button hidden" data-question-id="<%= question.id %>" onclick="hide_answer_form(<%= question.id %>)"> Cancel </button>
+  </div>
+</div>
+
+<% answer = Answer.new %>
+<%= simple_form_for(answer, html: {id: "answer-for-#{question.id}", class:'answer-form-embedded hidden'}, remote: true) do |f| %>
+<% if answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+    <ul>
+    <% answer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= f.input :content , label: false %>
+<%= f.hidden_field :question_id, value: question.id %>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
