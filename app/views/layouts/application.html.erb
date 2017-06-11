@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
   </head>
 
   <body>
@@ -17,22 +19,7 @@
           </li>
           <li><%= link_to 'Products', products_path %></li>
           <% if admin? %>
-          <ul>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Admin</a>
-              <div class="dropdown-content">
-                <%= link_to 'Users', users_path %>
-                <%= link_to 'Categories', categories_path %>
-                <%= link_to 'Tags', tags_path %>
-                <%= link_to 'Reviews', reviews_path %>
-                <%= link_to 'Comments', comments_path %>
-                <%= link_to 'Orders', orders_path %>
-                <%= link_to 'Questions', questions_path %>
-                <%= link_to 'Answers', answers_path %>
-                <%= link_to 'Coupons', coupons_path %>
-              </div>
-            </li>
-          </ul>
+            <li><%= link_to 'Dashboard', dashboard_path %></li>
           <% end %>
 
           <li id="user-bar">
