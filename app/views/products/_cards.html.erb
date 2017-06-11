@@ -1,11 +1,17 @@
   <div>
-    <input type="text" id="filterInput" onkeyup="filter()" placeholder="Filter by names..">  
+    <input type="text" id="filterInput" onkeyup="filter()" placeholder="Filter by name or tags...">    
+  </div>
+  <div>
+    Filter by Price:
+    <input type="number" id="low" class="priceFilter" onkeyup="filter()" onchange="filter()" min="0">
+    -
+    <input type="number" id="high" class="priceFilter" onchange="filter()" min="0">
   </div>
 
    <br>
    <div id="productCards">
    <% @products.each do |product| %>
-      <figure>
+      <figure data-tags='<%= product.tags.map{|x| x.name} %>'>
         <%= link_to product do %>
             <% if product.images.length() > 0 %>
               <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
@@ -28,7 +34,6 @@
      
           <%= link_to fa_icon("trash-o"), product, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-
       </figure>
     <% end %>
     </div>
