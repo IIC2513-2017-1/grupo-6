@@ -239,6 +239,10 @@ function priceFilter() {
 
     }
 
+    if (low === 0) {
+        $("#low").val(0);
+    }
+
     if (low > high) {
         $("#high").val(low);
     }
