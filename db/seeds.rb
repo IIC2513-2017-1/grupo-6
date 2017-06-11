@@ -57,7 +57,19 @@ Category.create!(name: 'Apple',
 ProductCategory.create!(product_id: 1,
                         category_id: 2)
 
+Category.create!(name: 'Cellphone')
+Category.create!(name: 'Tablet')
+Category.create!(name: 'Accessories')
+Category.create!(name: 'Mouse',
+                 parent_id: 5)
+Category.create!(name: 'Keyboard',
+                 parent_id: 5)
+Category.create!(name: 'Microphone',
+                 parent_id: 5)
+Category.create!(name: 'Headphone',
+                 parent_id: 5)
 Category.create!(name: 'Misc')
+
 
 Tag.create!(name: 'Apple')
 ProductTag.create!(tag_id: 1,
@@ -150,7 +162,7 @@ for i in 2..4
                         category_id: 3)
 end
 
-10.times do
+20.times do
   p = Product.create!(name: Faker::Commerce.product_name,
                       prize: Random.rand(1..10_000),
                       stock: Random.rand(10..20),
@@ -158,7 +170,7 @@ end
                       details: Faker::Lorem.paragraph)
 
   ProductCategory.create!(product_id: p.id,
-                          category_id: Random.rand(1..3))
+                          category_id: Random.rand(1..Category.last.id))
 end
 
 AnswerVote.create!(user_id: 1,
@@ -176,9 +188,21 @@ AnswerVote.create!(user_id: 3,
 Order.create!(user_id: 1,
               status: :processing)
 
-OrderedProduct.create!(order_id: 1,
-                       product_id: 1,
-                       quantity: 5)
+20.times do
+  o = Order.create!(user_id: 1,
+              status: :processing)
+  
+  Product.all.sample(Random.rand(1..5)).each do |p|
+    OrderedProduct.create!(order_id: o.id,
+                       product_id: p.id,
+                       quantity: Random.rand(1..20))
+  end
+  o.created_at = (rand*30).days.ago
+  o.save
+  
+end
+
+
 
 Coupon.create!(code: '123123',
                discount: 10,
