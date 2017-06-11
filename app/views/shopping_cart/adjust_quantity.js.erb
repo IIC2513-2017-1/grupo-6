@@ -1,4 +1,4 @@
-<%= render partial: 'flash_message', locals: {message: "Your Shopping Cart has been updated successfuly!", timeout: 0} %>
+<%= render partial: 'flash_message', locals: {message: "Your Shopping Cart has been updated successfuly!", timeout: 3500} %>
 
 var quantity = document.querySelector("tr[data-product-id='<%= @product_id %>'] td[data-attribute='quantity']")
 var cost = document.querySelector("tr[data-product-id='<%= @product_id %>'] td[data-attribute='total-cost']")
