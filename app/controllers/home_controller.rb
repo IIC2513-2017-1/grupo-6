@@ -39,9 +39,8 @@ class HomeController < ApplicationController
       end    
     end
 
-    @cats = @cats.map{ |key, value| {name: key, data: value} }
-
-    p @cats
+    @pie_data = @cats.map{ |key, value| {name: key, y: value.reduce(0, :+)} }
+    @line_data = @cats.map{ |key, value| {name: key, data: value} }
 
   end
   

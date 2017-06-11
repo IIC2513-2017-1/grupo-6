@@ -18,6 +18,8 @@
   <div class = "graphs-tab tabcontent">
     <h2> Graphs </h2>
     <div id="line-graph" class="graph-container"></div>
+    <br><br><br>
+    <div id="pie-graph" class="graph-container"></div>
   </div>
 
   <div class = "users-tab tabcontent">
@@ -66,5 +68,7 @@
 
 
 
-<script>drawLineGraph('line-graph', <%= @cats.to_json.html_safe %>)
+<script>
+  drawLineGraph('line-graph', <%= @line_data.to_json.html_safe %>)
+  drawPieGraph('pie-graph', <%= @pie_data.to_json.html_safe %>)
 </script>
