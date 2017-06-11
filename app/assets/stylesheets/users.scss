@@ -90,9 +90,9 @@ div.user-info {
 #avatar-show {
     max-width: 100px;
     max-height: 100px;
-    position: fixed;
+    position: absolute;
     margin-left: 540px;
-    margin-top: 30px;
+    margin-top: 10px;
     border: 2px solid #021a40;
     border-radius: 100px;
     background-color: #ffffff;
@@ -104,4 +104,8 @@ div.user-info {
     border: 1px solid #021a40;
     border-radius: 100px;
     background-color: #ffffff;
+}
+
+table.user-show tr:nth-child(even) {
+    background: none;
 }

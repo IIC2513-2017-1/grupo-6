@@ -1,0 +1,55 @@
+<%= simple_form_for user, html: {id: "signup-form", class: "signup-container"} do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tbody>
+      <tr>
+        <td width="15%"><%= label_tag(:username, "Username :") %></td>
+        <td width="75%"><%= f.input :username, label: false%></td>
+      </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:name, "Name :") %></td>
+        <td width="75%"><%= f.input :name, label: false %></td>
+      </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:last_name, "Last Name :") %></td>
+        <td width="75%"><%= f.input :last_name, label: false %></td>
+      </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:email, "Email :") %></td>
+        <td width="75%"><%= f.input :email, label: false , pattern: "^([^@\\s]+)@((?:[-a-z0-9]+\\.)+[a-z]{2,})$", input_html: {title: "Email format: example@example.com"}%></td>
+      </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:address, "Address :") %></td>
+        <td width="75%"><%= f.input :address, label: false %></td>
+      </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:phone_number, "Phone Number :") %></td>
+        <td width="75%"><%= f.input :phone_number, label: false , pattern: "^\\+?\\d{8,11}$", input_html: {title: "Phone number must contain 8-11 digits and start or not with a \"+\" symbol"}%></td>
+      </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:password, "Password :") %></td>
+        <td width="75%"><%= f.input :password, label: false , input_html: { minlength: 6 }%></td>
+      </tr>
+    </tbody>
+</table>
+
+  <div class="file-input">
+  <%= f.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <p><%= f.submit submit_message %></p>
+  </div>
+
+<% end %>

@@ -5,50 +5,56 @@
   <% if !@user.avatar.file.nil? %>
     <%= image_tag @user.avatar.url, id: "avatar-show"%>
   <% end %>
-  <table class="no-border">
-    <tbody class="no-border">
 
+  <table class="no-border user-show">
+    <tbody class="no-border">
       <tr class="no-border">
         <td class="no-border" valign="top">
-
+            <strong>Username:</strong>
         </td>
         <td class="no-border" valign="top">
-
-          <p>
-            <strong>Username:</strong>
             <%= @user.username %>
-          </p>
-
-          <p>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
             <strong>Name:</strong>
+        </td>
+        <td class="no-border" valign="top">
             <%= "#{@user.name} #{@user.last_name}" %>
-          </p>
-
-          <p>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
             <strong>Email:</strong>
+        </td>
+        <td class="no-border" valign="top">
             <%= @user.email %>
-          </p>
-
-          <p> <strong> Mailing Information: </strong>
-
-
-            <p class="indented">
-              <strong>Address:</strong>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+            <strong>Address:</strong>
+        </td>
+        <td class="no-border" valign="top">
               <%= @user.address %>
-            </p>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+            <strong>Phone number:</strong>
+        </td>
+        <td class="no-border" valign="top">
+            <%= @user.phone_number %>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+           <%= link_to 'Edit Account Information', edit_user_path(@user) %>
+        </td>
+      </tr>
 
-            <p class="indented">
-              <strong>Phone number:</strong>
-              <%= @user.phone_number %>
-            </p>
-
-            <br>
-
-            <%= link_to 'Edit Account Information', edit_user_path(@user) %>
+    </tbody>
+  </table>
 
 </div>
-
-
-</td>
-</tbody>
-</table>

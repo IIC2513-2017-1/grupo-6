@@ -1,0 +1,47 @@
+<%= form_for user, url: {action: :update}, html: {id: "signup-form", class: "signup-container"} do |f| %>
+<% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+  <tbody>
+      <tr>
+        <td><%= label_tag(:username, "Username :") %></td>
+        <td><%= text_field_tag(:username) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:name, "Name :") %></td>
+        <td><%= text_field_tag(:name) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:last_name, "Last Name :") %></td>
+        <td><%= text_field_tag(:last_name) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:email, "Email :") %></td>
+        <td><%= text_field_tag(:email) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:address, "Address :") %></td>
+        <td><%= text_field_tag(:address) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:phone_number, "Phone Number :") %></td>
+        <td><%= text_field_tag(:phone_number) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:password, "Password :") %></td>
+        <td><%= text_field_tag(:password) %></td>
+      </tr>
+  </tbody>
+</table>
+
+<% end %>

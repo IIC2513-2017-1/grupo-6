@@ -45,3 +45,25 @@ table td {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+form.simple_form table {
+    border: none;
+    div.input {
+        margin-bottom: 0px;
+    }
+    tr:nth-child(even) {
+        background: None;
+    }
+    tr {
+        border: none;
+    }
+}
+
+form.simple_form table~.file-input {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+form.simple_form table~.actions {
+    padding-left: 20px;
+}
