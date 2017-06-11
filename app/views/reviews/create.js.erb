@@ -1,0 +1,4 @@
+$('.amazing-reviews').append("<%= escape_javascript(render partial: 'reviews/card', locals: { review: @review } ) %>");
+$('#new_review').remove();
+
+<%= render partial: 'flash_message', locals: {message: "Review sucessfully created!", timeout: 3500} %>
