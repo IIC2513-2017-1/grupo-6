@@ -3,7 +3,6 @@
     $('#flash-alert').remove()
     var flashdiv = document.createElement("div")
     flashdiv.id = "flash-alert"
-    var button = document.createElement("BUTTON")
     flashdiv.innerHTML = "<button class='close-flash-button'><strong>x</strong></button><p><%= message %></p>"
     document.querySelector('body').appendChild(flashdiv)
 

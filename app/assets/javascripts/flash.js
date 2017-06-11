@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load', function() {
+    var flash_message = $('#flash-message');
+    var flash_alert = $('#flash-alert');
     $('.close-flash-button').click(function() {
         $(this).parent().remove()
     })
@@ -7,12 +9,12 @@ $(document).on('turbolinks:load', function() {
     setTimeout(delete_flash, 5000 + 1500)
 
     function fadeout_flash() {
-        $('#flash-message').fadeOut('normal')
-        $('#flash-alert').fadeOut('normal')
+        flash_message.fadeOut('normal')
+        flash_alert.fadeOut('normal')
     }
 
     function delete_flash() {
-        $('#flash-message').remove()
-        $('#flash-alert').remove()
+        flash_message.remove()
+        flash_alert.remove()
     }
 })
