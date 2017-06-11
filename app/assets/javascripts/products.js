@@ -177,12 +177,37 @@ $(document).on('turbolinks:load', function() {
 
 
 
+    $("#high").val(maxPrice());
+    $("#low").val(0);
+
 });
 
 function filter() {
+    nameFilter()
+    priceFilter()
+}
+
+function maxPrice() {
+    var max;
+    max = 0;
+    div = document.getElementById("productCards");
+    cards = div.getElementsByTagName('figure');
+
+    for (i = 0; i < cards.length; i++) {
+        price = cards[i].getElementsByTagName("span")[0];
+        price = +price.innerHTML.slice(2, )
+        if (price > max) {
+            max = price;
+        }
+    }
+    return max;
+
+}
+
+
+function nameFilter() {
     console.log("filter")
-        // Declare variables
-    var input, filter, div, name, i;
+    var input, filter, div, name, i, tags;
     input = document.getElementById('filterInput');
     filter = input.value.toUpperCase();
     div = document.getElementById("productCards");
@@ -191,10 +216,47 @@ function filter() {
     // Loop through all cards, and hide those who don't match the search query
     for (i = 0; i < cards.length; i++) {
         name = cards[i].getElementsByTagName("figcaption")[0];
-        if (name.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tags = cards[i].dataset.tags
+        if (name.innerHTML.toUpperCase().indexOf(filter) > -1 || tags.toUpperCase().indexOf(filter) > -1) {
             cards[i].style.display = "";
         } else {
             cards[i].style.display = "none";
+        }
+
+
+    }
+}
+
+function priceFilter() {
+    console.log("pricefilter")
+    var low, high, filter, div, price, i, tags;
+    low = +document.getElementById('low').value;
+    high = +document.getElementById('high').value;
+
+    if (high === 0) {
+        $("#high").val(maxPrice());
+        high = maxPrice();
+
+    }
+
+    if (low > high) {
+        $("#high").val(low);
+    }
+
+
+    div = document.getElementById("productCards");
+    cards = div.getElementsByTagName('figure');
+
+
+
+    // Loop through all cards, and hide those who don't match the search query
+    for (i = 0; i < cards.length; i++) {
+        price = cards[i].getElementsByTagName("span")[0];
+        price = +price.innerHTML.slice(2, )
+        if (price < low || price > high) {
+            if (cards[i].style.display !== "none") {
+                cards[i].style.display = "none";
+            }
         }
     }
 }
