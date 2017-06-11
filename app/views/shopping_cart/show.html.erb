@@ -14,21 +14,21 @@
 
     <tbody>
       <% @products.each do |product, quantity| %>
-        <tr>
+        <tr data-product-id="<%= product.id %>">
           <td><%= link_to fa_icon("search"), product %></td>
           <td width="15%"><%= product.name %></td>
           <td width="15%">$<%= product.prize %></td>
           <td width="15%"><%= quantity %></td>
           <td width="15%">$<%= product.prize * quantity %></td>
           <td width="30%">
-          <%= form_tag(cart_edit_path,method:"post") do %>
+          <%= form_tag(cart_edit_path,method:"post", remote:true) do %>
             <%= hidden_field_tag("cart[product_id]", product.id)%>
             <%= number_field("cart","quantity", value: quantity, min: 1) %>
             <%= submit_tag("Change Quantity")%>
           <% end %>
           </td>
           <td width="15%">
-          <%= form_tag(cart_remove_path,method:"post") do %>
+          <%= form_tag(cart_remove_path,method:"post", remote:true) do %>
             <%= hidden_field_tag("cart[product_id]", product.id)%>
             <%= button_tag(type: "submit") do%>
               <% fa_icon("trash-o")%>

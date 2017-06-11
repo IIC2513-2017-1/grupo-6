@@ -91,7 +91,7 @@
       </ul>
     </p>
 
-    <%= form_tag("/cart/add",method:"post") do %>
+    <%= form_tag("/cart/add",method:"post", remote: true) do %>
       <%= hidden_field_tag("cart[product_id]", @product.id)%>
 
       <span class="input-number-decrement">–</span>

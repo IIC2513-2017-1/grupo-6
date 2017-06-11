@@ -1,0 +1,21 @@
+(function() {
+    var flashdiv = document.createElement("div")
+    flashdiv.id = "flash-message"
+    flashdiv.innerHTML = "<p><%= message %></p>"
+
+    document.querySelector('body').appendChild(flashdiv)
+
+    $(flashdiv).fadeIn('fast')
+
+    setTimeout(fadeout_flash_message, 3500)
+
+    setTimeout(delete_flash_message, 5000)
+
+    function fadeout_flash_message() {
+        $(flashdiv).fadeOut('normal')
+    }
+
+    function delete_flash_message() {
+        flashdiv.parentNode.removeChild(flashdiv);
+    }
+}())

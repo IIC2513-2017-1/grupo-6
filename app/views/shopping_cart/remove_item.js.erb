@@ -1,0 +1,3 @@
+<%= render partial: 'flash_message', locals: {message: "The item was successfully removed from your Shopping Cart!"} %>
+var row = document.querySelector("tr[data-product-id='<%= @product_id %>'")
+row.parentNode.removeChild(row);
