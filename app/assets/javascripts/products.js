@@ -190,13 +190,13 @@ function filter() {
 function maxPrice() {
     var max;
     max = 0;
-    div = document.getElementById("productCards");
+    var div = document.getElementById("productCards");
 
     if (div) {
-        cards = div.getElementsByTagName('figure');
+        var cards = div.getElementsByTagName('figure');
         for (i = 0; i < cards.length; i++) {
-            price = cards[i].getElementsByTagName("span")[0];
-            price = +price.innerHTML.slice(2, )
+            var price = cards[i].getElementsByTagName("span")[0];
+            price = +price.innerHTML.slice(2, price.innerHTML.length)
             if (price > max) {
                 max = price;
             }
@@ -261,7 +261,7 @@ function priceFilter() {
     // Loop through all cards, and hide those who don't match the search query
     for (i = 0; i < cards.length; i++) {
         price = cards[i].getElementsByTagName("span")[0];
-        price = +price.innerHTML.slice(2, )
+        price = +price.innerHTML.slice(2, price.innerHTML.length)
         if (price < low || price > high) {
             if (cards[i].style.display !== "none") {
                 cards[i].style.display = "none";
