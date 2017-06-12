@@ -42,6 +42,8 @@ user.save!
                password: '123456')
 end
 
+featured_tag = Tag.create!(name: 'Featured')
+
 mac = Product.create!(name: 'MacBook Pro',
                       prize: 2199,
                       stock: 11,
@@ -53,6 +55,7 @@ mac.images = [
   Pathname.new(Rails.root + 'app/assets/images/products/macbookpro2.jpg').open,
   Pathname.new(Rails.root + 'app/assets/images/products/macbookpro3.jpg').open
 ]
+mac.tags << featured_tag
 mac.save!
 
 Category.create!(name: 'Notebook')
@@ -76,7 +79,6 @@ Category.create!(name: 'Microphone',
 Category.create!(name: 'Headphone',
                  parent_id: 5)
 Category.create!(name: 'Misc')
-
 
 Tag.create!(name: 'Apple')
 ProductTag.create!(tag_id: 1,
@@ -130,6 +132,7 @@ echo.images = [
   Pathname.new(Rails.root + 'app/assets/images/products/echo4.jpg').open,
   Pathname.new(Rails.root + 'app/assets/images/products/echo5.jpg').open
 ]
+echo.tags << featured_tag
 echo.save!
 
 FireTVstick = Product.create!(name: 'Fire TV Stick',
@@ -144,7 +147,7 @@ FireTVstick.images = [
   Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick3.jpg').open,
   Pathname.new(Rails.root + 'app/assets/images/products/FireTVstick4.jpg').open
 ]
-
+FireTVstick.tags << featured_tag
 FireTVstick.save!
 
 innogear = Product.create!(name: 'InnoGear HeadLamp',
@@ -162,6 +165,7 @@ innogear.images = [
   Pathname.new(Rails.root + 'app/assets/images/products/innogear6.jpg').open,
   Pathname.new(Rails.root + 'app/assets/images/products/innogear7.jpg').open
 ]
+innogear.tags << featured_tag
 innogear.save!
 
 for i in 2..4
@@ -206,7 +210,6 @@ Order.create!(user_id: 1,
   end
   o.created_at = (rand*30).days.ago
   o.save
-  
 end
 
 

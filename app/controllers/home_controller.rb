@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @products = Product.order(:id)[0..3]
+    products = Product.all.includes(:tags).includes(:categories).select{|x| x.tags.map{|tag| tag.id}.include?(1)}
+    @products_category = products.group_by{|x| x.root_category}
   end
 
   def dashboard

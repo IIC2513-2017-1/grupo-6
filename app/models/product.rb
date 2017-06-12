@@ -44,5 +44,16 @@ class Product < ApplicationRecord
       0
     end
   end
+
+  def root_category
+    cat = self.categories.first
+    if !cat
+      return cat
+    end
+    while parent = cat.parent
+      cat = parent
+    end
+    cat
+  end
   
 end

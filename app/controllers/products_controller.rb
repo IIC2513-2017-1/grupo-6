@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       @category_index = category_tree
       category_id = params[:category_id]
-      @products = Product.all.order(:id).includes(:categories)
+      @products = Product.all.order(:id).includes(:categories).includes(:tags)
       if category_id
         category_id = category_id.to_i
         @category = Category.find(category_id)
