@@ -20,9 +20,12 @@ User.create!(name: Faker::StarWars.character,
              username: Faker::Internet.user_name,
              last_name: Faker::StarWars.specie,
              phone_number: '95687485',
-             is_admin: true,
+             is_admin: false,
              address: Faker::StarWars.wookie_sentence,
              password: '123456')
+
+User.first.avatar = File.open(Rails.root + 'app/assets/images/users/saffie.jpeg')
+User.second.avatar = File.open(Rails.root + 'app/assets/images/users/adrian.jpeg')
 
 10.times do
   User.create!(name: Faker::StarWars.character,
