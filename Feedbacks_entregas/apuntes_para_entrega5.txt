@@ -10,12 +10,12 @@
 (check) - que agregar tags sea por nombre
 
 (check) - QUE HAYA BUSQUEDA DE PRODUCTOS POR TAG Y NOMBRE (PONER FILTRO DE PRECIO SERIA GENIAL). QUE VAYA FILTRANDO DINAMICAMENTE
-(on it) - AGREGAR AJAX DONDE TENGA SENTIDO
+(check) - AGREGAR AJAX DONDE TENGA SENTIDO
 (check) - SACAR EL PODER COMENTAR UNA REVIEW
-QUE QUESTIONS SEAN COMENTARIOS Y RESPUESTAS A COMENTARIOS NO SE PUEDE RESPONDER UNA RESPUESTA.
-que el featured products sea por categorías
-que en la vista de productos primero salgan los productos en oferta
+(check) - QUE QUESTIONS SEAN COMENTARIOS Y RESPUESTAS A COMENTARIOS NO SE PUEDE RESPONDER UNA RESPUESTA.
+(check) - que el featured products sea por categorías
+(check) - que en la vista de productos primero salgan los productos en oferta
 
 (check) - en dashboard agregar graficos (ej: cuanto has vendido por categorias, etc)
 
-considerar twitter como api
+(noted) - considerar twitter como api

@@ -43,6 +43,7 @@ user.save!
 end
 
 featured_tag = Tag.create!(name: 'Featured')
+offer_tag = Tag.create!(name: 'Offer')
 
 mac = Product.create!(name: 'MacBook Pro',
                       prize: 2199,
@@ -56,6 +57,7 @@ mac.images = [
   Pathname.new(Rails.root + 'app/assets/images/products/macbookpro3.jpg').open
 ]
 mac.tags << featured_tag
+mac.tags << offer_tag
 mac.save!
 
 Category.create!(name: 'Notebook')

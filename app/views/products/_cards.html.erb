@@ -10,7 +10,7 @@
 
    <br>
    <div id="productCards">
-   <% @products.each do |product| %>
+   <% (@in_offer + @rest).each do |product| %>
       <figure data-tags='<%= product.tags.map{|x| x.name} %>'>
         <%= link_to product do %>
             <% if product.images.length() > 0 %>
@@ -21,7 +21,11 @@
         <% end %>
                 
         <figcaption><%= product.name %></figcaption>
-        <span class="price">$ <%= product.prize %></span>
+        <span class="price">$ <%= product.prize %>
+          <% if product.tags.map{|x| x.id}.include?(2) %>
+            - <span style="color: red;"> Discount! </span>
+          <% end %>
+        </span>
 
         <%= form_tag("/cart/add",method:"post", class:"button", remote: true) do %>
           <%= hidden_field_tag("cart[product_id]", product.id)%>

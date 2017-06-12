@@ -19,6 +19,9 @@ class ProductsController < ApplicationController
         @cat_name = "All products"
       end
 
+      @in_offer = @products.select{|x| x.tags.map{|tag| tag.id}.include? 2}
+      @rest = @products - @in_offer
+
       format.html
       format.js
     end
