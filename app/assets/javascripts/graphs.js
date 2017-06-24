@@ -13,15 +13,23 @@ function drawLineGraph(container, data) {
         yAxis: {
             title: {
                 text: 'Amount sold'
-            }
+            },
+
         },
         legend: {
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle'
         },
+        tooltip: {
+            formatter: function() {
+                return this.series.name + ': <b> $' + this.y + '</b>';
+            }
+        },
+
 
         series: data
+
 
     });
 }
