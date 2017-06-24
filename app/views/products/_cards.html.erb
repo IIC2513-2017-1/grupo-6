@@ -10,34 +10,7 @@
 
    <br>
    <div id="productCards">
-   <% (@in_offer + @rest).each do |product| %>
-      <figure data-tags='<%= product.tags.map{|x| x.name} %>'>
-        <%= link_to product do %>
-            <% if product.images.length() > 0 %>
-              <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
-            <% else %>
-              <%= image_tag("unavailable.jpg") %>
-            <% end %>
-        <% end %>
-                
-        <figcaption><%= product.name %></figcaption>
-        <span class="price">$ <%= product.prize %>
-          <% if product.tags.map{|x| x.id}.include?(2) %>
-            - <span style="color: red;"> Discount! </span>
-          <% end %>
-        </span>
-
-        <%= form_tag("/cart/add",method:"post", class:"button", remote: true) do %>
-          <%= hidden_field_tag("cart[product_id]", product.id)%>
-          <%= hidden_field_tag("cart[quantity]",1) %>
-          <%= submit_tag("Add to Cart", class:"button")%>
-        <% end %>
-
-        <% if current_user&.is_admin %>
-          <%= link_to fa_icon("edit"), edit_product_path(product) %>
-     
-          <%= link_to fa_icon("trash-o"), product, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </figure>
-    <% end %>
+      <% (@in_offer + @rest).each do |product| %>
+        <%= render partial: 'card', locals: {product: product} %>
+      <% end %>
     </div>

@@ -21,46 +21,19 @@
   </div>
 </div>
 <div class="home-products">
-<div id="wrap">
+  <div id="wrap">
 
+    <h2>Featured products</h2>
 
-  <h2>Featured products</h2>
+    <div id="columns" class="columns_4">
 
-	<div id="columns" class="columns_4">
+    <% @products_category.each do |(category, product_list)| %>
+      <h3> <%= category.name %> </h3>
+    <% product_list.each do |product| %>
+        <%= render partial: 'products/card', locals: {product: product} %>
+      <% end %>
 
-  <% @products_category.each do |(category, product_list)| %>
-    <h3> <%= category.name %> </h3>
-   <% product_list.each do |product| %>
-      <figure>
-        <%= link_to product do %>
-            <% if product.images.length() > 0 %>
-              <%= image_tag(product.images.first.url, alt: "unavailable.jpg") %>
-            <% else %>
-              <%= image_tag("unavailable.jpg") %>
-            <% end %>
-        <% end %>
-                
-        <figcaption><%= product.name %></figcaption>
-        <span class="price">$ <%= product.prize %></span>
-
-        <%= form_tag("/cart/add",method:"post", class:"button") do %>
-          <%= hidden_field_tag("cart[product_id]", product.id)%>
-          <%= hidden_field_tag("cart[quantity]",1) %>
-          <%= submit_tag("Add to Cart", class:"button")%>
-        <% end %>
-
-        <% if current_user&.is_admin %>
-          <%= link_to fa_icon("edit"), edit_product_path(product) %>
-     
-          <%= link_to fa_icon("trash-o"), product, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-
-      </figure>
     <% end %>
-
-  <% end %>
-
-
     
-</div>
+  </div>
 </div>
