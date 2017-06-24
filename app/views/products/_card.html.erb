@@ -9,10 +9,10 @@
             
     <figcaption><%= product.name %></figcaption>
     <span class="price">$ <%= product.prize %>
+    </span>
     <% if product.tags.map{|x| x.id}.include?(2) %>
         - <span style="color: red;"> Discount! </span>
     <% end %>
-    </span>
 
     <%= form_tag("/cart/add",method:"post", class:"button", remote: true) do %>
     <%= hidden_field_tag("cart[product_id]", product.id)%>
