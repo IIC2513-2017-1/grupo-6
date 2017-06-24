@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     @answers = Answer.all
     @categories = Category.all
     @comments = Comment.all
-    @orders = Order.all.includes(ordered_products: [product: :categories])
+    @orders = Order.all.includes(ordered_products: [product: :categories]).order('id ASC')
     @questions = Question.all
     @reviews = Review.all
     @tags = Tag.all

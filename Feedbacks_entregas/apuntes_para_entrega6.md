@@ -1,7 +1,7 @@
 (check) - que hacer una review actualice el score promedio de un producto
 - en el grafico de lineas, sale el numero de evento (4,5,6...)
 - grafico de barra total por categoría, historico
-- que actualizar ordenes sea por ajax
+(check) - que actualizar ordenes sea por ajax
 - Tags salen duplicadas 
 - Relacion (tag,producto) deberia ser unico
 - Que las ofertas muestren tambien el precio anterior

@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Status</th>
+      <th class="centered-text">Status</th>
       <th>Creation Date</th>
       <% if admin? %>
       <th>User ID</th>
@@ -25,7 +25,7 @@
         <td width="2%"><%= order.id %></td>
         <% if admin? %>
           <td> 
-          <%= simple_form_for order, html: {class: 'form-inline'} do |f| %>
+          <%= simple_form_for order, remote: true, html: {class: 'form-inline'} do |f| %>
             <%= f.input :status, collection: Order.statuses, label: false, value_method: :first, include_blank: false, wrapper: false %>
             <%= f.submit style: "margin-left:5px;"%>
           <% end %>
