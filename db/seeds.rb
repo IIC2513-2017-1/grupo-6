@@ -83,12 +83,10 @@ Category.create!(name: 'Headphone',
 Category.create!(name: 'Misc')
 
 Tag.create!(name: 'Apple')
-ProductTag.create!(tag_id: 1,
-                   product_id: 1)
+
 
 Tag.create!(name: 'Mac')
-ProductTag.create!(tag_id: 2,
-                   product_id: 1)
+
 
 Review.create!(content: 'Dis is beri gud',
                score: 4.3,
