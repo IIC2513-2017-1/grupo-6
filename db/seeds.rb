@@ -210,7 +210,7 @@ Order.create!(user_id: 1,
                        product_id: p.id,
                        quantity: Random.rand(1..20))
   end
-  o.created_at = (rand*30).days.ago
+  o.created_at = (rand*33).days.ago
   o.save
 end
 

@@ -20,6 +20,8 @@
     <div id="line-graph" class="graph-container"></div>
     <br><br><br>
     <div id="pie-graph" class="graph-container"></div>
+    <br><br><br>
+    <div id="col-graph" class="graph-container"></div>
   </div>
 
   <div class = "users-tab tabcontent">
@@ -71,4 +73,5 @@
 <script>
   drawLineGraph('line-graph', <%= @line_data.to_json.html_safe %>)
   drawPieGraph('pie-graph', <%= @pie_data.to_json.html_safe %>)
+  drawColGraph('col-graph', <%= @col_data.to_json.html_safe %>)
 </script>

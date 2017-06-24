@@ -72,3 +72,49 @@ function drawPieGraph(container, dat) {
         }]
     });
 }
+
+
+function drawColGraph(container, dat) {
+    Highcharts.chart(container, {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Historic sales'
+        },
+        subtitle: {
+            text: 'By category'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total amount sold ($)'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: false
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+        },
+
+        series: [{
+            name: 'Categories',
+            colorByPoint: true,
+            data: dat
+        }]
+    });
+}
