@@ -1,4 +1,6 @@
 $('.amazing-reviews').append("<%= escape_javascript(render partial: 'reviews/card', locals: { review: @review } ) %>");
 $('#new_review').remove();
+$('.star-ratings-sprite .star-ratings-sprite-rating').width('<%= @review.product.average_score()*20 %>%')
+$('#review-count').text('(<%= @review.product.reviews.length()%> reviews)')
 
 <%= render partial: 'flash_message', locals: {message: "Review sucessfully created!", timeout: 3500} %>
