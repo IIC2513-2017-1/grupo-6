@@ -21,7 +21,7 @@
 
   <tbody>
     <% @orders.each do |order| %>
-      <tr>
+      <tr data-order-id="<%= order.id %>">
         <td width="2%"><%= order.id %></td>
         <% if admin? %>
           <td> 
@@ -40,7 +40,7 @@
           <td><%= link_to fa_icon("search"), order %></td>
         <% if admin? %>
           <td><%= link_to fa_icon("edit"), edit_order_path(order) %></td>
-          <td><%= link_to fa_icon("trash-o"), order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to fa_icon("trash-o"), order, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

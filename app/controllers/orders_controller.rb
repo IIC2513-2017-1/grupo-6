@@ -59,10 +59,12 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    @order_id = @order.id
     @order.destroy
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
