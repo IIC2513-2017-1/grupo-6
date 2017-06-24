@@ -8,4 +8,4 @@
 - Que el edit de un producto sea mas amigable
 - ofrecer y consumir una api
 - al meterse a un producto, ver qué otros productos fueron comprados junto con este (revisar las ordenes, y poner los ~3 productos que fueron mas frecuentemente comprados en una misma orden con el producto)
-- Que al filtrar por precio, los productos en descuento desaparezcan
+(check) - Que al filtrar por precio, los productos en descuento desaparezcan
