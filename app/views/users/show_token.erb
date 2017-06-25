@@ -1,0 +1,39 @@
+<div class="centered-div user-info">
+
+  <h2> Developer Token </h2>
+
+  <table class="no-border user-show">
+    <tbody class="no-border">
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+            <strong>Username:</strong>
+        </td>
+        <td class="no-border" valign="top">
+            <%= @user.username %>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+            <strong>Token:</strong>
+        </td>
+        <td class="no-border" valign="top">
+          <span class="break-inline-long">
+            <%= "#{@user.token}" %>
+          </span>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+           <%= button_to 'Generate New Token', generate_token_url, {class: "small-link"} %>
+        </td>
+      </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+           <%= link_to 'Back', user_path(@user), {class: "small-link"} %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

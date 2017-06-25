@@ -53,6 +53,11 @@
            <%= link_to 'Edit Account Information', edit_user_path(@user) %>
         </td>
       </tr>
+      <tr class="no-border">
+        <td class="no-border" valign="top">
+           <%= link_to 'Developer Token', "/users/#{@user.id}/token", {class: "small-link"} %>
+        </td>
+      </tr>
 
     </tbody>
   </table>

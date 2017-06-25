@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :show_token, :generate_token]
   before_action :check_permission, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -62,6 +62,18 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /users/:id/token
+  def show_token
+    @user.gen_token if @user.token.nil?
+  end
+
+  # POST /users/:id/token
+  def generate_token
+    @user.gen_token
+    flash[:notice] = "Successfully generated new token."
+    redirect_to show_token_url
   end
 
   private

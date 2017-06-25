@@ -30,7 +30,17 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'home#dashboard'
 
+  get '/users/:id/token', to: 'users#show_token', as: :show_token
+  post '/users/:id/token', to: 'users#generate_token', as: :generate_token
+
   root 'home#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :products
+      resources :reviews
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -109,3 +109,13 @@ div.user-info {
 table.user-show tr:nth-child(even) {
     background: none;
 }
+
+.small-link {
+    font-size: 14px;
+}
+
+.break-inline-long {
+    display: inline-block;
+    width: 500px;
+    word-wrap: break-word;
+}

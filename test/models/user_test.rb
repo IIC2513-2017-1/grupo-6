@@ -14,10 +14,12 @@
 #  updated_at      :datetime         not null
 #  password_digest :string
 #  avatar          :string
+#  token           :string
 #
 # Indexes
 #
 #  index_users_on_email     (email) UNIQUE
+#  index_users_on_token     (token) UNIQUE
 #  index_users_on_username  (username) UNIQUE
 #
 
