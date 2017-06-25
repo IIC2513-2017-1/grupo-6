@@ -56,7 +56,7 @@ class ShoppingCartController < ApplicationController
     @products = Product.find(@cart.keys).map do |p|
       [p, @cart[p.id.to_s]]
     end
-    @total = @products.map { |p, q| p.prize * q }.sum
+    @total = @products.map { |p, q| p.real_prize * q }.sum
   end
 
   private
@@ -65,7 +65,7 @@ class ShoppingCartController < ApplicationController
     products = Product.find(@cart.keys).map do |p|
       [p, @cart[p.id.to_s]]
     end
-    products.map { |p, q| p.prize * q }.sum
+    products.map { |p, q| p.real_prize * q }.sum
   end
 
   def set_cart

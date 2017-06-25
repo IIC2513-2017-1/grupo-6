@@ -11,19 +11,54 @@
     </div>
   <% end %>
 
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :details %>
-  <%= f.input :prize %>
-  <%= f.input :stock %>
-
-  <%= f.input :add_category, collection: (Category.all - @product.categories), label_method: :name, value_method: :id%>
-  <%= f.input :remove_category, collection: @product.categories, label_method: :name, value_method: :id%>
-
-  <%= f.input :add_tag, collection: (Tag.all - @product.tags), label_method: :name, value_method: :id%>
-  <%= f.input :remove_tag, collection: @product.tags, label_method: :name, value_method: :id%>
+<table>
+    <tbody>
+      <tr>
+        <td width="25%"><%= label_tag(:name, "Name: ") %></td>
+        <td width="75%"><%= f.input :name, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:description, "Description: ") %></td>
+        <td width="75%"><%= f.input :description, label: false, :input_html => {style: 'width: 80%; height: 80px;'}%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:details, "Details: ") %></td>
+        <td width="75%"><%= f.input :details, label: false, :input_html => {style: 'width: 80%; height: 80px;'}%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:prize, "Prize: ") %></td>
+        <td width="75%"><%= f.input :prize, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:stock, "Stock: ") %></td>
+        <td width="75%"><%= f.input :stock, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:add_category, "Add category: ") %></td>
+        <td width="75%"><%= f.input :add_category, collection: (Category.all - @product.categories), label_method: :name, value_method: :id, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:remove_category, "Remove category: ") %></td>
+        <td width="75%"><%= f.input :remove_category, collection: @product.categories, label_method: :name, value_method: :id, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:add_tag, "Add tag: ") %></td>
+        <td width="75%"><%= f.input :add_tag, collection: (Tag.all - @product.tags), label_method: :name, value_method: :id, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:remove_tag, "Remove tag: ") %></td>
+        <td width="75%"><%= f.input :remove_tag, collection: @product.tags, label_method: :name, value_method: :id, label: false%></td>
+      </tr>
+      <tr>
+        <td width="25%"><%= label_tag(:discount, "Discount: ") %></td>
+        <td width="75%"><%= f.input :discount, label: false%></td>
+      </tr>
+    </tbody>
+</table>
 
   <div class="actions">
-    <%= f.submit %>
+    <p><%= f.submit %></p>
   </div>
+
+
 <% end %>

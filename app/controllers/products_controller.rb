@@ -13,13 +13,13 @@ class ProductsController < ApplicationController
         category_id = category_id.to_i
         @category = Category.find(category_id)
         categories = @category.extended_children
-        @products = @products.select{|x| x.categories.any?{|c| categories.include? c}}
+        @products = @products.select { |x| x.categories.any? { |c| categories.include? c } }
         @cat_name = @category.name
       else
-        @cat_name = "All products"
+        @cat_name = 'All products'
       end
 
-      @in_offer = @products.select{|x| x.tags.map{|tag| tag.id}.include? 2}
+      @in_offer = @products.select { |x| x.discount && x.discount > 0 }
       @rest = @products - @in_offer
 
       format.html
@@ -99,7 +99,7 @@ class ProductsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def product_params
-    params.require(:product).permit(:name, :description, :details, :prize, :stock, images: [])
+    params.require(:product).permit(:name, :description, :details, :prize, :stock, :discount, images: [])
   end
 
   def association_changes

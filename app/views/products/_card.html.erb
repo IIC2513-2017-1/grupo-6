@@ -8,15 +8,17 @@
     <% end %>
             
     <figcaption><%= product.name %></figcaption>
-    <span class="price">$ <%= product.prize %>
-    </span>
-    <% if product.tags.map{|x| x.id}.include?(2) %>
-        - <span style="color: red;"> Discount! </span>
+    <% if product.discount && product.discount>0 %>
+        <span class="strikethrough-text">$ <%= product.prize %></span>
+        - <span class="price" style="color: red;">$ <%= (product.prize*(1-product.discount/100.0)).to_i %> </span>
+          <span style="color: red;"> Discount! </span>
+    <% else %>
+        <span class="price">$ <%= product.prize %></span>
     <% end %>
 
     <%= form_tag("/cart/add",method:"post", class:"button", remote: true) do %>
     <%= hidden_field_tag("cart[product_id]", product.id)%>
-    <%= hidden_field_tag("cart[quantity]",1) %>
+    <%= hidden_field_tag("cart[quantity]", 1) %>
     <%= submit_tag("Add to Cart", class:"button")%>
     <% end %>
 

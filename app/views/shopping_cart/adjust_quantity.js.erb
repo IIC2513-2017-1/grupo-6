@@ -5,5 +5,5 @@ var cost = document.querySelector("tr[data-product-id='<%= @product_id %>'] td[d
 var total_cost = document.querySelector("p[data-attribute='total-cost-global']")
 
 quantity.innerHTML = "<%= @quantity %>"
-cost.innerHTML = "$<%= @quantity * @product.prize %>"
+cost.innerHTML = "$<%= @quantity * @product.real_prize %>"
 total_cost.innerHTML = "<strong> Total: $<strong><%= @total %>"

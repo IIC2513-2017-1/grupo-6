@@ -260,7 +260,7 @@ function priceFilter() {
 
     // Loop through all cards, and hide those who don't match the search query
     for (i = 0; i < cards.length; i++) {
-        price = cards[i].getElementsByTagName("span")[0];
+        price = cards[i].getElementsByClassName("price")[0];
         price = +price.innerHTML.slice(2, price.innerHTML.length)
         if (price < low || price > high) {
             if (cards[i].style.display !== "none") {

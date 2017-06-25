@@ -63,9 +63,15 @@
       <%= @product.details %>
     </p>
 
-    <h3>Prize</h3>
+    <h3>Price</h3>
     <p>
-      <%= @product.prize %>
+      <% if @product.discount && @product.discount>0 %>
+        <span class="strikethrough-text">$ <%= @product.prize %></span>
+        - <span class="price" style="color: red;">$ <%= (@product.prize*(1-@product.discount/100.0)).to_i %> </span>
+          <span style="color: red;"> Discount! </span>
+      <% else %>
+          <span class="price">$ <%= @product.prize %></span>
+      <% end %>
     </p>
 
     <h3>Stock</h3>

@@ -33,3 +33,12 @@ a {
 .centered-text {
     text-align: center;
 }
+
+.centered-div {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.strikethrough-text {
+    text-decoration: line-through;
+}
