@@ -57,6 +57,10 @@ class Product < ApplicationRecord
   end
 
   def real_prize
-    (self.prize*(1-self.discount/100.0)).to_i
+    if self.discount
+      (self.prize*(1-self.discount/100.0)).to_i
+    else
+      self.prize
+    end
   end
 end
