@@ -113,6 +113,17 @@
   </tbody>
 </table>
 
+<% if @most_bought.count > 0 %>
+  <div id="wrap">
+  <h3>Customers who bought this item also bought</h3>
+    <div id="columns" class="columns_4">
+      <% (@most_bought).each do |product| %>
+          <%= render partial: 'card', locals: {product: product} %>
+        <% end %>
+    </div>
+  </div>
+<% end %>
+
   
 
 

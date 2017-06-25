@@ -32,6 +32,21 @@ class ProductsController < ApplicationController
   def show
     @review = Review.new
     @question = Question.new
+
+    orders = Order.includes(:products).find(OrderedProduct.where(product_id: @product.id).pluck(:order_id))
+    same_products = orders.map{|o| o.products.reject{|p| p.id == @product.id}}.flatten
+    counter = {}
+    for product in same_products
+      if counter[product]
+        counter[product] += 1
+      else
+        counter[product] = 1
+      end
+    end
+    @most_bought = counter.sort_by{|key, value| value}.reverse.map{|x| x.first}[0...3]
+    
+
+
   end
 
   # GET /products/new
