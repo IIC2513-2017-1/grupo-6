@@ -38,6 +38,9 @@ gem 'simple_form', '3.4.0'
 
 gem 'faker', '1.7.3'
 
+# It's an HTTParty!
+gem 'httparty', '0.15.5'
+
 # Heroku asks for it
 gem 'rails_12factor', group: :production
 
