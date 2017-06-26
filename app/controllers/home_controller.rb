@@ -12,10 +12,11 @@ class HomeController < ApplicationController
         date: lambda {
           d = DateTime.parse(tweet['created_at'])
           d = d.new_offset('-04:00')
-          d.strftime('%A %d %B %Y %H:%M:%S')
+          d.strftime('%d %b. %Y at %H:%M:%S')
         }.call,
         profile_image_url: tweet['user']['profile_image_url_https'] }
     end
+    p @tweets
   end
 
   def dashboard

@@ -1,6 +1,14 @@
 <div id="wrap">
 <h2> Welcome to Virtual Store! </h2>
  
+ <div class="tweet-feed-title all-tweet">Tweet Feed</div>
+ <div class="tweet-feed all-tweet">
+  <table>
+    <% @tweets.each do |tweet| %>
+      <tr class="image-tweet"><%= render partial: 'tweet', locals: {tweet: tweet} %></tr>
+    <% end %>
+  </table>
+</div>
   
 
 <div class="product-single offer-carrousel">
@@ -37,3 +45,5 @@
     
   </div>
 </div>
+
+
