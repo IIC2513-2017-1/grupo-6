@@ -19,4 +19,8 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :ordered_products, dependent: :destroy
   has_many :products, through: :ordered_products, source: :product
+
+  def total_cost
+    ordered_products.map { |x| x.quantity * x.product.prize }.sum
+  end
 end

@@ -41,6 +41,8 @@ Rails.application.routes.draw do
       resources :reviews, only: [:index, :show, :create]
       resources :questions, only: [:index, :show, :create]
       resources :answers, only: [:index, :show, :create]
+      resources :orders, only: [:index, :show, :create]
+      get '/user', to: 'users#show'
     end
   end
 
