@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  order_id   :integer
 #  product_id :integer
+#  prize      :integer
 #
 # Indexes
 #
@@ -17,6 +18,9 @@
 #
 
 class OrderedProduct < ApplicationRecord
-    belongs_to :order
-    belongs_to :product
+  
+  validates :prize, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  belongs_to :order
+  belongs_to :product
 end

@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @ordered_products = OrderedProduct.includes(:product).where(order_id: @order.id)
-    @total = @ordered_products.map{|o| o.product.prize * o.quantity }.sum()
+    @total = @ordered_products.map{|o| o.prize * o.quantity }.sum()
   end
 
   # GET /orders/new
@@ -74,14 +74,21 @@ class OrdersController < ApplicationController
       redirect_to root_path
       return
     end
-    @order = Order.create(user_id: current_user.id, status: :pending_payment)
+    @order = Order.new(user_id: current_user.id, status: :pending_payment)
     @cart = session['cart']
+    real_prizes = Product.all.map{ |x| [x.id, x.real_prize] }.to_h
     @cart.each do |pid, quantity|
-      OrderedProduct.create(product_id: pid, quantity: quantity, order_id: @order.id)
+      @order.ordered_products << OrderedProduct.new(product_id: pid, quantity: quantity, prize: real_prizes[pid.to_i])
     end
-    @cart.clear()
-    flash[:notice] = "Your order was successfully created. Payment pending."
-    redirect_to @order
+    if @order.save
+      @cart.clear()
+      flash[:notice] = "Your order was successfully created. Payment pending."
+      redirect_to @order
+    else
+      @cart.clear()
+      flash[:alert] = "There was a problem placing your order. Please try again."
+      redirect_to root_path
+    end
   end
 
   def user_orders

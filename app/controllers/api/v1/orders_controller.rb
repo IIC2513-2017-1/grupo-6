@@ -16,9 +16,9 @@ module Api::V1
 
     def create
       @order = Order.new(user_id: @current_user.id, status: :pending_payment)
+      real_prizes = Product.all.map{ |x| [x.id, x.real_prize] }.to_h
       params[:order][:products].each do |product|
-        p product
-        @order.ordered_products << OrderedProduct.new(product_id: product[:id], quantity: product[:quantity])
+        @order.ordered_products << OrderedProduct.new(product_id: product[:id], quantity: product[:quantity], prize: real_prizes[product[:id].to_i])
       end
 
       if @order.save
