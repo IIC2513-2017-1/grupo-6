@@ -7,6 +7,6 @@
 (check) - Que las ofertas muestren tambien el precio anterior
 (check) - Que el edit de un producto sea mas amigable
 (check) - ofrecer una api
-- consumir una api
+(check) - consumir una api
 (check) - al meterse a un producto, ver qué otros productos fueron comprados junto con este (revisar las ordenes, y poner los ~3 productos que fueron mas frecuentemente comprados en una misma orden con el producto)
 (check) - Que al filtrar por precio, los productos en descuento desaparezcan
