@@ -82,7 +82,8 @@ class OrdersController < ApplicationController
     end
     if @order.save
       @cart.clear()
-      flash[:notice] = "Your order was successfully created. Payment pending."
+      flash[:notice] = "Your order was successfully created. Instruccions have been sent to your email."
+      OrderMailer.send_new_order(current_user, @order).deliver_later
       redirect_to @order
     else
       @cart.clear()
