@@ -21,6 +21,6 @@ class Order < ApplicationRecord
   has_many :products, through: :ordered_products, source: :product
 
   def total_cost
-    ordered_products.map { |x| x.quantity * x.product.prize }.sum
+    ordered_products.map { |x| x.quantity * x.prize }.sum
   end
 end

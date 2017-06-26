@@ -11,7 +11,7 @@ json.order do
       json.id  ordered_product.product.id
       json.name ordered_product.product.name
       json.href api_v1_product_url(ordered_product.product)
-      json.prize ordered_product.product.prize
+      json.prize ordered_product.prize
       json.quantity ordered_product.quantity
     end
   end

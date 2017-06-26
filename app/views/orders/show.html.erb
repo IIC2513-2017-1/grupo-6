@@ -30,8 +30,8 @@
         <td width="2%"><%= link_to fa_icon("search"), o.product %></td>
         <td><%= o.product.name %></td>
         <td><%= o.quantity %></td>
-        <td>$<%= o.product.prize %></td>
-        <td>$<%= o.product.prize * o.quantity %></td>
+        <td>$<%= o.prize %></td>
+        <td>$<%= o.prize * o.quantity %></td>
       </tr>
     <% end %>
   </tbody>

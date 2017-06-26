@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  order_id   :integer
 #  product_id :integer
+#  prize      :integer
 #
 # Indexes
 #

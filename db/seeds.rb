@@ -206,7 +206,8 @@ Order.create!(user_id: 1,
   Product.all.sample(Random.rand(1..5)).each do |p|
     OrderedProduct.create!(order_id: o.id,
                        product_id: p.id,
-                       quantity: Random.rand(1..20))
+                       quantity: Random.rand(1..20),
+                       prize: p.real_prize)
   end
   o.created_at = (rand*33).days.ago
   o.save
