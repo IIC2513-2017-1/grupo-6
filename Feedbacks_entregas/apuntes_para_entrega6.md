@@ -8,5 +8,5 @@
 (check) - Que el edit de un producto sea mas amigable
 - ofrecer una api
 - consumir una api
-- al meterse a un producto, ver qué otros productos fueron comprados junto con este (revisar las ordenes, y poner los ~3 productos que fueron mas frecuentemente comprados en una misma orden con el producto)
+(check) - al meterse a un producto, ver qué otros productos fueron comprados junto con este (revisar las ordenes, y poner los ~3 productos que fueron mas frecuentemente comprados en una misma orden con el producto)
 (check) - Que al filtrar por precio, los productos en descuento desaparezcan
