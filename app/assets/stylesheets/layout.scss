@@ -83,7 +83,7 @@ main {
     // position: relative;
     float: right;
     text-align: center;
-    background: #e0f7fa;
+    background: #80CBC4;
     width: 99px;
     height: 100%;
 }
@@ -159,12 +159,16 @@ li.dropdown {
     background-color: #e8e8e8;
     min-width: 140px;
     box-shadow: 0px 8px 16px 0px black;
+    right: 1px;
+    width: 100px;
 }
 
 .dropdown-content a {
     color: black;
     display: block;
     text-align: left;
+    padding-left: 30px;
+    font-size: 15px;
 }
 
 .dropdown-content a:hover {
