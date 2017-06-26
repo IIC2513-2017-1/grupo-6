@@ -1,0 +1,79 @@
+// Place all the styles related to the Answers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.all-tweet {
+    right: 5px;
+}
+
+.profile-pic {
+    max-width: 100px;
+    max-height: 100px;
+    border: 0px;
+    height: 48px;
+    width: 48px;
+    margin-right: 5px;
+    border-radius: 100px;
+    background-color: #ffffff;
+}
+
+.tweet-feed {
+    position: absolute;
+    width: 302px;
+    overflow: auto;
+    max-height: 350px;
+    top: 450px;
+    border-radius: 0px 0px 5px 5px;
+    border: 1px solid #ccc;
+}
+
+.tweet-feed-title {
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    position: absolute;
+    width: 302px;
+    overflow: auto;
+    max-height: 200px;
+    top: 420px;
+    text-align: center;
+    color: white;
+    background: #00838F;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.image-tweet {
+    width: 60px;
+}
+
+.jump-line {
+    white-space: inherit;
+    padding-right: 2px;
+    word-break: break-word;
+    width: 224px;
+}
+
+.grey {
+    font-weight: normal;
+    color: #A4AFB3;
+    font-size: 13px;
+}
+
+.tweet-header {
+    font-weight: bold;
+}
+
+.tweet-content {
+    font-weight: normal;
+}
+
+.tweet {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.tweet-data {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}

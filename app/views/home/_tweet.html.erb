@@ -1,0 +1,12 @@
+
+<table class="tweet">
+    <tr>
+        <td class="image-tweet"><img class="profile-pic" src=<%= tweet[:profile_image_url] %>></td>
+        <td class="jump-line">
+            <span class="tweet-header"><%= tweet[:name] %></span>
+            <p class="tweet-data"> <span class="grey">@<%= tweet[:username] %> · <%= tweet[:date] %></span>
+            </p>
+            <span class="tweet-content"><%= tweet[:text] %></span>
+        </td>
+    </tr>
+</table>
