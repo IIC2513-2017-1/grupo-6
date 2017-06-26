@@ -2,6 +2,21 @@ class HomeController < ApplicationController
   def index
     products = Product.all.includes(:tags).includes(:categories).select{|x| x.tags.map{|tag| tag.id}.include?(1)}
     @products_category = products.group_by{|x| x.root_category}
+    response = HTTParty.get('https://api.twitter.com:443/1.1/search/tweets.json?f=tweets&q=%23virtual_store_iic2513&src=typd', 
+                             headers: {"Authorization" => "Bearer #{ENV['TWITTER_BEARER_KEY']}" })
+    body = JSON.parse(response.body)
+    @tweets = body['statuses'].map do |tweet|
+      { text: tweet['text'],
+        username: tweet['user']['screen_name'],
+        name: tweet['user']['name'],
+        date: lambda {
+          matches = datereg.match(tweet['created_at'])
+          d = DateTime.parse(tweet['created_at'])
+          d = d.new_offset('-04:00')
+          d.strftime('%A %d %B %Y %H:%M:%S')
+        }.call,
+        profile_image_url: tweet['user']['profile_image_url_https'] }
+    end
   end
 
   def dashboard
