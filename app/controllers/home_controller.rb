@@ -10,7 +10,6 @@ class HomeController < ApplicationController
         username: tweet['user']['screen_name'],
         name: tweet['user']['name'],
         date: lambda {
-          matches = datereg.match(tweet['created_at'])
           d = DateTime.parse(tweet['created_at'])
           d = d.new_offset('-04:00')
           d.strftime('%A %d %B %Y %H:%M:%S')
