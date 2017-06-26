@@ -23,13 +23,11 @@ class HomeController < ApplicationController
     return unless authenticated_admin?
     @answers = Answer.all
     @categories = Category.all
-    @comments = Comment.all
     @orders = Order.all.includes(ordered_products: [product: :categories]).order('id ASC')
     @questions = Question.all
     @reviews = Review.all
     @tags = Tag.all
     @users = User.all
-    @coupons = Coupon.all
     
     @last_orders = @orders.where('created_at > ?', 30.days.ago).to_a   
     @cats = @categories.map{ |category| [category.name, []] }.to_h

@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   resources :tags
-  resources :coupons
   resources :answers
   resources :questions
   resources :orders
   resources :reviews
-  resources :comments
   resources :categories
   resources :products do 
     resources :images, only: [:create, :destroy]
