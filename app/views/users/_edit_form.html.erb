@@ -41,12 +41,12 @@
         <td width="15%"><%= label_tag(:password, "Password :") %></td>
         <td width="75%"><%= f.input :password, label: false , input_html: { minlength: 6 }%></td>
       </tr>
+      <tr>
+        <td width="15%"><%= label_tag(:avatar, "Avatar :") %></td>
+        <td width="15%"><%= f.file_field :avatar %></td>
+      </tr>
     </tbody>
 </table>
-
-  <div class="file-input">
-  <%= f.file_field :avatar %>
-  </div>
 
   <div class="actions">
     <p><%= f.submit submit_message %></p>
