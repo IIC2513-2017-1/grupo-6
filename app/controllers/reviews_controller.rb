@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     return unless authenticated_admin?
-    @reviews = Review.all
+    @reviews = Review.includes(:product).all
   end
 
   # GET /reviews/1

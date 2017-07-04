@@ -20,7 +20,7 @@
         <td><%= answer.content %></td>
         <td><%= answer.question_id %></td>
         <td><%= answer.user_id %></td>
-        <td><%= link_to fa_icon("search"), answer %></td>
+        <td><%= link_to fa_icon("search"), answer.question.product %></td>
         <td><%= link_to fa_icon("edit"), edit_answer_path(answer) %></td>
         <td><%= link_to fa_icon("trash-o"), answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

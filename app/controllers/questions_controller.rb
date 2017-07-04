@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     return unless authenticated_admin?
-    @questions = Question.all
+    @questions = Question.includes(:product).all
   end
 
   # GET /questions/1
