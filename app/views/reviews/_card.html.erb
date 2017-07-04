@@ -1,6 +1,11 @@
 <blockquote>
-    <header>
-    <div class="star-ratings-sprite">
+    <% if !review.user.avatar.file.nil? %>
+        <%= image_tag review.user.avatar.url, class: "review-avatar"%>
+    <% else %>
+        <%= fa_icon("user-circle-o", class: "fa-3x review-avatar-generic") %>
+    <% end %>
+    <header style="margin-left: 50px">
+    <div class="star-ratings-sprite ">
         <span style="width:<%= review.score*20 %>%" class="star-ratings-sprite-rating"></span>
     </div>
     <span class="author">By <em><%= review.user.username %></em></span>

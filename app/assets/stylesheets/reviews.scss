@@ -41,3 +41,21 @@
     margin: 10px 0 0 0;
     color: black;
 }
+
+.review-avatar {
+    max-width: 40px;
+    max-height: 40px;
+    position: absolute;
+    margin-top: 0px;
+    border: 2px solid #021a40;
+    border-radius: 40px;
+    background-color: #ffffff;
+}
+
+.review-avatar-generic{
+    max-width: 40px;
+    max-height: 40px;
+    position: absolute;
+    margin-top: 0px;
+    background-color: #ffffff;
+}
