@@ -1,5 +1,6 @@
 - revisar home page
     - carrusel
+        - hacer notar virtual store fashion
     - featured products
     - twitter
         - hacer un tweet
@@ -31,3 +32,8 @@
     - ver la pregunta recien creada, responder
 
 - ir al home y revisar el tweet hecho al principio
+
+- con el tiempo sobrante:
+    - admin se mete al catalogo de productos
+    - entra a editar uno ahi mismo (no el primero)
+    - lo pone en descuento y se fija que aparece primero 
